@@ -1,0 +1,172 @@
+@import 'z-index';
+
+// showroom
+#appature {
+    z-index: $layer1;
+    @include fullscreen-fixed;
+    @include flex-center;
+    svg{
+        width: 100vw;
+        margin: auto;
+        @include mQ ($lg){
+            width: 40vw;
+        }
+    }
+}
+#white-hole{
+    z-index: $layer3;
+    @include fullscreen-fixed;
+    @include flex-center;
+}
+.zoomOut{
+    animation: zoomOut 1.5s forwards ease-in-out;
+}
+.straight-zoom{
+    animation: straightZoom 1s forwards ease-in-out;
+}
+
+#enter-btn{
+    z-index: $front;
+    @include fullscreen-fixed;
+    @include flex-center;
+    opacity: 1;
+    transition: opacity 1.5s;
+}
+
+#background{
+    z-index: $back;
+    @include fullscreen-fixed;
+    @include flex-center;
+    overflow: hidden;
+    z-index: -1;
+    background: black;
+    padding: 0;
+    svg{
+        height: 120vh;
+        position: absolute;
+        top: -10vh;
+        min-width: 110vw;
+    }
+}
+
+button.btn-enter {
+    background: white;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid black;
+}
+
+@keyframes zoomOut {
+    from {
+        -webkit-transform: rotate(0deg) translateZ(0) scale(1.0, 1.0);
+        -ms-transform: rotate(0deg) scale (0);
+        -webkit-backface-visibility: hidden;
+        transform: rotate(0deg) scale (0);
+        opacity: 1;
+    }
+    to{
+        -webkit-transform: rotate(200deg) translateZ(0) scale(20.0, 15.0);
+        -webkit-backface-visibility: hidden;
+        -ms-transform: rotate(200deg) scale (15);
+        transform:  rotate(200deg) scale (15);
+        opacity: 0;
+    }
+}
+
+@keyframes straightZoom{
+    from{
+        -webkit-transform: scale(0);
+        transform: scale (0);
+    }
+    to{
+        -webkit-transform: scale(15);
+        transform: scale (15);
+    }
+}
+
+.viewport{
+    z-index: $front;
+}
+
+.element{
+    height: 100vh;
+    position: absolute;
+    display: block;
+    margin: auto;
+    @include flex-center;
+}
+
+.theme{
+    width: 120vw;
+    left: -10vw;
+    color: white;
+    transform-style: preserve-3d;
+    @include mQ ($md){
+        width: 100vw;
+        left: 0;
+    }
+    h1{
+        font-size: 3em;
+        font-weight: 900;
+        @include mQ ($md){
+            font-size: 4em;
+        }
+    }
+    h2{
+        font-weight: 300;
+        text-transform: uppercase;
+    }
+
+}
+.artist{
+    width: 120vw;
+    left: -10vw;
+    color: white;
+    padding: 50px;
+    @include mQ ($xl, landscape){
+        width: 60vw;
+        padding: 150px;
+
+        &:nth-child(2n) {
+            left: 0;
+        }
+
+        &:nth-child(2n + 1) {
+            left: 40vw;
+        }
+    }
+
+    h1{
+        font-weight: 400;
+        text-transform: uppercase;
+        font-size: 3em;
+        margin-bottom: 50px;
+    }
+    h2{
+        font-weight: 400;
+        text-transform: uppercase;
+        font-size: 1.5em;
+    }
+    
+}
+
+#playing1{
+    background: rgba(94, 53, 177, 0.8)
+}
+#playing2{
+    background: rgba(25, 118, 210 , 0.8);
+}
+#displacement{
+    background: rgba(0, 137, 123 , 0.8);
+}
+
+.playing1{
+    background: rgba(171, 71, 188, 0.8);
+}
+.playing2{
+    background: rgba(77, 208, 225, 0.8);
+}
+.displacement{
+    background: rgba(38, 166, 154, 0.8);
+}

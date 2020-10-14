@@ -44,46 +44,117 @@
     </button>
 </div>
 
-<!-- page content -->
-<div class="row viewport d-none">
-    <!-- the additional sections -->
-    <?php
-
-            // Check rows exists.
-            if( have_rows('theme') ):
-
-                $data = get_field('theme');
-                $data = array_reverse($data,true);
-
-                foreach($data as $row): ?>
-                    <div class="container-fluid">
-                       <h1><?php echo $row['theme_name'] ?></h1> 
-                    </div>
-                <?php endforeach;
-
-                
-        endif;
-    ?>
-
+<!-- grid background -->
+<div class="row" id="background">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1921.48 1080"><defs><style>.cls-1{fill:#000;}.cls-2{fill:none;stroke:#fff;stroke-miterlimit:10;opacity:0.51;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><rect class="cls-1" x="1.24" y="0.5" width="1919" height="1079"/><path d="M1919.74,1V1079H1.74V1h1918m1-1H.74V1080h1920V0Z"/><line class="cls-2" x1="931.24" y1="568.5" x2="0.24" y2="1079.5"/><rect class="cls-2" x="931.74" y="511" width="58" height="58"/><line class="cls-2" x1="989.24" y1="510.5" x2="1921.24" y2="0.5"/><line class="cls-2" x1="990.24" y1="569.5" x2="1920.24" y2="1079.5"/><line class="cls-2" x1="931.24" y1="511.5" x2="0.24" y2="0.5"/><line class="cls-2" x1="989.74" y1="540" x2="1920.74" y2="540"/><line class="cls-2" x1="960.74" y1="511" x2="960.74"/><line class="cls-2" x1="931.74" y1="540" x2="0.18" y2="540"/><line class="cls-2" x1="960.74" y1="568.71" x2="960.74" y2="1080"/></g></g></svg>
 </div>
 
-<div class="row" id="background">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1921.48 1080"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:none;stroke:#000;stroke-miterlimit:10;opacity:0.51;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><rect class="cls-1" x="1.24" y="0.5" width="1919" height="1079"/><path d="M1919.74,1V1079H1.74V1h1918m1-1H.74V1080h1920V0Z"/><line class="cls-2" x1="931.24" y1="568.5" x2="0.24" y2="1079.5"/><rect class="cls-2" x="931.74" y="511" width="58" height="58"/><line class="cls-2" x1="989.24" y1="510.5" x2="1921.24" y2="0.5"/><line class="cls-2" x1="990.24" y1="569.5" x2="1920.24" y2="1079.5"/><line class="cls-2" x1="931.24" y1="511.5" x2="0.24" y2="0.5"/><line class="cls-2" x1="989.74" y1="540" x2="1920.74" y2="540"/><line class="cls-2" x1="960.74" y1="511" x2="960.74"/><line class="cls-2" x1="931.74" y1="540" x2="0.18" y2="540"/><line class="cls-2" x1="960.74" y1="568.71" x2="960.74" y2="1080"/></g></g></svg>
+<div class="viewport d-none">
+  <div class="scene3D-container">
+    <div class="scene3D">
+        <?php
+
+        // Check rows exists.
+        if( have_rows('theme') ):
+
+            $data = get_field('theme');
+            $data = array_reverse($data,true);
+
+            foreach($data as $row): ?>
+                <?php if($row['now_showing'] === 'now') :?>
+                    <div class="theme element" id="<?php echo $row['theme_id'] ?>">
+                        <div>
+                            <h1>NOW SHOWING</h1>
+                            <h2>THEME: <?php echo $row['theme_name'] ?></h2> 
+                        </div>
+                    </div>
+
+                    <?php 
+                        $artists = $row['artist'];
+                        foreach($artists as $artist) :
+                    ?>
+                        <div class="element artist <?php echo $row['theme_id'] ?>">
+                            <div class="row">
+                                <div class="d-none d-md-block col-md-6">
+                                <?php 
+                                    $image = $artist['artwork_poster'];
+                                    if( !empty( $image ) ): ?>
+                                        <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+                                    <?php endif; ?>
+                                </div>
+                                <div class="col-md-6 text-left">
+                                    <h1><?php echo $artist['artist_name'] ?></h1>
+                                    <h2><?php echo $artist['title_of_work'] ?></h2>
+                                    <p><?php echo $artist['teaser'] ?></p>
+                                    <a href="<?php echo get_permalink( $artist['artist_link']->ID ) ?>" class="btn btn-dark">VIEW</a>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+
+                <?php endif; ?>
+            <?php endforeach; ?>
+
+            <?php foreach($data as $row): ?>
+                <?php if($row['now_showing'] === 'archived') :?>
+
+
+                    <div class="theme element" id="<?php echo $row['theme_id'] ?>">
+                        <div>
+                            <h1>PREVIOUSLY</h1>
+                            <h2>THEME: <?php echo $row['theme_name'] ?></h2> 
+                        </div>
+                    </div>
+
+                    <?php 
+                        $artists = $row['artist'];
+                        foreach($artists as $artist) :
+                    ?>
+                        <div class="element artist <?php echo $row['theme_id'] ?>">
+                            <div class="row">
+                                <div class="d-none d-md-block col-md-6">
+                                <?php 
+                                    $image = $artist['artwork_poster'];
+                                    if( !empty( $image ) ): ?>
+                                        <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+                                    <?php endif; ?>
+                                </div>
+                                <div class="col-md-6 text-left">
+                                    <h1><?php echo $artist['artist_name'] ?></h1>
+                                    <h2><?php echo $artist['title_of_work'] ?></h2>
+                                    <p><?php echo $artist['teaser'] ?></p>
+                                    <a href="<?php echo get_permalink( $artist['artist_link']->ID ) ?>" class="btn btn-dark">VIEW</a>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+
+                <?php endif; ?>
+            <?php endforeach; ?>
+
+            
+        <?php endif;?>
+    </div>
+  </div>
 </div>
 
 <script>
+    const appatureRow = document.querySelector('#appature');
     const appature = document.querySelector('#appature-svg');
     const enterBtn = document.querySelector('.btn-enter');
     const enterDiv = document.querySelector('#enter-btn');
     const whiteHole = document.querySelector('#white-hole');
+    const viewport = document.querySelector('.viewport');
 
 
     enterBtn.addEventListener('click', () => {
         appature.classList.add('zoomOut');
         whiteHole.classList.add('straight-zoom');
         enterDiv.style.opacity = 0;
+        viewport.classList.remove('d-none');
 
         setTimeout(() => {
+            appatureRow.classList.add('d-none');
             appature.classList.add('d-none');
             whiteHole.classList.add('d-none');
             enterDiv.classList.add('d-none');
@@ -91,6 +162,7 @@
     })
 </script>
 
+<script src="<?php bloginfo ('stylesheet_directory'); ?>/js/z-index.js"></script>
 <?php 
     get_footer();
 ?>

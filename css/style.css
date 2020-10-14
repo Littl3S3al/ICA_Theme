@@ -1,0 +1,487 @@
+.coming-soon-video {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  overflow: hidden;
+}
+.coming-soon-video video {
+  min-width: 100vw;
+  min-height: 100vh;
+}
+@media only screen and (min-width: 0) and (orientation: portrait) {
+  .coming-soon-video video {
+    max-height: 100%;
+  }
+}
+@media only screen and (min-width: 576px) and (orientation: landscape) {
+  .coming-soon-video video {
+    max-width: 140%;
+    max-height: auto;
+  }
+}
+.coming-soon-video .layer-dark {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.coming-soon-container {
+  margin-top: 5vh;
+  color: white;
+}
+@media only screen and (min-width: 992px) {
+  .coming-soon-container {
+    margin-top: 20vh;
+  }
+}
+.coming-soon-container h1 {
+  font-size: 3em;
+  font-weight: 900;
+}
+@media only screen and (min-width: 992px) {
+  .coming-soon-container h1 {
+    font-size: 4em;
+  }
+}
+.coming-soon-container h2 {
+  font-size: 1.5em;
+  font-weight: 300;
+}
+.coming-soon-container hr {
+  border-top: 2px solid white;
+}
+.coming-soon-container img {
+  width: 125px;
+  height: auto;
+  margin-bottom: 20px;
+}
+@media only screen and (min-width: 768px) and (orientation: landscape) {
+  .coming-soon-container img {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+  }
+}
+.coming-soon-container table {
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+}
+.coming-soon-container .heateorSssSharing {
+  background: gray;
+}
+
+.hurrytimer-timer {
+  width: 100%;
+  margin: 50px 0;
+  text-align: center;
+}
+
+.hurrytimer-timer-block {
+  display: inline-block;
+  padding-right: 15px;
+}
+
+.hurrytimer-timer-digit {
+  font-weight: 700;
+  font-size: 2em;
+}
+@media only screen and (min-width: 0) and (orientation: landscape) {
+  .hurrytimer-timer-digit {
+    display: inline-block;
+  }
+}
+
+.hurrytimer-timer-label {
+  font-weight: 300;
+  font-style: italic;
+}
+@media only screen and (min-width: 0) and (orientation: landscape) {
+  .hurrytimer-timer-label {
+    display: inline-block;
+  }
+}
+
+#programme-modal {
+  color: black;
+}
+#programme-modal th {
+  color: #c01e2d;
+  font-weight: 900;
+}
+
+:root {
+  --scenePerspective: 1.5;
+  --scenePerspectiveOriginX: 50;
+  --scenePerspectiveOriginY: 30;
+  --itemZ: 2.5;
+  --cameraSpeed: 150;
+  --cameraZ: 0;
+  --viewportHeight: 0;
+}
+
+.viewport {
+  height: calc(var(--viewportHeight) * 1px);
+}
+.viewport .scene3D-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  perspective: calc(var(--scenePerspective) * var(--cameraSpeed) * 1px);
+  perspective-origin: calc(var(--scenePerspectiveOriginX) * 1%) calc(var(--scenePerspectiveOriginY) * 1%);
+  will-change: perspective-origin;
+  transform: translate3d(0, 0, 0);
+}
+.viewport .scene3D-container .scene3D {
+  position: absolute;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  transform-style: preserve-3d;
+  transform: translateZ(calc(var(--cameraZ) * 1px));
+  will-change: transform;
+}
+.viewport .scene3D-container .scene3D > div:nth-child(0) {
+  transform: translate3D(0, 0, calc(var(--itemZ) * var(--cameraSpeed) * 0 * -1px));
+}
+.viewport .scene3D-container .scene3D > div:nth-child(1) {
+  transform: translate3D(0, 0, calc(var(--itemZ) * var(--cameraSpeed) * 1 * -1px));
+}
+.viewport .scene3D-container .scene3D > div:nth-child(2) {
+  transform: translate3D(0, 0, calc(var(--itemZ) * var(--cameraSpeed) * 2 * -1px));
+}
+.viewport .scene3D-container .scene3D > div:nth-child(3) {
+  transform: translate3D(0, 0, calc(var(--itemZ) * var(--cameraSpeed) * 3 * -1px));
+}
+.viewport .scene3D-container .scene3D > div:nth-child(4) {
+  transform: translate3D(0, 0, calc(var(--itemZ) * var(--cameraSpeed) * 4 * -1px));
+}
+.viewport .scene3D-container .scene3D > div:nth-child(5) {
+  transform: translate3D(0, 0, calc(var(--itemZ) * var(--cameraSpeed) * 5 * -1px));
+}
+.viewport .scene3D-container .scene3D > div:nth-child(6) {
+  transform: translate3D(0, 0, calc(var(--itemZ) * var(--cameraSpeed) * 6 * -1px));
+}
+.viewport .scene3D-container .scene3D > div:nth-child(7) {
+  transform: translate3D(0, 0, calc(var(--itemZ) * var(--cameraSpeed) * 7 * -1px));
+}
+.viewport .scene3D-container .scene3D > div:nth-child(8) {
+  transform: translate3D(0, 0, calc(var(--itemZ) * var(--cameraSpeed) * 8 * -1px));
+}
+.viewport .scene3D-container .scene3D > div:nth-child(9) {
+  transform: translate3D(0, 0, calc(var(--itemZ) * var(--cameraSpeed) * 9 * -1px));
+}
+.viewport .scene3D-container .scene3D > div:nth-child(10) {
+  transform: translate3D(0, 0, calc(var(--itemZ) * var(--cameraSpeed) * 10 * -1px));
+}
+.viewport .scene3D-container .scene3D > div:nth-child(11) {
+  transform: translate3D(0, 0, calc(var(--itemZ) * var(--cameraSpeed) * 11 * -1px));
+}
+.viewport .scene3D-container .scene3D > div:nth-child(12) {
+  transform: translate3D(0, 0, calc(var(--itemZ) * var(--cameraSpeed) * 12 * -1px));
+}
+.viewport .scene3D-container .scene3D > div:nth-child(13) {
+  transform: translate3D(0, 0, calc(var(--itemZ) * var(--cameraSpeed) * 13 * -1px));
+}
+.viewport .scene3D-container .scene3D > div:nth-child(14) {
+  transform: translate3D(0, 0, calc(var(--itemZ) * var(--cameraSpeed) * 14 * -1px));
+}
+.viewport .scene3D-container .scene3D > div:nth-child(15) {
+  transform: translate3D(0, 0, calc(var(--itemZ) * var(--cameraSpeed) * 15 * -1px));
+}
+.viewport .scene3D-container .scene3D > div:nth-child(16) {
+  transform: translate3D(0, 0, calc(var(--itemZ) * var(--cameraSpeed) * 16 * -1px));
+}
+.viewport .scene3D-container .scene3D > div:nth-child(17) {
+  transform: translate3D(0, 0, calc(var(--itemZ) * var(--cameraSpeed) * 17 * -1px));
+}
+.viewport .scene3D-container .scene3D > div:nth-child(18) {
+  transform: translate3D(0, 0, calc(var(--itemZ) * var(--cameraSpeed) * 18 * -1px));
+}
+.viewport .scene3D-container .scene3D > div:nth-child(19) {
+  transform: translate3D(0, 0, calc(var(--itemZ) * var(--cameraSpeed) * 19 * -1px));
+}
+.viewport .scene3D-container .scene3D > div:nth-child(20) {
+  transform: translate3D(0, 0, calc(var(--itemZ) * var(--cameraSpeed) * 20 * -1px));
+}
+.viewport .scene3D-container .scene3D > div:nth-child(21) {
+  transform: translate3D(0, 0, calc(var(--itemZ) * var(--cameraSpeed) * 21 * -1px));
+}
+.viewport .scene3D-container .scene3D > div:nth-child(22) {
+  transform: translate3D(0, 0, calc(var(--itemZ) * var(--cameraSpeed) * 22 * -1px));
+}
+.viewport .scene3D-container .scene3D > div:nth-child(23) {
+  transform: translate3D(0, 0, calc(var(--itemZ) * var(--cameraSpeed) * 23 * -1px));
+}
+.viewport .scene3D-container .scene3D > div:nth-child(24) {
+  transform: translate3D(0, 0, calc(var(--itemZ) * var(--cameraSpeed) * 24 * -1px));
+}
+.viewport .scene3D-container .scene3D > div:nth-child(25) {
+  transform: translate3D(0, 0, calc(var(--itemZ) * var(--cameraSpeed) * 25 * -1px));
+}
+
+#appature {
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+#appature svg {
+  width: 100vw;
+  margin: auto;
+}
+@media only screen and (min-width: 992px) {
+  #appature svg {
+    width: 40vw;
+  }
+}
+
+#white-hole {
+  z-index: 150;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.zoomOut {
+  animation: zoomOut 1.5s forwards ease-in-out;
+}
+
+.straight-zoom {
+  animation: straightZoom 1s forwards ease-in-out;
+}
+
+#enter-btn {
+  z-index: 2000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  opacity: 1;
+  transition: opacity 1.5s;
+}
+
+#background {
+  z-index: -100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  z-index: -1;
+  background: black;
+  padding: 0;
+}
+#background svg {
+  height: 120vh;
+  position: absolute;
+  top: -10vh;
+  min-width: 110vw;
+}
+
+button.btn-enter {
+  background: white;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 2px solid black;
+}
+
+@keyframes zoomOut {
+  from {
+    -webkit-transform: rotate(0deg) translateZ(0) scale(1, 1);
+    -ms-transform: rotate(0deg) scale 0;
+    -webkit-backface-visibility: hidden;
+    transform: rotate(0deg) scale 0;
+    opacity: 1;
+  }
+  to {
+    -webkit-transform: rotate(200deg) translateZ(0) scale(20, 15);
+    -webkit-backface-visibility: hidden;
+    -ms-transform: rotate(200deg) scale 15;
+    transform: rotate(200deg) scale 15;
+    opacity: 0;
+  }
+}
+@keyframes straightZoom {
+  from {
+    -webkit-transform: scale(0);
+    transform: scale 0;
+  }
+  to {
+    -webkit-transform: scale(15);
+    transform: scale 15;
+  }
+}
+.viewport {
+  z-index: 2000;
+}
+
+.element {
+  height: 100vh;
+  position: absolute;
+  display: block;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.theme {
+  width: 120vw;
+  left: -10vw;
+  color: white;
+  transform-style: preserve-3d;
+}
+@media only screen and (min-width: 768px) {
+  .theme {
+    width: 100vw;
+    left: 0;
+  }
+}
+.theme h1 {
+  font-size: 3em;
+  font-weight: 900;
+}
+@media only screen and (min-width: 768px) {
+  .theme h1 {
+    font-size: 4em;
+  }
+}
+.theme h2 {
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+.artist {
+  width: 120vw;
+  left: -10vw;
+  color: white;
+  padding: 50px;
+}
+@media only screen and (min-width: 1200px) and (orientation: landscape) {
+  .artist {
+    width: 60vw;
+    padding: 150px;
+  }
+  .artist:nth-child(2n) {
+    left: 0;
+  }
+  .artist:nth-child(2n+1) {
+    left: 40vw;
+  }
+}
+.artist h1 {
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 3em;
+  margin-bottom: 50px;
+}
+.artist h2 {
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 1.5em;
+}
+
+#playing1 {
+  background: rgba(94, 53, 177, 0.8);
+}
+
+#playing2 {
+  background: rgba(25, 118, 210, 0.8);
+}
+
+#displacement {
+  background: rgba(0, 137, 123, 0.8);
+}
+
+.playing1 {
+  background: rgba(171, 71, 188, 0.8);
+}
+
+.playing2 {
+  background: rgba(77, 208, 225, 0.8);
+}
+
+.displacement {
+  background: rgba(38, 166, 154, 0.8);
+}
+
+html {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  padding: 0;
+}
+
+.container-fluid {
+  width: 100vw;
+  padding: 0;
+}
+
+a.custom-logo-link img {
+  width: 100% !important;
+  height: auto;
+}
+
+#site-logo {
+  z-index: 200;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+}
+
+.sfm-navicon-button.sf_label_default {
+  border-radius: 20px;
+}
+
+.sfm-nav li a {
+  font-weight: 300 !important;
+}
+
+.sfm-nav .sfm-active-class a {
+  color: #c01e2d !important;
+  font-weight: 900 !important;
+}
+
+/*# sourceMappingURL=style.css.map */

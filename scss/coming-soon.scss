@@ -1,0 +1,96 @@
+// coming soon
+.coming-soon-video{
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    overflow: hidden;
+    video{
+        min-width: 100vw;
+        min-height: 100vh;
+        @include mQ (0, portrait){
+            max-height: 100%;
+        }
+        @include mQ ($sm, landscape){
+            max-width: 140%;
+            max-height: auto;
+        }
+    }
+    .layer-dark{
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        background: rgba(0, 0, 0, 0.5);
+    }
+}
+.coming-soon-container{
+    margin-top: 5vh;
+    color: white;
+    @include mQ ($lg){
+        margin-top: 20vh;
+    }
+    h1{
+        font-size: 3em;
+        font-weight: 900;
+        @include mQ ($lg){
+            font-size: 4em;
+        }
+    }
+    h2{
+        font-size: 1.5em;
+        font-weight: 300;
+    }
+    hr{
+        border-top: 2px solid white;
+    }
+    img{
+        width: 125px;
+        height: auto;
+        margin-bottom: 20px;
+        @include mQ ($md, landscape){
+            position: fixed;
+            top: 20px;
+            left: 20px;
+        }
+    }
+    table{
+        color: white;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 5px;
+        
+    }
+    .heateorSssSharing{
+        background: gray;
+    }
+}
+.hurrytimer-timer{
+    width: 100%;
+    margin: 50px 0;
+    text-align: center;
+}
+.hurrytimer-timer-block{
+    display: inline-block;
+    padding-right: 15px;
+}
+.hurrytimer-timer-digit{
+    @include mQ (0, landscape){
+        display: inline-block;
+    }
+    font-weight: 700;
+    font-size: 2em;
+}
+.hurrytimer-timer-label{
+    @include mQ (0, landscape){
+        display: inline-block;
+    }
+    font-weight: 300;
+    font-style: italic;
+}
+#programme-modal{
+    color: black;
+    th{
+        color: $orange;
+        font-weight: 900;
+    }
+}
