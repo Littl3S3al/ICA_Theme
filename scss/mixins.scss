@@ -29,3 +29,14 @@
     width: 100vw;
     height: 100vh;
 }
+
+@mixin color ($arg){
+    h3{
+        color: $arg;
+    }
+    .btn-dark{
+        background: $arg;
+        border: $arg;
+    }
+
+}

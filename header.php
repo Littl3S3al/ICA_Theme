@@ -22,9 +22,25 @@
 	<?php wp_head(); ?>
 
 	<link href="<?php bloginfo ('stylesheet_directory'); ?>/css/style.css" rel="stylesheet">
+	<link href="<?php bloginfo ('stylesheet_directory'); ?>/css/hover-min.css" rel="stylesheet">
+
+	<!-- animate on scroll -->
+	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+	
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-P5225JJ');</script>
+	<!-- End Google Tag Manager -->
 </head>
 
 <body <?php body_class(); ?>>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P5225JJ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 <?php wp_body_open(); ?>
 <div id="page" class="site">
 	<a class="sr-only skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'ica-online' ); ?></a>

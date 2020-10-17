@@ -151,22 +151,16 @@ button.btn-enter {
     
 }
 
-#playing1{
-    background: rgba(94, 53, 177, 0.8)
-}
-#playing2{
-    background: rgba(25, 118, 210 , 0.8);
-}
-#displacement{
-    background: rgba(0, 137, 123 , 0.8);
-}
 
 .playing1{
-    background: rgba(171, 71, 188, 0.8);
+    background: rgb(251,140,0);
+    background: linear-gradient(0deg, rgba(251,140,0,0.8) 0%, rgba(183,28,28,0.8) 100%);
 }
 .playing2{
-    background: rgba(77, 208, 225, 0.8);
+    background: rgb(67,160,71);
+    background: linear-gradient(0deg, rgba(67,160,71,0.8) 0%, rgba(38,198,208,0.8) 100%);
 }
 .displacement{
-    background: rgba(38, 166, 154, 0.8);
+    background: rgb(216,27,96);
+    background: linear-gradient(0deg, rgba(216,27,96,0.8) 0%, rgba(156,39,176,0.8) 100%);
 }

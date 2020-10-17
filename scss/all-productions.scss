@@ -1,0 +1,55 @@
+#all-productions{
+    display: grid;
+    grid-template-columns: auto;
+    grid-gap: 20px;
+    grid-auto-rows: auto;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: 0;
+    &::-webkit-scrollbar{
+        display: none;
+    }
+    @include mQ ($md){
+        grid-template-columns: 25% 25% 25% 25%;
+    }
+    padding-bottom: 50px;
+}
+
+.production-card{
+   padding: 1.5px;
+   border: none;
+   box-shadow: 2px 2px 5px #888888!important;
+   @include flex-center;
+   .card-body{
+       background: white;
+       width: 100%;
+       text-align: left;
+       h3{
+           text-transform: uppercase;
+           font-weight: 400;
+           font-size: 2em;
+       }
+       h4{
+           text-transform: uppercase;
+           font-weight: 300;
+           font-size: 1em;
+       }
+   }
+   .btn-light{
+       background: lightgray;
+   }
+}
+
+.production-card.playing1{
+    @include color (rgb(251,140,0));
+}
+.production-card.playing2{
+    @include color (rgb(67,160,71));
+}
+.production-card.displacement{
+    @include color (rgb(216,27,96));
+    
+}
+
+h1.small.bold{
+    font-weight: 900;
+}
