@@ -170,6 +170,19 @@ const main  = () => {
         logo.position.set(0, 15 ,0);
         logo.lookAt(0, 15, 0 );
     }
+
+    var cloudLogo;
+    {
+        var kartographiTexture = textureLoader.load(`${assets}/logo.png`);
+        var logoMaterial = new THREE.MeshPhongMaterial({map: kartographiTexture });
+        logoMaterial.transparent = true;
+        logoMaterial.alphaTest = 0.1;
+        logoMaterial.opacity = 0.5
+        var logoGeomery = new THREE.PlaneBufferGeometry( 15 *2 , 10 *2 );
+        cloudLogo = new THREE.Mesh( logoGeomery, logoMaterial );
+        cloudLogo.position.set( -100, 40 ,0);
+        cloudLogo.lookAt(0, 35, 0 );
+    }
     
 
     var possibleObjects = [];
@@ -178,6 +191,7 @@ const main  = () => {
         loadingElem.style.display = 'none';
         scene.add(mapMesh); 
         scene.add(logo);
+        scene.add(cloudLogo);
 
         for(var i = 0; i < photos.length; i ++){
             const beaconi = beacons[i * 5]
@@ -247,9 +261,11 @@ const main  = () => {
     }
     
 
-    let up = true;
 
-    const render = () => {
+
+    const render = (time) => {
+        time *= 0.0005;
+
         currentObject = undefined;
         let itemSelected = false;
         window.addEventListener('resize', onWindowResize, false);
@@ -264,19 +280,10 @@ const main  = () => {
             logo.material.opacity -= 0.01;
         }
 
-        let pinY = photos[5].position.y;
-        
-        if(pinY > 12){
-            up = false
-        } 
-        if (pinY < 10){
-            up = true;
-        }
-        if(up){
-            photos[5].position.y += 0.05;
-        } else {
-            photos[5].position.y -= 0.05;
-        }
+        photos[5].position.y = 10 + 2 * Math.sin(time*3);
+
+        cloudLogo.position.y = 30 + 10 * Math.sin(time)/2;
+        cloudLogo.position.x = -100 + 10 * Math.cos(time * 1.1);
 
         pickHelper.pick(pickPosition, scene, camera);
         
@@ -399,7 +406,7 @@ const checkForClick = () => {
     if(!orbiting && !viewing && currentObject){
         openWindow();
         if(currentObject === 6){
-            content.innerHTML = `<h1>${currentObject}</h1>`;
+            populateMap();
         } else if(currentObject === 1 || currentObject === 3 || currentObject === 5 || currentObject === 8 || currentObject === 9) {
             content.innerHTML = `
                 <img src="${assets}popups/${currentObject}.GIF">
@@ -432,4 +439,14 @@ function openWindow(){
     popupWindow.style.opacity = 1;
     popupWindow.style.zIndex = 100;
     viewing = true;
+}
+
+function populateMap(){
+    content.innerHTML = `
+    <div class="map-info">
+        <h1>Engage with the interactive map</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe laboriosam, molestiae odit explicabo consequatur est eius vero blanditiis quae qui soluta exercitationem error a repudiandae reiciendis quod eos. Odit, rerum.</p>
+        <a href="https://www.google.com/maps/d/u/0/edit?mid=185hgHvJrVUHgfIali6XiCCPpILO3pvKf&ll=-33.92912587918429%2C18.451622350000026&z=17" target="_blank" class="btn btn-danger">Explore the map</a>
+    </div>    
+    `;
 }

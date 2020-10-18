@@ -124,4 +124,14 @@ body {
   transition: opacity 1s ease;
 }
 
+.map-info {
+  width: 80vw;
+  text-align: center;
+}
+@media only screen and (min-width: 992px) {
+  .map-info {
+    width: 50vw;
+  }
+}
+
 /*# sourceMappingURL=style.css.map */
