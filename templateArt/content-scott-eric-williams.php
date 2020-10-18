@@ -22,11 +22,7 @@
                 </button>
             </div>
             <div class="content">
-                <div class="map-info">
-                    <h1>Engage with the interactive map</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe laboriosam, molestiae odit explicabo consequatur est eius vero blanditiis quae qui soluta exercitationem error a repudiandae reiciendis quod eos. Odit, rerum.</p>
-                    <a href="https://www.google.com/maps/d/u/0/edit?mid=185hgHvJrVUHgfIali6XiCCPpILO3pvKf&ll=-33.92912587918429%2C18.451622350000026&z=17" target="_blank" class="btn btn-danger"></a>
-                </div>
+                
             </div>
             
         </div>

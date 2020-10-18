@@ -115,7 +115,7 @@ const main  = () => {
     var invismaterial = new THREE.MeshBasicMaterial( {color: 0x000000, transparent: true, opacity: 0})
 
     for ( var i = 0; i < 100; i ++ ) {
-        var material = new THREE.MeshPhongMaterial( { color: 0xcccccc } );
+        var material = new THREE.MeshPhongMaterial( { color: 0xFDFEFE } );
         var height = Math.random() * 5 + 5;
         var geometry = new THREE.CylinderBufferGeometry( 0, 4, height, 4, 1 );
 
