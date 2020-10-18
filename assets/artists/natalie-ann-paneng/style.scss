@@ -98,8 +98,6 @@ body{
 }
 
 #loading {
-    background: url('assets/95.png') bottom center no-repeat;
-    background-size: cover;
     position: fixed;
     top: 0;
     left: 0;
@@ -137,8 +135,6 @@ body{
     iframe{
         width: 100%;
         height: 80vh;
-        background: url('assets/background.jpeg') bottom center no-repeat;
-        background-size: cover;
     }
     audio{
         margin: 50px;

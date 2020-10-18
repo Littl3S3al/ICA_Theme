@@ -5,7 +5,7 @@
 
 
 <div id="three-js-container">
-        <div id="loading">
+        <div id="loading" style="background: url('<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/natalie-ann-paneng/assets/95.jpg') bottom left no-repeat; background-size: cover">
                 <div class="card">
                     <div class="card-body">
                         <div class="top-bar">
