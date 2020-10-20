@@ -8,7 +8,7 @@ get_header();
 
 
 <div id="three-js-container">
-    <div id="loading" style="background: url('<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/mmakhotso/background.jpg') center center no-repeat; background-size: cover;">
+    <div id="loading" style="background: url('<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/mmakhotso/background.jpg') center center no-repeat, skyblue; background-size: cover;">
         <div class="text-center">
             <h6>Loading . . .</h6>
             <div class="progress"><div class="progressbar"></div></div>

@@ -354,7 +354,7 @@ const main  = () => {
    worldMaps.forEach(map => {
     const world = cubeTextureLoader
     .setPath( map )
-    .load( [ 'px.png', 'nx.png', 'py.png', 'ny.png', 'pz.png', 'nz.png' ] );
+    .load( [ 'PX.png', 'NX.png', 'PY.png', 'NY.png', 'PZ.png', 'NZ.png' ] );
     loadedWorlds.push(world);
    })
 
