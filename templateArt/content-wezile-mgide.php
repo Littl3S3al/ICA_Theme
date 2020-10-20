@@ -7,6 +7,11 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel adipisci minima ipsum dolor, tempora id animi illo iure facere recusandae, ex unde maxime perspiciatis veniam temporibus iste nulla fugit aperiam!</p>
         </div>
         <div class="col-12 text-center py-5">
+            <h2>TITLE ONE</h2>
+            <iframe src="https://player.vimeo.com/video/37654623" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        </div>
+        <div class="col-12 text-center py-5">
+            <h2>TITLE 2</h2>
             <iframe src="https://player.vimeo.com/video/37654623" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
         </div>
         <div class="col-12 py-5">

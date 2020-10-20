@@ -10,17 +10,28 @@ body {
 }
 
 #overlay {
+  padding: 120px 20px;
   background: black;
   width: 100vw;
   height: 100vh;
   color: white;
   z-index: 1000;
+  overflow-y: scroll;
 }
 #overlay .row {
-  height: 100%;
+  min-height: 100%;
   display: flex;
   align-content: center;
   justify-content: center;
+}
+#overlay h1, #overlay h2 {
+  font-family: "Courier Prime", monospace;
+  color: #455178;
+}
+#overlay p {
+  font-family: "Courier Prime", monospace;
+  color: #455178;
+  font-size: 1.2em;
 }
 
 #three-js-container {
@@ -35,7 +46,7 @@ body {
 #three-js-container .buttons {
   z-index: 2;
   position: fixed;
-  bottom: 0;
+  bottom: 100px;
   right: 0;
   display: flex;
   justify-content: center;
@@ -43,6 +54,12 @@ body {
 }
 #three-js-container .buttons button {
   margin: 10px 5px;
+}
+@media only screen and (min-width: 768px) {
+  #three-js-container .buttons {
+    bottom: 0;
+    right: 0;
+  }
 }
 
 #loading {
@@ -56,6 +73,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 5;
 }
 
 #loading .progress {

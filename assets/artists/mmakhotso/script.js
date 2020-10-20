@@ -423,7 +423,7 @@ const main  = () => {
     for ( var i = 0; i < 4; i ++ ) {
         const reflectiveMaterial = new THREE.MeshBasicMaterial( { color: 'rgb(255,255,255)', envMap: reflectWorld} );
         let pos = [
-            {x: -110, z: 50}, {x: 0, z: -280}, {x: 160, z: -50}, {x: -50, z: 250}
+            {x: -280, z: 50}, {x: 60, z: -130}, {x: 280, z: -50}, {x: 0, z: 70}
         ]
         var mesh = new THREE.Mesh( geometry, reflectiveMaterial );
         mesh.position.x = pos[i].x;
@@ -462,7 +462,7 @@ const main  = () => {
         waterMaterial.envMap.mapping = THREE.CubeRefractionMapping;
 
         let pos = [
-            {x: -220, z: -30}, {x: -50, z: -150}, {x: 250, z: -20}, {x: 170, z: 50}, {x: 0, z: 180}
+            {x: -230, z: -70}, {x: -10, z: -110}, {x: 120, z: -20}, {x: 230, z: 70}, {x: -80, z: 260}
         ];
         var mesh = new THREE.Mesh( sphereGeometry, waterMaterial );
         mesh.position.x = pos[i].x;
@@ -507,7 +507,7 @@ const main  = () => {
     } );
 
         let pos = [
-            {x: -130, z: -40}, {x: 30, z: -170}, {x: 30, z: 280}
+            {x: -70, z: 0}, {x: 50, z: -280}, {x: 30, z: 300}
         ]
 
         var plane = new THREE.Mesh( planeGeometry, planeMaterial );
@@ -783,8 +783,8 @@ const main  = () => {
 beginBtn.addEventListener('click', () => {
     overlay.style.display = 'none';
     threeJsWindow.style.display = 'block';
+    whispering.volume = 0.2;
     whispering.play();
-    whispering.volume = 0.05;
     main();
 });
 
@@ -817,9 +817,9 @@ const playSound = (number) => {
 }
 
 const portfolios = [
-    'https://docs.google.com/presentation/d/e/2PACX-1vT32epgUpLD2RKQVbtn54p3izfAb-08I51MLZrQuO1zpAfvCaqv130OjWW2fnX22RZMSp7c_74bjR4S/embed?start=false&loop=false&delayms=3000',
-    'https://docs.google.com/presentation/d/e/2PACX-1vT32epgUpLD2RKQVbtn54p3izfAb-08I51MLZrQuO1zpAfvCaqv130OjWW2fnX22RZMSp7c_74bjR4S/embed?start=false&loop=false&delayms=3000',
-    'https://docs.google.com/presentation/d/e/2PACX-1vT32epgUpLD2RKQVbtn54p3izfAb-08I51MLZrQuO1zpAfvCaqv130OjWW2fnX22RZMSp7c_74bjR4S/embed?start=false&loop=false&delayms=3000'
+    'https://docs.google.com/presentation/d/e/2PACX-1vS_Pdekx9TM2iAz3g9E8RHXc8rNx2d8pxJKmyK0mj-1d4_vF3geuj7hGUzvDiEYmvO1_hSSU8tokIhm/embed?start=false&loop=false&delayms=3000',
+    'https://docs.google.com/presentation/d/e/2PACX-1vRTePrNczy7Yz593RZ0xRbjw8pvb8aIB20eOwhPAfVEr6AGR4uUCLfpuUHbbPJZkGMlzOnEI2CtN18f/embed?start=false&loop=false&delayms=3000',
+    'https://docs.google.com/presentation/d/e/2PACX-1vSvy4iDhOSFSB9oyZJCYXhFsUrGB24AJo-1CpdXmYXEGWEzR-4h26YbYvcHNrC2lmpD34sVhzFIhnJP/embed?start=false&loop=false&delayms=3000'
 ]
 const openPortfolio = (number) => {
     openWindow();

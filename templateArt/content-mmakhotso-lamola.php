@@ -3,10 +3,12 @@
 get_header();
 ?>
 
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/mmakhotso/style.css">
 
+
 <div id="three-js-container">
-    <div id="loading">
+    <div id="loading" style="background: url('<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/mmakhotso/background.jpg') center center no-repeat; background-size: cover;">
         <div class="text-center">
             <h6>Loading . . .</h6>
             <div class="progress"><div class="progressbar"></div></div>
@@ -29,22 +31,29 @@ get_header();
 </div>
 
 <div class="d-none">
-    <audio  class="audio-overall" src="<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/mmakhotso/sounds/whisper.wav" preload loop></audio>
+    <audio  class="audio-overall" src="<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/mmakhotso/sounds/whisper.mp3" preload loop></audio>
 
-    <audio src="<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/mmakhotso/worlds/sounds/bensound-betterdays.mp3" class="world-audio" preload></audio>
-    <audio src="<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/mmakhotso/worlds/sounds/bensound-betterdays.mp3" class="world-audio" preload></audio>
-    <audio src="<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/mmakhotso/worlds/sounds/bensound-betterdays.mp3" class="world-audio" preload></audio>
-    <audio src="<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/mmakhotso/worlds/sounds/bensound-betterdays.mp3" class="world-audio" preload></audio>
-    <audio src="<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/mmakhotso/worlds/sounds/bensound-betterdays.mp3" class="world-audio" preload></audio>
+    <audio src="<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/mmakhotso/worlds/sounds/1_Self.mp3" class="world-audio" preload></audio>
+    <audio src="<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/mmakhotso/worlds/sounds/2_Body.mp3" class="world-audio" preload></audio>
+    <audio src="<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/mmakhotso/worlds/sounds/3_Home.mp3" class="world-audio" preload></audio>
+    <audio src="<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/mmakhotso/worlds/sounds/4_Community.mp3" class="world-audio" preload></audio>
+    <audio src="<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/mmakhotso/worlds/sounds/5_City.mp3" class="world-audio" preload></audio>
 </div>
 
-<div id="overlay" class="container-fluid">
+<div id="overlay" class="container-fluid" style="background: url('<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/mmakhotso/background.jpg') center center no-repeat; background-size: cover;">
     <div class="row">
-        <div class="col-12 text-center">
+        <div class="col-12 col-md-6 0ffset-md-4 text-center">
             <h1>Mmakhotso Lamola</h1>
-            <p>You are on a journey. Look around by draging your mouse, click on objects to see what happens</p>
-            <p>click on the forwards and backwards buttons to move</p>
+            <p>
+                You are about to explore the immersive worlds of the Belonging Collective Archive via a map of Cape Town. This archive has been cultivated through a year long anonymous collaboration.
+            </p>
+            <p>
+                Click forward and backward to navigate the map. To access the worlds click on the orbs, pyramids and flags. Best Experienced with headphones
+            </p>
             <button id="btn-begin" class="btn btn-primary">start</button>
+
+            <div class="my-5"><h2>CREDITS:</h2>
+            <p><b>Voices:</b> Obakeng Motsepe, Galerekwe Maimane, Erin Simon, Mmakhotso Lamola</p></div>
         </div>
     </div>
 </div>
@@ -60,17 +69,17 @@ get_header();
 <script>
     const blueprint = `<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/mmakhotso/bluepring.jpg`;
     const audios = [
-        `<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/mmakhotso/sounds/bensound-cute.mp3`,
-        `<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/mmakhotso/sounds/bensound-hey.mp3`,
-        `<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/mmakhotso/sounds/bensound-relaxing.mp3`,
-        `<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/mmakhotso/sounds/bensound-ukulele.mp3`
+        `<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/mmakhotso/sounds/1_Castle.mp3`,
+        `<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/mmakhotso/sounds/2_District 6.mp3`,
+        `<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/mmakhotso/sounds/3_Company_Gardens.mp3`,
+        `<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/mmakhotso/sounds/4_Prestwich_Memorial.mp3`
     ];
     const worldMaps = [
-        `<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/mmakhotso/soundReflection/`, 
-        `<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/mmakhotso/soundReflection/`, 
-        `<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/mmakhotso/soundReflection/`, 
-        `<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/mmakhotso/soundReflection/`, 
-        `<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/mmakhotso/soundReflection/`
+        `<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/mmakhotso/worlds/1/`, 
+        `<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/mmakhotso/worlds/2/`, 
+        `<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/mmakhotso/worlds/3/`, 
+        `<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/mmakhotso/worlds/4/`, 
+        `<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/mmakhotso/worlds/5/`
     ];
 
     const soundBeaconPath = `<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/mmakhotso/soundReflection/`;

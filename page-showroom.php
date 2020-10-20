@@ -81,7 +81,7 @@
                                     if( !empty( $image ) ): ?>
 
                                         <a href="<?php echo get_permalink( $artist['artist_link']->ID ) ?>">
-                                            <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+                                            <img class="w-100" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
                                         </a>
                                         
                                     <?php endif; ?>

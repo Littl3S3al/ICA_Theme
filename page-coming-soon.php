@@ -15,8 +15,8 @@
     <div class="row">
         <div class="col-12 text-center">
             <img src="<?php bloginfo ('stylesheet_directory'); ?>/assets/ica-logo-inverse.png" alt="">
-            <h1>COMING SOON</h1>
-            <h2><i>ICA Fellowship Online Website Launches Soon!</i></h2>
+            <h1>ICA Fellowship Online Website Launches Soon</h1>
+            <h2>COMING SOON</h2>
         </div>
         <!-- timer -->
         <div class="col-12">
@@ -91,8 +91,19 @@
   </div>
 </div>
 
+<script>
+    const launchDate = new Date(2020, 9, 24, 17, 0, 0);
+    
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    setInterval(() => {
+        const now = new Date();
+        if(launchDate.getTime() <= now.getTime()){
+            window.location.replace('<?php the_permalink(240) ?>');
+        }
+    }, 1000);
+
+</script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 

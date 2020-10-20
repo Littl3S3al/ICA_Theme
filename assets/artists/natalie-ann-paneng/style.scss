@@ -7,11 +7,11 @@ html{
 body{
     margin: 0;
     padding: 0;
-    font-family: monospace;;
 }
 
 
 #overlay{
+    font-family: monospace;
     width: 100vw;
     height: 100vh;
     color: black;
@@ -30,16 +30,19 @@ body{
 }
 
 .card{
+    font-family: monospace;
     border: 2px solid darkgray;
     background: #66FF66;
     padding: 10px 5px;
 }
 .card-body{
+    font-family: monospace;
     background: #66FF66;
     padding: 0;
     border: 2px solid darkgray;
 }
 .top-bar{
+    font-family: monospace;
     text-align: left;
     padding: 2px 0 4px 5px;
     display: flex;
@@ -58,6 +61,7 @@ body{
     border-radius: 2px;
     color: white;
     opacity: 1;
+    cursor: pointer;
 }
 
 #beachball{
@@ -79,6 +83,7 @@ body{
 }
 
 #three-js-container{
+    font-family: monospace;
     z-index: -1;
     display: none;
 
@@ -98,6 +103,7 @@ body{
 }
 
 #loading {
+    font-family: monospace;
     position: fixed;
     top: 0;
     left: 0;
@@ -124,6 +130,7 @@ body{
 
 
 .popup-window{
+    font-family: monospace;
     width: 100vw;
     height: 100vh;
     z-index: 1000;
@@ -146,6 +153,3 @@ body{
     }
 }
 
-.opaque{
-    opacity: 0.5;
-}
