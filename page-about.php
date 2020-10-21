@@ -27,7 +27,7 @@
     <div class="content-about">
         <?php if(have_rows('section')): ?>
             <?php foreach(get_field('section') as $row) : ?>
-                <div class="row padded-side py-3">
+                <div class="row padded-side py-5">
                     <div class="col-12 text-center">
                         <h2><?php echo $row['heading']; ?></h2>
                     </div>

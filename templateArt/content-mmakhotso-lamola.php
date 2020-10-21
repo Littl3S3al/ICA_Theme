@@ -8,14 +8,15 @@ get_header();
 
 
 <div id="three-js-container">
-    <div id="loading" style="background: url('<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/mmakhotso/background.jpg') center center no-repeat, skyblue; background-size: cover;">
+    <div id="loading" style="background: url('<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/mmakhotso/background.jpg') center center no-repeat, #5b87d0; background-size: cover;">
         <div class="text-center">
-            <h6>Loading . . .</h6>
+            <h1>Loading...</h1>
+            <h6>please be patient as the page takes a moment to load</h6>
             <div class="progress"><div class="progressbar"></div></div>
         </div>
     </div>
     <div class="buttons">
-        <button class="btn btn-dark" id="forwards">forwards</button>
+        <button class="btn btn-light" id="forwards">forwards</button>
         <button class="btn btn-light" id="backwards">backwards</button>
     </div>
     <canvas id="c"></canvas>
@@ -23,7 +24,7 @@ get_header();
 </div>
 
 <div class="popup-window">
-    <button id="btn-close" class="btn btn-primary">
+    <button id="btn-close" class="btn btn-light">
         close
     </button>
     <iframe class="d-none" src="" title="W3Schools Free Online Web Tutorials"></iframe>
@@ -42,7 +43,7 @@ get_header();
 
 <div id="overlay" class="container-fluid" style="background: url('<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/mmakhotso/background.jpg') center center no-repeat; background-size: cover;">
     <div class="row">
-        <div class="col-12 col-md-6 0ffset-md-4 text-center">
+        <div class="col-12 col-md-6 0ffset-md-3 text-center">
             <h1>Mmakhotso Lamola</h1>
             <p>
                 You are about to explore the immersive worlds of the Belonging Collective Archive via a map of Cape Town. This archive has been cultivated through a year long anonymous collaboration.
@@ -52,7 +53,7 @@ get_header();
             </p>
             <button id="btn-begin" class="btn btn-primary">start</button>
 
-            <div class="my-5"><h2>CREDITS:</h2>
+            <div class="my-5"><h4>CREDITS:</h4>
             <p><b>Voices:</b> Obakeng Motsepe, Galerekwe Maimane, Erin Simon, Mmakhotso Lamola</p></div>
         </div>
     </div>
@@ -70,7 +71,7 @@ get_header();
     const blueprint = `<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/mmakhotso/bluepring.jpg`;
     const audios = [
         `<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/mmakhotso/sounds/1_Castle.mp3`,
-        `<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/mmakhotso/sounds/2_District 6.mp3`,
+        `<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/mmakhotso/sounds/2_District_6.mp3`,
         `<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/mmakhotso/sounds/3_Company_Gardens.mp3`,
         `<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/mmakhotso/sounds/4_Prestwich_Memorial.mp3`
     ];

@@ -18,7 +18,6 @@ get_template_part('templateArt/content', $slug);
 <div id="artwork-buttons">
     <div id="set-one">
         <a href="<?php echo get_field('about_artwork')['url'] ?>" class="btn btn-dark" id="about">about</a>
-        <button class="btn btn-secondary" id="back">back</button>
     </div>
     <div id="share-icons"><?php echo do_shortcode('[Sassy_Social_Share]') ?></div>
     <div id="set-two">
@@ -55,14 +54,9 @@ get_template_part('templateArt/content', $slug);
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
 <script>
-    const backBtn = document.querySelector('#back');
     let artworkButtons;
     const fullscreenBtn = document.querySelector('#fullscreen');
     let fullscreen = false;
-
-    backBtn.addEventListener('click', () => {
-        window.history.back();
-    });
 
     fullscreenBtn.addEventListener('click', () => {
        artworkButtons = [

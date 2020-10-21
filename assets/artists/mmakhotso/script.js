@@ -438,7 +438,7 @@ const main  = () => {
         audioLoader.load( audios[i], function ( buffer ) {
 
             sound.setBuffer( buffer );
-            sound.setRefDistance( 2 );
+            sound.setRefDistance( 10 );
 
         } );
         loadedAudios.push(sound);
@@ -511,7 +511,7 @@ const main  = () => {
         ]
 
         var plane = new THREE.Mesh( planeGeometry, planeMaterial );
-        plane.position.set( pos[i].x, 5, pos[i].z );
+        plane.position.set( pos[i].x, 7, pos[i].z );
         CenterOrb.add( plane );
         plane.name = 'portfolioBeacon' + i;
 
@@ -783,7 +783,7 @@ const main  = () => {
 beginBtn.addEventListener('click', () => {
     overlay.style.display = 'none';
     threeJsWindow.style.display = 'block';
-    whispering.volume = 0.2;
+    whispering.volume = 0.4;
     whispering.play();
     main();
 });

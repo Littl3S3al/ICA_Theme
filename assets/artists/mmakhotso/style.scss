@@ -8,17 +8,13 @@ body{
     margin: 0;
     padding: 0;
 }
-// .btn-primary{
-//     background: #455178;
-//     border: 2px solid #455178;
-// }
 
 #overlay{
+    font-family: 'Courier Prime', monospace!important;
+    color: #455178!important;
     padding: 120px 20px;
-    background: black;
     width: 100vw;
     height: 100vh;
-    color: white;
     z-index: 1000;
     overflow-y: scroll;
 
@@ -28,14 +24,18 @@ body{
         align-content: center;
         justify-content: center;
     }
-    h1, h2{
-        font-family: 'Courier Prime', monospace;
-        color: #455178;
-    }
     p{
-        font-family: 'Courier Prime', monospace;
-        color: #455178;
         font-size: 1.2em;
+    }
+    .btn-primary{
+        background:   #fac8d1;
+        border: 1px solid #fac8d1;
+        color: black;
+        font-weight: bolder;
+        &:hover, &:focus, &:active{
+            background:  darken( #fac8d1, 10% );
+            border:  darken( #fac8d1, 10% ) 1px solid;
+        }
     }
 }
 
@@ -65,10 +65,19 @@ body{
             right: 0;
         }
     }
+    .btn-light{
+        background: #fcdb36;
+        border: 1px solid #fcdb36;
+        &:hover, &:active, &:focus{
+            background: darken(#fcdb36, 20%);
+            border: darken(#fcdb36, 20%) 1px solid;
+        }
+    }
 
 }
 
 #loading {
+    font-family: 'Courier Prime', monospace!important;
     color: white;
     position: fixed;
     top: 0;
@@ -82,14 +91,14 @@ body{
     z-index: 5;
   }
   #loading .progress {
-    margin: 1.5em;
     border: 1px solid white;
     width: 50vw;
     background: black;
+    padding: 2px;
+    height: auto;
   }
   #loading .progressbar {
-    margin: 2px;
-    background: white;
+    background: #fac8d1;
     height: 1em;
     transform-origin: top left;
     width: 0%;
@@ -112,6 +121,13 @@ body{
         position: absolute;
         top: 10px;
         right: 50px;
+        background: #fcdb36;
+        border: 1px solid #fcdb36;
+        &:hover, &:active, &:focus{
+            background: darken(#fcdb36, 20%);
+            border: darken(#fcdb36, 20%) 1px solid;
+        }
+
     }
     canvas{
         display: none;

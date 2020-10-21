@@ -25,31 +25,40 @@ get_header();
         $data = get_field('artists'); 
         foreach($data as $row) : ?>
             
-            <div class="row text-justify">
+            <div class="row my-5 text-justify">
 
-                <div class="col-12 col-md-4">
-                    <!-- profile image -->
-                    <?php $image = $row['headshot'];?>
-                    <img class="w-100" src="<?php echo $image['url']; ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+            <?php $headshot = false; ?>
+                <?php if($row['headshot']) : ?>
+                    <?php $headshot = true; ?>
 
-                    <!-- short video -->
-                    <?php if($row['short_video']) : ?>
-                        <iframe class="short-video" src="https://player.vimeo.com/video/<?php echo $row['short_video'] ?>?color=ffffff&byline=0"frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-                    <?php endif; ?>
-                    
-                </div>
+                    <div class="col-12 col-md-4">
+                        <!-- profile image -->
 
-                <div class="col-12 col-md-8">
+                        <?php $image = $row['headshot'];?>
+                        <img class="w-100" src="<?php echo $image['url']; ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+
+                        <!-- short video -->
+                        <?php if($row['short_video']) : ?>
+                            <iframe class="short-video" src="https://player.vimeo.com/video/<?php echo $row['short_video'] ?>?color=ffffff&byline=0"frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                        <?php endif; ?>
+                        
+                    </div>
+
+                <?php endif; ?>
+
+                <div class="col-12 <?php if($headshot) {echo 'col-md-8';} ?>">
                     <h1><?php echo $row['artist_name'] ?></h1>
                     <p><?php echo $row['artist_bio'] ?></p>
-                    <?php $links = $row['artist_links']; 
-                    
-                    foreach($links as $link) : ?>
-                        <?php $thisLink = $link['link']; ?>
-                        <a href="<?php echo esc_url( $thisLink['url'] ); ?>" target="_blank" class="btn btn-danger">
-                            <?php echo esc_html( $thisLink['title'] ); ?>
-                        </a>
-                    <?php endforeach; ?>
+                    <?php if($row['artist_links']) :?>
+                        <?php $links = $row['artist_links']; 
+                        
+                        foreach($links as $link) : ?>
+                            <?php $thisLink = $link['link']; ?>
+                            <a href="<?php echo esc_url( $thisLink['url'] ); ?>" target="_blank" class="btn btn-danger">
+                                <?php echo esc_html( $thisLink['title'] ); ?>
+                            </a>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
 
                 </div>
 
@@ -61,7 +70,9 @@ get_header();
 </div>
 
 <div class="padded-side row mt-1 bg-gray py-5 text-justify">
-        <h1>ARTIST STATMENT</h1>  
+        <div class="w-100">
+            <h1>ARTIST STATMENT</h1> 
+        </div> 
         <p>
             <?php the_field('statement') ?>
         </p>                 

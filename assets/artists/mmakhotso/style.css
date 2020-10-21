@@ -10,11 +10,11 @@ body {
 }
 
 #overlay {
+  font-family: "Courier Prime", monospace !important;
+  color: #455178 !important;
   padding: 120px 20px;
-  background: black;
   width: 100vw;
   height: 100vh;
-  color: white;
   z-index: 1000;
   overflow-y: scroll;
 }
@@ -24,14 +24,18 @@ body {
   align-content: center;
   justify-content: center;
 }
-#overlay h1, #overlay h2 {
-  font-family: "Courier Prime", monospace;
-  color: #455178;
-}
 #overlay p {
-  font-family: "Courier Prime", monospace;
-  color: #455178;
   font-size: 1.2em;
+}
+#overlay .btn-primary {
+  background: #fac8d1;
+  border: 1px solid #fac8d1;
+  color: black;
+  font-weight: bolder;
+}
+#overlay .btn-primary:hover, #overlay .btn-primary:focus, #overlay .btn-primary:active {
+  background: #f699aa;
+  border: #f699aa 1px solid;
 }
 
 #three-js-container {
@@ -61,8 +65,17 @@ body {
     right: 0;
   }
 }
+#three-js-container .btn-light {
+  background: #fcdb36;
+  border: 1px solid #fcdb36;
+}
+#three-js-container .btn-light:hover, #three-js-container .btn-light:active, #three-js-container .btn-light:focus {
+  background: #c9a803;
+  border: #c9a803 1px solid;
+}
 
 #loading {
+  font-family: "Courier Prime", monospace !important;
   color: white;
   position: fixed;
   top: 0;
@@ -77,15 +90,15 @@ body {
 }
 
 #loading .progress {
-  margin: 1.5em;
   border: 1px solid white;
   width: 50vw;
   background: black;
+  padding: 2px;
+  height: auto;
 }
 
 #loading .progressbar {
-  margin: 2px;
-  background: white;
+  background: #fac8d1;
   height: 1em;
   transform-origin: top left;
   width: 0%;
@@ -107,6 +120,12 @@ body {
   position: absolute;
   top: 10px;
   right: 50px;
+  background: #fcdb36;
+  border: 1px solid #fcdb36;
+}
+.popup-window #btn-close:hover, .popup-window #btn-close:active, .popup-window #btn-close:focus {
+  background: #c9a803;
+  border: #c9a803 1px solid;
 }
 .popup-window canvas {
   display: none;
