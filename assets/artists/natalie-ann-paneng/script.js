@@ -466,7 +466,7 @@ function openWindow(number){
     if(number === '2'){
         title.innerHTML = 'Wings of Encouragement';
         content.innerHTML = `
-        <iframe src="https://player.vimeo.com/video/20555106?autoplay=1" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        <iframe src="https://player.vimeo.com/video/470636797?autoplay=1" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
         `;
 
     }
@@ -479,13 +479,13 @@ function openWindow(number){
     if(number === '4'){
         title.innerHTML = 'Affirmation Station';
         content.innerHTML = `
-        <iframe src="https://player.vimeo.com/video/20555106?autoplay=1" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        <iframe src="https://player.vimeo.com/video/470636700?autoplay=1" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
         `;
     }
     if(number === '5'){
         title.innerHTML = 'Something Is Coming';
         content.innerHTML = `
-        <iframe src="https://player.vimeo.com/video/20555106?autoplay=1" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        <iframe src="https://player.vimeo.com/video/470636770?autoplay=1" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
         `;
     }
     if(number === '6'){

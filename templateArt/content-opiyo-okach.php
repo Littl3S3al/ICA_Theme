@@ -45,7 +45,7 @@
                         </h5>
                         </div>
 
-                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#mainNav">
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#mainNav">
                         <div class="card-body">
                             <ul>
                                 <li><?php echo do_shortcode('[hurrytimer id="341"]') ?></li>
@@ -139,25 +139,102 @@
         </div>
     </div>
 
-    <div class="popupWindow">
-      <div class="container">
-        <div class="row">
-            <div class="col-12 col-md-7" id="iframe">
+
+
+<!-- begin import live data -->
+
+    <?php if( have_rows('content', 354)) : 
+        $data = get_field('content', 354);
+
+        foreach($data as $row) : ?>
+
+        <div class="popupWindow" id="<?php echo $row['label'] ?>">
+
+            
+
+            <div class="container">
+                <div class="row">
+
                 
+                    <?php if($row['layout'] === '1_column') : ?>
+                        <!-- add one column layout -->
+                        <div class="col-12">
+                            <?php echo $row['column_2'] ?>
+                        </div>
+                        
+
+                    <?php elseif ($row['layout'] === '2_column') : ?>
+
+                        <!-- add 2 column layout -->
+
+                        <div class="col-12 col-md-6">
+                            <?php $data1 = $row['column_1'];
+                                foreach( $data1 as $col1) :
+                            ?>
+                                    <!-- add image if present -->
+                                    <?php if ( !empty ($col1['image'])) : ?>
+                                        <img class="w-100" src="<?php echo esc_url($col1['image']['url']); ?>" alt="<?php echo esc_attr($col1['image']['alt']); ?>" />
+                                    <?php  endif ?>
+
+                                    <!-- add oembed if present -->
+                                    <?php if ( !empty ($col1['video'])) : ?>
+                                        
+                                        <iframe class="responsive-iframe" src="https://www.youtube.com/embed/<?php echo $col1['video'] ?>"></iframe>
+
+
+
+                                    <?php  endif ?>
+
+                                    <!-- add editor if present -->
+                                    <?php if ( !empty ($col1['editor'])) : ?>
+                                        <?php echo $col_1['editor'] ?>
+                                    <?php  endif ?>
+
+                            <?php endforeach ?>
+                        </div>
+
+                        <div class="col-12 col-md-6">
+                            <?php echo $row['column_2'] ?>
+                        </div>
+                        
+
+                    <?php endif; ?>
+                </div>
+                <div class="row close-row text-center">
+                    <div class="col-12 text-right mt-3">
+                        <button class="btn btn-light exit" data-parent="<?php echo $row['label'] ?>">exit</button>
+                    </div>
+                </div>
             </div>
-            <div class="col-12 col-md-5 pl-md-5" id="text-col">
-                    
-            </div>
+    
         </div>
-      </div>
-      <button id="close" class="btn btn-light">close</button>
-  </div>
+        
+
+        <?php endforeach; ?>
+    <?php endif; ?>
+
+
+
+<!-- end import live content -->
+
 
     <script>
         const assets = '<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/opiyo_okach/assets/';
+
+        const labels = [
+            <?php $data = get_field('content', 354); foreach($data as $row) : ?>
+                '<?php echo $row['label'] ?>',
+            <?php endforeach; ?>
+        ];
+        const words = [
+            <?php $data = get_field('content', 354); foreach($data as $row) : ?>
+                '<?php echo $row['word'] ?>',
+            <?php endforeach; ?>
+        ];
     </script>
 
     <script src="https://threejsfundamentals.org/threejs/../3rdparty/split.min.js"></script>
+    
     <script>
                 /* global Split */
 
@@ -168,12 +245,12 @@
         minSize: 100,
         elementStyle: (dimension, size, gutterSize) => {
             return {
-            'flex-basis': `calc(${size}% - 5px)`,
+            'flex-basis': `calc(${size}% - 15px)`,
             };
         },
         gutterStyle: (dimension, gutterSize) => {
             return {
-            'flex-basis': `5px`,
+            'flex-basis': `15px`,
             };
         },
         });

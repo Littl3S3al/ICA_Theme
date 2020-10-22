@@ -6,81 +6,6 @@ import { PositionalAudioHelper } from 'https://threejsfundamentals.org/threejs/r
 
 
 
-const performance = [
-  {
-      iframe: `<iframe style="width: 100%; height: 500px;" src="https://www.youtube.com/embed/NBZLMcfqlfw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
-      text: `
-          <h2>instanceNow: People Time Place I</h2>
-          <p>
-          interactive network performance/installation with Opiyo Okach, Alejandro Olarté, Rapasa Nyatrapasa Otieno, Kamaru Joseph (KMRU) live online with Institute for Creative Arts (UCT) from remote locations  - nairobi, helsinki, var, newcastle-upon-tyne, cape town...
-          Interactive visuals: Opiyo Okach
-          Electroacoustic improvisation: Alejandro Olarté
-          Nyatiti: Rapasa Otieno
-          Sound art: Joseph Kamaru Jr (KMRU)
-          Online dancers: Waithera Schreyeck, I-Fen Lin
-          Video dancers: Juliette Omolo, Rapasa Otieno, Adam Chienjo, Papa Omugataya, Lonesome Bounty, Jack Bryton, Jackson Atulo
-          </p>`
-  },
-  {
-      iframe: `<iframe style="width: 100%; height: 500px;" src="https://www.youtube.com/embed/0tXfNEKJoks" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
-      text: `
-          <h2>instanceNow: People Time Place II</h2>
-          <p>
-          interactive network performance/installation with Opiyo Okach, Alejandro Olarté, Rapasa Nyatrapasa Otieno, Kamaru Joseph (KMRU) live online with Institute for Creative Arts (UCT) from remote locations  - nairobi, helsinki, var, newcastle-upon-tyne, cape town...
-          Interactive visuals: Opiyo Okach
-          Electroacoustic improvisation: Alejandro Olarté
-          Nyatiti: Rapasa Otieno
-          Sound art: Joseph Kamaru Jr (KMRU)
-          Online dancers: Waithera Schreyeck, I-Fen Lin
-          Video dancers: Juliette Omolo, Rapasa Otieno, Adam Chienjo, Papa Omugataya, Lonesome Bounty, Jack Bryton, Jackson Atulo
-          </p>`
-  },
-  {
-      iframe: `<iframe style="width: 100%; height: 500px;" src="https://www.youtube.com/embed/xdZtTHgGf4c" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
-      text: `
-          <h2>instanceNow: People Time Place III</h2>
-          <p>
-          interactive network performance/installation with Opiyo Okach, Alejandro Olarté, Rapasa Nyatrapasa Otieno, Kamaru Joseph (KMRU) live online with Institute for Creative Arts (UCT) from remote locations  - nairobi, helsinki, var, newcastle-upon-tyne, cape town...
-          Interactive visuals: Opiyo Okach
-          Electroacoustic improvisation: Alejandro Olarté
-          Nyatiti: Rapasa Otieno
-          Sound art: Joseph Kamaru Jr (KMRU)
-          Online dancers: Waithera Schreyeck, I-Fen Lin
-          Video dancers: Juliette Omolo, Rapasa Otieno, Adam Chienjo, Papa Omugataya, Lonesome Bounty, Jack Bryton, Jackson Atulo
-          </p>`
-  },
-  {
-      iframe: `<iframe style="width: 100%; height: 500px;" src="https://www.youtube.com/embed/qDd1toJIt4g" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
-      text: `
-          <h2>instanceNow: People Time Place IV</h2>
-          <p>
-          interactive network performance/installation with Opiyo Okach, Alejandro Olarté, Rapasa Nyatrapasa Otieno, Kamaru Joseph (KMRU) live online with Institute for Creative Arts (UCT) from remote locations  - nairobi, helsinki, var, newcastle-upon-tyne, cape town...
-          Interactive visuals: Opiyo Okach
-          Electroacoustic improvisation: Alejandro Olarté
-          Nyatiti: Rapasa Otieno
-          Sound art: Joseph Kamaru Jr (KMRU)
-          Online dancers: Waithera Schreyeck, I-Fen Lin
-          Video dancers: Juliette Omolo, Rapasa Otieno, Adam Chienjo, Papa Omugataya, Lonesome Bounty, Jack Bryton, Jackson Atulo
-          </p>`
-  },
-  {
-      iframe: `<iframe style="width: 100%; height: 500px;" src="https://www.youtube.com/embed/hKql6KLJZZI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
-      text: `
-          <h2>instanceNow: People Time Place V</h2>
-          <p>
-          interactive network performance/installation with Opiyo Okach, Alejandro Olarté, Rapasa Nyatrapasa Otieno, Kamaru Joseph (KMRU) live online with Institute for Creative Arts (UCT) from remote locations  - nairobi, helsinki, var, newcastle-upon-tyne, cape town...
-          Interactive visuals: Opiyo Okach
-          Electroacoustic improvisation: Alejandro Olarté
-          Nyatiti: Rapasa Otieno
-          Sound art: Joseph Kamaru Jr (KMRU)
-          Online dancers: Waithera Schreyeck, I-Fen Lin
-          Video dancers: Juliette Omolo, Rapasa Otieno, Adam Chienjo, Papa Omugataya, Lonesome Bounty, Jack Bryton, Jackson Atulo
-          </p>`
-  }
-
-];
-
-
 const makeInstance = (scene, geometry, x, y, z) => {
 	const material = new THREE.MeshBasicMaterial({color: 0x00ff00});
 
@@ -106,6 +31,7 @@ let viewing = true;
 
 function main() {
 
+  begin = true;
 
   // camera and canvas
   const canvas = document.querySelector('#c');
@@ -292,11 +218,11 @@ const addInteractives = () => {
 		parent.add(mesh);
 
 		addObject(.5, 0, parent);
-		}
-		const words = ['space', 'image', 'sound', 'text', 'data', 'body'];
+    }
+    
 		cubes.forEach((cube, i) => {
 			doit(words[i], cube);
-			cube.name = i;
+			cube.name = labels[i];
 		});
 	}
 }
@@ -628,35 +554,37 @@ beginBtn.addEventListener('click', () => {
 });
 
 
-const popUpWindow = document.querySelector('.popupWindow');
-const closeBtn = document.querySelector('#close');
-
-const iframe = document.querySelector('#iframe');
-const textFrame = document.querySelector('#text-col');
+const popUpWindow = document.querySelectorAll('.popupWindow');
+const closeBtns = document.querySelectorAll('.close');
 
 const links = document.querySelectorAll('.btn-link-view');
 
-links.forEach((link, i) => {
-  link.addEventListener('click', () => {
-    popup(i);
-  })
-})
+// links.forEach((link, i) => {
+//   link.addEventListener('click', () => {
+//     popup(i);
+//   })
+// })
 const popup = (name) => {
-  if(name >= 0){
-		popUpWindow.classList.add('appear');	
-    iframe.innerHTML = performance[name].iframe;
-    textFrame.innerHTML = performance[name].text;
+  if(name.length > 0){
+    let thisWindow = document.querySelector(`#${name}`);
+		thisWindow.classList.add('appear');	
 		viewing = true;
 	}
 }
 
-closeBtn.addEventListener('click', () => {
-	popUpWindow.classList.remove('appear');
-	viewing = false;
-	
-});
-closeBtn.addEventListener('touchstart', () => {
-
-	popUpWindow.classList.remove('appear');
-	viewing = false;
+window.addEventListener('click', e => {
+  if(e.target.classList.contains('exit')){
+    e.stopPropagation()
+    popUpWindow.forEach(window => {
+      window.classList.remove('appear');
+    });
+    viewing = false;
+  }
+  if(e.target.classList.contains('popupWindow')){
+    e.preventDefault();
+    popUpWindow.forEach(window => {
+      window.classList.remove('appear');
+    });
+    viewing = false;
+  }
 })

@@ -20,7 +20,7 @@ let actualAngle = 0;
 
 
 const loadedAudios = [];
-const whispering = document.querySelector('.audio-overall')
+const whispering = document.querySelector('#audio-overall')
 
 let currentObject;
 
@@ -319,6 +319,8 @@ var clothGeometry;
 
 // three.js functions
 const main  = () => {
+    begin = true;
+    
     const canvas = document.querySelector('#c');
 
     // renderer
@@ -354,7 +356,7 @@ const main  = () => {
    worldMaps.forEach(map => {
     const world = cubeTextureLoader
     .setPath( map )
-    .load( [ 'PX.png', 'NX.png', 'PY.png', 'NY.png', 'PZ.png', 'NZ.png' ] );
+    .load( [ 'PX.jpg', 'NX.jpg', 'PY.jpg', 'NY.jpg', 'PZ.jpg', 'NZ.jpg' ] );
     loadedWorlds.push(world);
    })
 
@@ -415,7 +417,7 @@ const main  = () => {
 
     const reflectWorld = cubeTextureLoader
         .setPath( soundBeaconPath )
-        .load( [ 'px.png', 'nx.png', 'py.png', 'ny.png', 'pz.png', 'nz.png' ] );
+        .load( [ 'px.jpg', 'nx.jpg', 'py.jpg', 'ny.jpg', 'pz.jpg', 'nz.jpg' ] );
                     
     
     let soundBeacons = [];
@@ -438,7 +440,7 @@ const main  = () => {
         audioLoader.load( audios[i], function ( buffer ) {
 
             sound.setBuffer( buffer );
-            sound.setRefDistance( 10 );
+            sound.setRefDistance( 50 );
 
         } );
         loadedAudios.push(sound);
@@ -453,7 +455,7 @@ const main  = () => {
     const sphereGeometry = new THREE.SphereGeometry( 6, 32, 32 );
     const waterWorld = cubeTextureLoader
         .setPath( worldBeaconPath )
-        .load( [ 'px.png', 'px.png', 'px.png', 'px.png', 'px.png', 'px.png' ] );
+        .load( [ 'nx.png', 'nx.png', 'nx.png', 'nx.png', 'nx.png', 'nx.png' ] );
                     
     
 
@@ -540,7 +542,7 @@ const main  = () => {
     groundTexture.wrapS = THREE.RepeatWrapping;
     groundTexture.wrapT = THREE.RepeatWrapping;
     groundTexture.magFilter = THREE.NearestFilter;
-    const repeats = groundSize / 200;
+    const repeats = groundSize / 100;
     groundTexture.repeat.set(repeats, repeats);
 
     const planeGeo = new THREE.PlaneBufferGeometry(groundSize, groundSize);
@@ -783,15 +785,30 @@ const main  = () => {
 beginBtn.addEventListener('click', () => {
     overlay.style.display = 'none';
     threeJsWindow.style.display = 'block';
-    whispering.volume = 0.4;
-    whispering.play();
     main();
+    begin = true;
+    async function playWhispering() {
+        try {
+          await whispering.play();
+        } catch(err) {
+          console.log(err)
+        }
+      }
+      playWhispering();
 });
 
 beginBtn.addEventListener('touchend', () => {
     overlay.style.display = 'none';
     threeJsWindow.style.display = 'block';
     main();
+    async function playWhispering() {
+        try {
+          await whispering.play();
+        } catch(err) {
+          console.log(err)
+        }
+      }
+      playWhispering();
 });
 
 
@@ -880,11 +897,5 @@ btnForwards.addEventListener('click', () => {
     currentAngle += 90 * Math.PI/180;
 });
 btnBack.addEventListener('click', () => {
-    currentAngle -= 90 * Math.PI/180;
-});
-btnForwards.addEventListener('touchend', () => {
-    currentAngle += 90 * Math.PI/180;
-});
-btnBack.addEventListener('touchend', () => {
     currentAngle -= 90 * Math.PI/180;
 });

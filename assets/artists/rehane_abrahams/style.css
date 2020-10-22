@@ -123,13 +123,23 @@ body {
   border: 1px solid white;
   padding: 2em;
   overflow-y: scroll;
-  max-height: 100%;
+  max-height: 80vh;
   height: auto;
+}
+.viewport .scene3D-container .scene3D .layers .text-block:focus, .viewport .scene3D-container .scene3D .layers .text-block:active, .viewport .scene3D-container .scene3D .layers .text-block:focus-within {
+  border: 2px solid skyblue;
+  box-shadow: 1px 1px 10px #0ff;
 }
 .viewport .scene3D-container .scene3D .layers .text-block-major {
   background: rgba(23, 32, 42, 0.8);
   padding: 5em;
   border: 1px solid white;
+  overflow-y: scroll;
+  max-height: 80vh;
+}
+.viewport .scene3D-container .scene3D .layers .text-block-major:focus, .viewport .scene3D-container .scene3D .layers .text-block-major:active, .viewport .scene3D-container .scene3D .layers .text-block-major:focus-within {
+  border: 2px solid skyblue;
+  box-shadow: 1px 1px 10px #0ff;
 }
 .viewport .scene3D-container .scene3D .layers .img-opaque {
   opacity: 0.7;

@@ -32,7 +32,7 @@ get_header();
 </div>
 
 <div class="d-none">
-    <audio  class="audio-overall" src="<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/mmakhotso/sounds/whisper.mp3" preload loop></audio>
+    <audio  id="audio-overall" src="<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/mmakhotso/sounds/whisper.mp3" preload loop></audio>
 
     <audio src="<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/mmakhotso/worlds/sounds/1_Self.mp3" class="world-audio" preload></audio>
     <audio src="<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/mmakhotso/worlds/sounds/2_Body.mp3" class="world-audio" preload></audio>

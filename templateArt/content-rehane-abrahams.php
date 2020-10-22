@@ -13,7 +13,10 @@
 
             <h4 class="mt-5">INSTRUCTIONS:</h4>
             <p>
-                scroll up and down to move forwards and backwards
+                Scroll up and down to move forwards and backwards
+            </p>
+            <p>
+                If you are on a mobile device, slide your finger up and down to move. Tap on text blocks to scroll through the content, and tap off of the text block to continue your journey.
             </p>
             <button id="btn-begin" class="m-5 px-5 btn btn-light">start</button>
 

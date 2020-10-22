@@ -95,6 +95,7 @@ body {
   background: black;
   padding: 2px;
   height: auto;
+  margin: auto;
 }
 
 #loading .progressbar {

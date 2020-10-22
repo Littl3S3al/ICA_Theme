@@ -54,12 +54,17 @@ get_template_part('templateArt/content', $slug);
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
 <script>
+    let begin = false;
+    const aboutBtn = document.querySelector('#about');
+    const shareIcons = document.querySelector('#share-icons');
+    const helpBtn = document.querySelector('#help');
+    const feedbackBtn = document.querySelector("body > div.sfm-rollback.sfm-color1.sfm-theme-none.sfm-label-visible.sfm-label-metro");
     let artworkButtons;
     const fullscreenBtn = document.querySelector('#fullscreen');
     let fullscreen = false;
 
-    fullscreenBtn.addEventListener('click', () => {
-       artworkButtons = [
+    const goFull = (e) => {
+      artworkButtons = [
           document.querySelector('#set-one'),
           document.querySelector('#share-icons'),
           document.querySelector('#help'),
@@ -76,8 +81,20 @@ get_template_part('templateArt/content', $slug);
         } else {
             fullscreenBtn.innerText = 'fullscreen'
         }
+    }
 
+    fullscreenBtn.addEventListener('click', goFull);
+
+    window.addEventListener('touchstart', e => {
+        if(begin){
+          e.target.click();
+        }
     })
+
+
+
+
+
 </script>
 <?php
 get_footer();

@@ -100,6 +100,45 @@
             <?php endforeach; ?>
 
             <?php foreach($data as $row): ?>
+                <?php if($row['now_showing'] === 'peek') :?>
+
+
+                    <div class="theme element <?php echo $row['theme_id'] ?>">
+                        <div>
+                            <h1>A SNEAKY PEEK INTO NEXT WEEK</h1>
+                            <h2>THEME: <?php echo $row['theme_name'] ?></h2> 
+                        </div>
+                    </div>
+
+                    <?php 
+                        $artists = $row['artist'];
+                        foreach($artists as $artist) :
+                    ?>
+                        <div class="element artist <?php echo $row['theme_id'] ?>">
+                            <div class="row">
+                                <div class="d-none d-md-block col-md-6">
+                                <?php 
+                                    $image = $artist['artwork_poster'];
+                                    if( !empty( $image ) ): ?>
+                                        <a href="<?php echo get_permalink( $artist['artist_link']->ID ) ?>">
+                                            <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+                                        </a>
+                                    <?php endif; ?>
+                                </div>
+                                <div class="col-md-6 text-left">
+                                    <h1><?php echo $artist['artist_name'] ?></h1>
+                                    <h2><?php echo $artist['title_of_work'] ?></h2>
+                                    <div class="text-justify"><p><?php echo $artist['teaser'] ?></p></div>
+                                    <a href="<?php echo $artist['artist_link']['url']?>" class="btn btn-dark hvr-grow-shadow">VIEW</a>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+
+                <?php endif; ?>
+            <?php endforeach; ?>
+
+            <?php foreach($data as $row): ?>
                 <?php if($row['now_showing'] === 'archived') :?>
 
 

@@ -513,7 +513,7 @@ h1.small.bold {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1000000;
+  z-index: 1000000000;
 }
 #artwork-buttons #set-one {
   position: fixed;
