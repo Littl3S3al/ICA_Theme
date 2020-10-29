@@ -30,11 +30,17 @@ get_header();
 		<div class="col-12 text-center">
 			<?php the_content(); ?>
         </div>
-        <div class="col-12 text-center mb-5">
-            <iframe class="ICA-video" src="<?php the_permalink(258) ?>" frameborder="0"></iframe>
+        <div class="col-12 text-center mb-5" style="height: 300px">
+            <div id="twitch-embed"></div>
         </div>
+        <div class="col-12 text-center my-5 launch-btn">
+            <a class="btn btn-launch btn-lg btn-danger" href="https://icaonline.net/home/">Vist site! Now open</a>
+        </div>
+        <di class="col-12">
+            <?php comments_template()?>
+        </di>
         <div class="col-12 text-center">
-            <h2>The website will officially open in...</h2>
+            <h2>The ICA fellowship will officially open in...</h2>
             <?php echo do_shortcode('[hurrytimer id="245"]') ?>
         </div>
 	</div>
@@ -42,16 +48,35 @@ get_header();
 
 
 <script>
-    const launchDate = new Date(2020, 9, 24, 19, 15, 0);
+    const launchDate = new Date(2020, 9, 24, 17, 51, 0);
+    const launchBtnSpace = document.querySelector('.launch-btn');
+    const launchBtn = document.querySelector('.btn-launch');
     
 
-    setInterval(() => {
+    const waiting = setInterval(() => {
+        console.log('check')
         const now = new Date();
         if(launchDate.getTime() <= now.getTime()){
-            window.location.replace('<?php the_permalink(240) ?>');
+            launchBtnSpace.style.height = '50px';
+            launchBtn.classList.add('bounce-btn');
         }
     }, 1000);
 
+</script>
+
+<script src="https://player.twitch.tv/js/embed/v1.js"></script>
+
+<!-- Create a Twitch.Player object. This will render within the placeholder div -->
+<script type="text/javascript">
+    var options = {
+        width: '100%',
+        height: '300px',
+        channel: "icadotuct123",
+        video: "twich-embed",
+        // only needed if your site is also embedded on embed.example.com and othersite.example.com 
+        parent: ["icaonline.net"]
+    };
+  new Twitch.Player("twitch-embed", options);
 </script>
 
 <?php

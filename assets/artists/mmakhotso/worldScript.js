@@ -76,6 +76,7 @@ import * as THREE from 'https://threejsfundamentals.org/threejs/resources/threej
     //
 
     window.addEventListener( 'resize', onWindowResize, false );
+    window.addEventListener("orientationchange", onWindowResize, false);
 
 			
 

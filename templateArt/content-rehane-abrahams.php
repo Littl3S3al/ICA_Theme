@@ -31,6 +31,9 @@
     </div>
 </div>
 
+<div class="d-none">
+    <audio id="overall-audio" src="<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/rehane_abrahams/assets/overall_audio.mp3" preload loop></audio>
+</div>
 <div class="error">
     <div class="row">
         <div class="col-12 col-md-6offset-md-6 text-center">
@@ -111,7 +114,7 @@
                     <div class="col-6 h-100 d-flex justify-content-center align-items-center">
                         <div class="text-block">
                             <h1>Guided visualisation</h1>
-                            <audio src="<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/rehane_abrahams/assets/woff_2/Rehane_03_3.mp3" controls preload></audio>
+                            <audio id="extra-audio" src="<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/rehane_abrahams/assets/woff_2/Rehane_03_3.mp3" controls preload></audio>
                         </div>
                     </div>
                     <div class="col-6">
@@ -189,14 +192,14 @@
         </div>
         <div class="layers row">
             <div class="col-12">
-                <iframe style="width: 100vw; height: 100vh" src="https://player.vimeo.com/video/469865085" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
+                <iframe id="video1" style="width: 100vw; height: 60vh" src="https://player.vimeo.com/video/469850697" frameborder="0" allow="fullscreen" allowfullscreen></iframe>
             </div>
         </div>
         <div class="layers row">
             <div class="col-12">
                 <div class="row">
                     <div class="col-4">
-                        <img src="<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/rehane_abrahams/assets/woff_3/layer_4_1.jpg"  class="img-full img-opaque">
+                        <img src="<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/rehane_abrahams/assets/woff_3/layer_4_1.JPG"  class="img-full img-opaque">
                     </div>
                     <div class="col-4">
                         <img src="<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/rehane_abrahams/assets/woff_3/layer_4_2.JPG" class="img-full img-opaque">
@@ -318,7 +321,7 @@
         </div>
         <div class="layers row">
             <div class="col-12">
-                <iframe style="width: 100vw; height: 100vh" src="https://player.vimeo.com/video/469850697"frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                <iframe id="video2" style="width: 100vw; height: 60vh" src="https://player.vimeo.com/video/469865085"frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
             </div>
         </div>
 
@@ -440,6 +443,8 @@
     </div>
   </div>
 </div>
+
+<script src="https://player.vimeo.com/api/player.js"></script>
 
 <!-- three.js script -->
 <script src="<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/rehane_abrahams/script.js"></script>

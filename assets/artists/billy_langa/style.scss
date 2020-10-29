@@ -10,7 +10,6 @@ body{
 }
 
 #overlay{
-    background: black;
     width: 100vw;
     height: 100vh;
     color: white;
@@ -27,7 +26,7 @@ body{
 #three-js-container{
     z-index: -1;
     display: none;
-    background: black;
+    background: #ad241f;
 
     #vignett{
         background-image: radial-gradient(circle, rgba(0,0,0,0) 49%, rgba(0,0,0,1) 100%);
@@ -70,16 +69,18 @@ body{
     left: 0;
     width: 100%;
     height: 100%;
-    background: black;
+    background: #ad241f;
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: opacity 4s ease;
   }
   #loading .progress {
     margin: 1.5em;
     border: 1px solid white;
     width: 50vw;
-    background: black;
+    background: #ad241f;
   }
   #loading .progressbar {
     margin: 2px;
@@ -108,12 +109,19 @@ body{
     .video{
         width: 100%;
         height: 100%;
+        z-index: 100;
     }
 
     #btn-close{
         position: fixed;
         top: 10px;
         right: 60px;
+        z-index: 200
+    }
+    .wait{
+        position: fixed;
+        z-index: 0;
+        color: black;
     }
 }
 

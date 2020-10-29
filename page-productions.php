@@ -28,7 +28,7 @@
     
 
         foreach($data as $row): ?>
-            <?php if($row['now_showing'] === 'now' || $row['now_showing'] === 'archived'): ?>
+            <?php if($row['now_showing'] === 'now' || $row['now_showing'] === 'archived' || $row['now_showing'] === 'peek') : ?>
                     <?php 
                         if($row['now_showing'] === 'now'){
                             $active = true;

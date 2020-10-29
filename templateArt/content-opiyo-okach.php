@@ -1,6 +1,23 @@
 <link rel="stylesheet" href="<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/opiyo_okach/style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+
+<?php 
+function isMobileDevice() { 
+    return preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo 
+|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i" 
+, $_SERVER["HTTP_USER_AGENT"]); 
+} 
+if(isMobileDevice()){ 
+    populateMobile();
+} 
+else { 
+    populate();
+} 
+?> 
+
+
+<?php  function populate() { ?>
 <div id="overlay" class="container-fluid" style="background: url('<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/opiyo_okach/assets/background.jpg') center center no-repeat, black; bacground-size: cover;">
       <div class="row">
           <div class="col-12 col-md-6 offset-md-3 d-flex align-items-center justify-content-center">
@@ -40,16 +57,16 @@
                         <div class="card-header" id="headingOne">
                         <h5 class="mb-0">
                             <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            24/10/2020 - 19h00 <i class="fas fa-caret-down"></i>
+                            24/10/2020 - 19h15 <i class="fas fa-caret-down"></i>
                             </button>
                         </h5>
                         </div>
 
-                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#mainNav">
+                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#mainNav">
                         <div class="card-body">
                             <ul>
                                 <li><?php echo do_shortcode('[hurrytimer id="341"]') ?></li>
-                                <li><button id="performance1" class="btn btn-link btn-link-view">view performance I</button></li>
+                                <li><button id="performance1" data-target="i" class="btn btn-link btn-link-view">view performance I</button></li>
                             </ul>
                         </div>
                         </div>
@@ -68,7 +85,7 @@
                         <div class="card-body">
                             <ul>
                                 <li><?php echo do_shortcode('[hurrytimer id="342"]') ?></li>
-                                <li><button id="performance2" class="btn btn-link btn-link-view">view performance II</button></li>
+                                <li><button id="performance2" data-target="ii" class="btn btn-link btn-link-view">view performance II</button></li>
                             </ul>
                         </div>
                         </div>
@@ -86,7 +103,7 @@
                         <div class="card-body">
                             <ul>
                                 <li><?php echo do_shortcode('[hurrytimer id="343"]') ?></li>
-                                <li><button id="performance3" class="btn btn-link btn-link-view">view performance III</button></li>
+                                <li><button id="performance3" data-target="iii" class="btn btn-link btn-link-view">view performance III</button></li>
                             </ul>
                         </div>
                         </div>
@@ -107,7 +124,7 @@
                         <div class="card-body">
                             <ul>
                                 <li><?php echo do_shortcode('[hurrytimer id="344"]') ?></li>
-                                <li><button id="performance4" class="btn btn-link btn-link-view">view performance IV</button></li>
+                                <li><button id="performance4" data-target="iv" class="btn btn-link btn-link-view">view performance IV</button></li>
                             </ul>
                         </div>
                         </div>
@@ -126,7 +143,7 @@
                         <div class="card-body">
                             <ul>
                                 <li><?php echo do_shortcode('[hurrytimer id="345"]') ?></li>
-                                <li><button id="performance4" class="btn btn-link btn-link-view">view performance V</button></li>
+                                <li><button id="performance4" data-target="v" class="btn btn-link btn-link-view">view performance V</button></li>
                             </ul>
                         </div>
                         </div>
@@ -167,7 +184,7 @@
 
                         <!-- add 2 column layout -->
 
-                        <div class="col-12 col-md-6">
+                        <div class="col-12 col-md-6 col-placeholder">
                             <?php $data1 = $row['column_1'];
                                 foreach( $data1 as $col1) :
                             ?>
@@ -176,13 +193,9 @@
                                         <img class="w-100" src="<?php echo esc_url($col1['image']['url']); ?>" alt="<?php echo esc_attr($col1['image']['alt']); ?>" />
                                     <?php  endif ?>
 
-                                    <!-- add oembed if present -->
-                                    <?php if ( !empty ($col1['video'])) : ?>
-                                        
-                                        <iframe class="responsive-iframe" src="https://www.youtube.com/embed/<?php echo $col1['video'] ?>"></iframe>
-
-
-
+                                    <!-- add vimeo oembed if present -->
+                                    <?php if ( !empty ($col1['youtube_archive'])) : ?>
+                                        <iframe width="100%" height="300" src="https://www.youtube.com/embed/<?php echo $col1['youtube_archive'] ?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                     <?php  endif ?>
 
                                     <!-- add editor if present -->
@@ -226,11 +239,12 @@
                 '<?php echo $row['label'] ?>',
             <?php endforeach; ?>
         ];
-        const words = [
+        let words = [
             <?php $data = get_field('content', 354); foreach($data as $row) : ?>
                 '<?php echo $row['word'] ?>',
             <?php endforeach; ?>
         ];
+        
     </script>
 
     <script src="https://threejsfundamentals.org/threejs/../3rdparty/split.min.js"></script>
@@ -257,8 +271,175 @@
 
     </script>
 
+    <script>
+        const launchDateii = new Date(2020, 9, 27, 19, 0, 0);
+        const launchDateiii = new Date(2020, 9, 30, 15, 0, 0);
+        const launchDateiv = new Date(2020, 10, 3, 16, 0, 0);
+        const launchDatev = new Date(2020, 10, 11, 15, 0, 0);
+        
+
+        const dateChecker = (id, date) => {
+                let launchi = setInterval(() => {
+                const now = new Date();
+                if(date.getTime() <= now.getTime()){
+                    let placeholder = document.querySelector(`#${id} .col-placeholder`);
+                    placeholder.innerHTML = '<div id="twitch-embed"></div>';
+                    placeholder.style.height = '300px';
+                    var options = {
+                            width: '100%',
+                            height: '300px',
+                            channel: "gaaraprojects",
+                            video: "twich-embed",
+                            // only needed if your site is also embedded on embed.example.com and othersite.example.com 
+                            parent: ["icaonline.net"]
+                        };
+                    new Twitch.Player("twitch-embed", options);
+                    clearInterval(launchi);
+                }
+            }, 1000);
+        }
+
+        dateChecker('iii', launchDateiii);
+        dateChecker('iv', launchDateiv);
+        dateChecker('v', launchDatev);
+
+    </script>
+
+    <script src="https://player.twitch.tv/js/embed/v1.js"></script>
+
+    <!-- Create a Twitch.Player object. This will render within the placeholder div -->
+    <script type="text/javascript">
+        
+    </script>
+
 
     <script src="<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/opiyo_okach/script.js" type="module"></script>
 
 
-    
+    <?php } ?>
+
+
+
+<!-- populate mobile -->
+
+    <?php function populateMobile() { ?>
+
+        <div class="container">
+            <div class="row py-5 px-3">
+                <div class="col-12 opening">
+                    <div>
+                        <h1>instanceNow - People Time Place</h1>
+                        <p>
+                        The 'instanceNow - People Time Place' is an interactive network performance. The performers interact, exchange data, create movement and audio-visual content in real-time from remote locations using online network and social media.  
+                        </p>
+                    </div>
+                </div>
+                <?php for ($x = 0; $x <= 4; $x++)  : ?>
+                        
+                    
+                    
+
+    <?php if( have_rows('content', 354)) : 
+        $row = get_field('content', 354)[$x]; ?>
+
+
+        <div class="col-12 section" id="<?php echo $row['label'] ?>">
+
+            
+
+
+
+                
+                    <?php if($row['layout'] === '1_column') : ?>
+                        <!-- add one column layout -->
+                        <div class="col-12">
+                            <?php echo $row['column_2'] ?>
+                        </div>
+                        
+
+                    <?php elseif ($row['layout'] === '2_column') : ?>
+
+                        <!-- add 2 column layout -->
+
+                        <div class="col-12 col-placeholder">
+                            <?php $data1 = $row['column_1'];
+                                foreach( $data1 as $col1) :
+                            ?>
+                                    <!-- add image if present -->
+                                    <?php if ( !empty ($col1['image'])) : ?>
+                                        <img class="w-100" src="<?php echo esc_url($col1['image']['url']); ?>" alt="<?php echo esc_attr($col1['image']['alt']); ?>" />
+                                    <?php  endif ?>
+
+                                    <!-- add vimeo oembed if present -->
+                                    <?php if ( !empty ($col1['youtube_archive'])) : ?>
+                                        <iframe width="100%" height="300" src="https://www.youtube.com/embed/<?php echo $col1['youtube_archive'] ?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    <?php  endif ?>
+
+                                    <!-- add editor if present -->
+                                    <?php if ( !empty ($col1['editor'])) : ?>
+                                        <?php echo $col_1['editor'] ?>
+                                    <?php  endif ?>
+
+                            <?php endforeach ?>
+                        </div>
+
+                        <div class="col-12">
+                            <?php echo $row['column_2'] ?>
+                        </div>
+                        
+
+                    <?php endif; ?>
+                </div>
+        
+
+    <?php endif; ?>
+
+
+
+
+
+
+
+                <?php endfor ?>
+            </div>
+        </div>
+
+
+
+        <script src="https://player.twitch.tv/js/embed/v1.js"></script>
+        
+        <script>
+        const launchDateii = new Date(2020, 9, 27, 19, 0, 0);
+        const launchDateiii = new Date(2020, 9, 30, 15, 0, 0);
+        const launchDateiv = new Date(2020, 10, 3, 16, 0, 0);
+        const launchDatev = new Date(2020, 10, 11, 15, 0, 0);
+        
+
+        const dateChecker = (id, date) => {
+                let launchi = setInterval(() => {
+                const now = new Date();
+                if(date.getTime() <= now.getTime()){
+                    let placeholder = document.querySelector(`#${id} .col-placeholder`);
+                    placeholder.innerHTML = '<div id="twitch-embed"></div>';
+                    placeholder.style.height = '300px';
+                    var options = {
+                            width: '100%',
+                            height: '300px',
+                            channel: "gaaraprojects",
+                            video: "twich-embed",
+                            // only needed if your site is also embedded on embed.example.com and othersite.example.com 
+                            parent: ["icaonline.net"]
+                        };
+                    new Twitch.Player("twitch-embed", options);
+                    clearInterval(launchi);
+                }
+            }, 1000);
+        }
+
+        dateChecker('iii', launchDateiii);
+        dateChecker('iv', launchDateiv);
+        dateChecker('v', launchDatev);
+
+    </script>
+
+    <?php } ?>

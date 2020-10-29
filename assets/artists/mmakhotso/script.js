@@ -635,6 +635,7 @@ const main  = () => {
             time *= 0.0001;
 
             window.addEventListener('resize', onWindowResize, false)
+            window.addEventListener("orientationchange", onWindowResize, false);
 
            
 

@@ -30,12 +30,21 @@
     </div>
 
 
-    <div id="overlay" class="container-fluid">
+    <div id="overlay" class="container-fluid" style="background: url('<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/scott-eric-williams/assets/background.jpg') center bottom no-repeat; background-size: cover;">
         <div class="row">
-            <div class="col-12 text-center">
-                <h1>Scott Eric Williams</h1>
-                <p>You are on a journey. Look around by draging your mouse, click on objects to see what happens</p>
-                <button id="btn-begin" class="btn btn-primary">start</button>
+            <div class="col-12 col-md-6 text-center">
+                <h1>kɑɹˈtɑɡɹəfi</h1>
+                <p>
+                    kɑɹˈtɑɡɹəfi merges dance, drone photography, digital art and wheatpaste. Viewers may engage with the performance imagery online or visit the geolocations marked on the map to engage with our expressions of reconfigured connectedness as a laboratory for mapping new ways of being.
+                </p>
+                <p>
+                    kɑɹˈtɑɡɹəfi responds to our collective fear of nearness, by keeping at a safe distance. In it's invitation to engage online as well as the tangible world it considers how audiences are taxed in the attention economy
+                </p>
+                <h2>Instructions:</h2>
+                <p>
+                    Navigate through the abstract space to explore and find clickable objects. Navigate through zooming/scrolling. Move around by clicking and dragging with your mouse/screen.
+                </p>
+                <button id="btn-begin" class="btn btn-light">begin</button>
             </div>
         </div>
     </div>

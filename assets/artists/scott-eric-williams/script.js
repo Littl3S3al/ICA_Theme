@@ -139,8 +139,13 @@ const main  = () => {
 
     // add photo planes
     var photos = [];
-    for ( var i = 0; i < 10; i ++){
-        var texture = textureLoader.load(`${assets}/${i+1}.png`);
+    for ( var i = 0; i < 11; i ++){
+        var texture;
+        if(i <= 5){
+            texture = textureLoader.load(`${assets}/${i+1}.png`);
+        } else {
+            var texture = textureLoader.load(`${assets}/${i+1}.jpg`);
+        }
         var photoMaterial = new THREE.MeshPhongMaterial({color: 'rgb(255, 255, 255)', map: texture});
         photoMaterial.transparent = true;
         photoMaterial.alphaTest = 0.1;
@@ -269,6 +274,7 @@ const main  = () => {
         currentObject = undefined;
         let itemSelected = false;
         window.addEventListener('resize', onWindowResize, false);
+        window.addEventListener("orientationchange", onWindowResize, false);
 
 
         // logo.lookAt(camera.position);
@@ -280,7 +286,7 @@ const main  = () => {
             logo.material.opacity -= 0.01;
         }
 
-        photos[5].position.y = 10 + 2 * Math.sin(time*3);
+        photos[4].position.y = 10 + 2 * Math.sin(time*3);
 
         cloudLogo.position.y = 30 + 10 * Math.sin(time)/2;
         cloudLogo.position.x = -100 + 10 * Math.cos(time * 1.1);
@@ -405,15 +411,15 @@ window.addEventListener('mouseup', () => {
 const checkForClick = () => {
     if(!orbiting && !viewing && currentObject){
         openWindow();
-        if(currentObject === 6){
+        if(currentObject === 5){
             populateMap();
-        } else if(currentObject === 1 || currentObject === 3 || currentObject === 5 || currentObject === 8 || currentObject === 9) {
+        } else if(currentObject  < 5 || currentObject === 6) {
             content.innerHTML = `
-                <img src="${assets}popups/${currentObject}.GIF">
+                <img src="${assets}popups/${currentObject}.jpg">
             `;
         } else {
             content.innerHTML = `
-            <img src="${assets}popups/${currentObject}.jpg">
+            <img src="${assets}popups/${currentObject}.GIF">
         `; 
         }
         
@@ -445,7 +451,8 @@ function populateMap(){
     content.innerHTML = `
     <div class="map-info">
         <h1>Engage with the interactive map</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe laboriosam, molestiae odit explicabo consequatur est eius vero blanditiis quae qui soluta exercitationem error a repudiandae reiciendis quod eos. Odit, rerum.</p>
+        <p>Click through to the map locating the physical wheatpaste artworks of these dance images.</p>
+        <p>We invite you to visit the wheatpaste sites and add images of your visit to the map by following the instructions on the map items.</p>
         <a href="https://www.google.com/maps/d/u/0/edit?mid=185hgHvJrVUHgfIali6XiCCPpILO3pvKf&ll=-33.92912587918429%2C18.451622350000026&z=17" target="_blank" class="btn btn-danger">Explore the map</a>
     </div>    
     `;

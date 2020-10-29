@@ -37,6 +37,7 @@ let currentObject;
 // three.js functions
 const main  = () => {
     const canvas = document.querySelector('#c');
+    begin = true;
 
     // renderer
     const renderer = new THREE.WebGLRenderer({canvas, antialias: true});
@@ -284,6 +285,7 @@ const main  = () => {
             environment.rotation.y = time/4;
 
             window.addEventListener('resize', onWindowResize, false)
+            window.addEventListener("orientationchange", onWindowResize, false);
 
             // move bubles randomly
             for ( var i = 0; i < objects.length; i ++ ) {

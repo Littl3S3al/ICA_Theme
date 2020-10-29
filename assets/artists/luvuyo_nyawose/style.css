@@ -1,0 +1,151 @@
+html {
+  max-width: 100vw;
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", sans-serif;
+}
+
+#overlay {
+  width: 100vw;
+  height: 100vh;
+  color: white;
+  z-index: 1000;
+  position: fixed;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+#overlay h1 {
+  text-transform: none;
+}
+#overlay .btn-danger {
+  background: #a14627;
+  border: #a14627 1px solid;
+}
+#overlay .btn-danger:hover, #overlay .btn-danger:active, #overlay .btn-danger:focus {
+  background: #ca5831;
+}
+#overlay .row {
+  display: flex;
+  justify-content: center;
+  height: 90vh;
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+  overflow-y: scroll;
+}
+
+#three-js-container {
+  z-index: -1;
+  display: none;
+}
+#three-js-container canvas {
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  background-size: 200px 200px;
+}
+#three-js-container .buttons {
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+}
+#three-js-container .buttons img {
+  width: 50px;
+  height: auto;
+  margin: 10px;
+  transition: scale 0.5s;
+}
+#three-js-container .buttons img:hover {
+  transform: scale(1.1);
+}
+
+#loading {
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #a14627;
+}
+
+#loading .progress {
+  margin: 1.5em;
+  border: 1px solid white;
+  width: 50vw;
+  background: #a14627;
+}
+
+#loading .progressbar {
+  margin: 2px;
+  background: white;
+  height: 1em;
+  transform-origin: top left;
+  width: 0%;
+}
+
+.popup-window {
+  background: rgba(0, 0, 0, 0.8);
+  width: 100vw;
+  height: 100vh;
+  z-index: -10;
+  position: fixed;
+  top: 0;
+  left: 0;
+  color: white;
+  opacity: 0;
+  transition: opacity 1s ease;
+  display: flex;
+  justify-content: center;
+  overflow-y: scroll;
+}
+@media only screen and (min-width: 768px) {
+  .popup-window {
+    align-items: center;
+  }
+}
+.popup-window h1.small {
+  font-weight: 600;
+  font-size: 1em;
+}
+.popup-window .btn-close {
+  position: absolute;
+  top: 10px;
+  right: 50px;
+}
+@media only screen and (min-width: 768px) {
+  .popup-window .col-md-5 {
+    max-height: 70vh;
+    overflow-y: scroll;
+    /* width */
+    /* Track */
+    /* Handle */
+    /* Handle on hover */
+  }
+  .popup-window .col-md-5::-webkit-scrollbar {
+    width: 1px;
+  }
+  .popup-window .col-md-5::-webkit-scrollbar-track {
+    background: black;
+  }
+  .popup-window .col-md-5::-webkit-scrollbar-thumb {
+    background: white;
+  }
+  .popup-window .col-md-5::-webkit-scrollbar-thumb:hover {
+    background: red;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

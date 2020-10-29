@@ -4,10 +4,16 @@ const viewport = document.querySelector('.viewport');
 const divs = viewport.querySelectorAll('.layers');
 const forwards = document.querySelector('#forwards');
 const backwards = document.querySelector('#backwards');
+const audio = document.querySelector('#overall-audio');
+
+const extraAudio = document.querySelector('#extra-audio');
+const video1 = document.querySelector('#video1');
+const video2 = document.querySelector('#video2');
 
 beginBtn.addEventListener('click', () => {
     overlay.style.opacity = 0;
     viewport.style.display  = 'block';
+    audio.play();
     setTimeout(() => {
         overlay.style.display = 'none';
     }, 1000);
@@ -15,11 +21,47 @@ beginBtn.addEventListener('click', () => {
 beginBtn.addEventListener('touchend', () => {
     overlay.style.opacity = 0;
     viewport.style.display  = 'block';
+    audio.play();
     setTimeout(() => {
         overlay.style.display = 'none';
     }, 1000);
 })
 
+
+// pause play overall audio with sound guided visualisation
+extraAudio.onplay = function(){
+  audio.volume = 0;
+}
+extraAudio.onpause = function(){
+  audio.volume = 1;
+}
+extraAudio.onended = function(){
+  audio.volume = 1;
+}
+
+// pause play audio with video files
+player1 = new Vimeo.Player(video1);
+player2 = new Vimeo.Player(video2);
+
+player1.on('play', () => {
+  audio.volume = 0
+})
+player1.on('pause', () => {
+  audio.volume = 1;
+})
+player1.on('ended', () => {
+  audio.volume = 1;
+});
+
+player2.on('play', () => {
+  audio.volume = 0
+})
+player2.on('pause', () => {
+  audio.volume = 1;
+})
+player2.on('ended', () => {
+  audio.volume = 1;
+})
 
 let layers = [];
 

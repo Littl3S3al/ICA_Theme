@@ -4,115 +4,17 @@ iframe{
     background: black;
 }
 
-#comments{
-    a{
-        color: #c01e2d;
-    }
-}
-.comments-title{
-    text-transform: uppercase;
-    font-weight: 400;
-}
-#reply-title{
-    text-transform: uppercase;
-}
-.post, .widget, #comments{
-    position: relative;
-    border: solid 1px #ddd;
-    margin: 0 0 40px;
-    background: white;
-    border-radius: 4px;
-}
-.post header, .post .post-excerpt, .post .post-body, #comments, #comments-wrap{
- padding: 20px;
-}
-.post, .widget, #comments{
-    position: relative;
-    border: solid 1px #ddd;
-    margin: 0 0 40px;
-    background: white;
-    border-radius: 4px;
-}
-.post header, .post .post-excerpt, .post .post-body, #comments, #comments-wrap{
- padding: 20px;
-}
-.post-comments-badge{
-    height: 70px;
-    width: 70px;
-    position: absolute;
-    top: 25px;
-    right: 20px;
-    border: none;
-    border-radius: 100%;
-    background: #79b044;
-    text-align: center;
-    display: table;
-}
-.post-comments-badge a {
-    display: table-cell;
-    vertical-align: middle;
+.container{
+    background-color: (0, 0, 0, 1)!important;
     color: white;
-    font-size: 20px;
-    line-height: 20px;
+    
 }
-.post-comments-badge i.fa{
-    display: block;
-    font-size: 15px;
-    padding: 0;
-    margin-bottom: 4px;
+
+
+hr{
+    border-bottom: 1px solid white;
 }
-.post-comments-badge:hover{
-    background: green;
-}
-#comments h3{
-    text-align: center;
-}
-#comments h4{
-    font-size: 1.3em;
-}
-#comments ol{
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-#comments ol li{
-    background: rgba(0, 0, 0, 0.02);
-    padding: 10px 20px;
-    margin: 10px;
-    border-radius: 4px;
-    border: solid 1px rgba(0, 0 , 0, 0.03)
-}
-#comments ol li ol.children{
-    padding: 0;
-    list-style: none;
-    font-size: 0.96em;
-}
-#leave-comment{
-    margin: 40px 0 0;
-    padding: 20px 0 0;
-    border-top: solid 1px #eee;
-}
-/* a few wordpress specific styles */
-#comments footer{
-    background: none!important;
-    color: inherit!important;
-}
-#comments footer a {
-    color: inherit!important;
-}
-#comments .comment-metadata{
-    margin: 10px 0 0!important;
-}
-.form-submit{
-    text-align: center;
-}
-textarea#comment{
-    background: #EBEDEF;
-}
-input[type = submit]#submit{
-    background: #c01e2d;
-    border: none;
-    border-radius: 50px;
-    color: white;
-    padding: 5px 10px;
+
+.wezile-comments{
+    color: black;
 }

@@ -94,3 +94,39 @@
         font-weight: 900;
     }
 }
+
+
+.btn-launch{
+    opacity: 0;
+}
+.launch-btn{
+    height: 0;
+    transition: height 0.5s;
+}
+.bounce-btn{
+    animation: bounceIn 1s forwards ease-in-out, bounce 10s infinite ease-in-out;
+}
+
+@keyframes bounceIn {
+    0% { 
+       opacity: 0; 
+       transform: scale(.3);
+    }
+    50% { 
+       opacity: 1;
+       transform: scale(1.05);
+    }
+    70% {
+       transform: scale(.9);
+    }
+    100% {
+        opacity: 1;
+       transform: scale(1);
+    }
+ }
+
+ @keyframes bounce {
+    0%, 2%, 4%, 6%, 100% {transform: translateY(0);} 
+    3% {transform: translateY(-30px);} 
+    5% {transform: translateY(-15px);} 
+ }

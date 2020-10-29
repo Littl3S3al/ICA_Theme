@@ -6,6 +6,9 @@ import {OrbitControls} from 'https://threejsfundamentals.org/threejs/resources/t
 import { Sky } from 'https://threejsfundamentals.org/threejs/resources/threejs/r119/examples/jsm/objects/Sky.js';
 
 
+let iframe = document.querySelector('iframe');
+let player = new Vimeo.Player(iframe);
+
 // variables for event listeners
 const beginBtn = document.querySelector('#btn-begin');
 const overlay = document.querySelector('#overlay');
@@ -37,9 +40,18 @@ let playwomb = true;
 let rotX = 0;
 let iterations = 0;
 const videos = [
-    `<iframe src="https://player.vimeo.com/video/59065393?autoplay=1&title=0&byline=0&portrait=0" style="width:100%;height:100%;" frameborder="0" allow="autoplay, fullscreen"></iframe><script src="https://player.vimeo.com/api/player.js"></script>`,
-    `<iframe src="https://player.vimeo.com/video/32782838?autoplay=1&title=0&byline=0&portrait=0" style="width:100%;height:100%;" frameborder="0" allow="autoplay, fullscreen"></iframe><script src="https://player.vimeo.com/api/player.js"></script>`, 
-    `<iframe src="https://player.vimeo.com/video/59065393?autoplay=1&title=0&byline=0&portrait=0" style="width:100%;height:100%;" frameborder="0" allow="autoplay, fullscreen"></iframe><script src="https://player.vimeo.com/api/player.js"></script>`
+    // birth 1
+    `<iframe src="https://player.vimeo.com/video/470932456?autoplay=1&title=0&byline=0&portrait=0" style="width:100%;height:100%;" frameborder="0" allow="autoplay, fullscreen"></iframe>`,
+    // the body in space
+    `<iframe src="https://player.vimeo.com/video/470932638?autoplay=1&title=0&byline=0&portrait=0" style="width:100%;height:100%;" frameborder="0" allow="autoplay, fullscreen"></iframe>`,
+    //  birth 2
+    `<iframe src="https://player.vimeo.com/video/470932538?autoplay=1&title=0&byline=0&portrait=0" style="width:100%;height:100%;" frameborder="0" allow="autoplay, fullscreen"></iframe>`,
+    // the man
+    `<iframe src="https://player.vimeo.com/video/470932735?autoplay=1&title=0&byline=0&portrait=0" style="width:100%;height:100%;" frameborder="0" allow="autoplay, fullscreen"></iframe>`,
+    // birth 3
+    `<iframe src="https://player.vimeo.com/video/470932588?autoplay=1&title=0&byline=0&portrait=0" style="width:100%;height:100%;" frameborder="0" allow="autoplay, fullscreen"></iframe>`,
+    // to remember
+    `<iframe src="https://player.vimeo.com/video/470932840?autoplay=1&title=0&byline=0&portrait=0" style="width:100%;height:100%;" frameborder="0" allow="autoplay, fullscreen"></iframe>`
 ];
 
 let cameraTurn = false;
@@ -48,6 +60,8 @@ var windowHalfX = window.innerWidth / 2;
 var windowHalfY = window.innerHeight / 2;
 
 let repositionBubble = false;
+
+
 
 
 
@@ -121,7 +135,10 @@ const main  = () => {
 
     loadManager.onLoad = () => {
         if(firstLoad){
-            loadingElem.style.display = 'none';
+            loadingElem.classList.add('hide');
+            setTimeout(() => {
+                loadingElem.style.display = 'none';
+            }, 5000)
             scene.background = textureCube; 
             scene.add( womb );
 
@@ -253,7 +270,8 @@ const main  = () => {
         }
 
         
-        window.addEventListener('resize', onWindowResize, false)
+        window.addEventListener('resize', onWindowResize, false);
+        window.addEventListener("orientationchange", onWindowResize, false);
        
         renderer.render(scene, camera);
         renderer.setPixelRatio( window.devicePixelRatio ); 
@@ -279,6 +297,11 @@ beginBtn.addEventListener('click', () => {
 });
 
 closeBtn.addEventListener('click', () => {
+   closeWindow();
+});
+
+
+function closeWindow(){
     popupWindow.classList.add('hide');
     wombsound.play();
     mutesound(true);
@@ -296,7 +319,7 @@ closeBtn.addEventListener('click', () => {
         popupWindow.style.display = 'none';
     }, 1000);
     videoPlaceholder.innerHTML = '';
-})
+}
 
 
 
@@ -304,10 +327,16 @@ function playVideo() {
     popupWindow.style.display = 'flex';
     popupWindow.style.opacity = 1;
     videoPlaceholder.innerHTML = videos[iterations];
+    iframe = document.querySelector('iframe');
+    player = new Vimeo.Player(iframe);
     iterations ++;
     setTimeout(() => {
         closeBtn.classList.remove('d-none');
-    }, 5000)
+    }, 5000);
+
+    player.on('ended', () => {
+        closeWindow();
+    });
 
 }
 
@@ -439,7 +468,7 @@ const beginPhase2  = () => {
             {
                 textureWidth: 512,
                 textureHeight: 512,
-                waterNormals: new THREE.TextureLoader().load( 'waternormals.jpg', function ( texture ) {
+                waterNormals: new THREE.TextureLoader().load( assets + '/waternormals.jpg', function ( texture ) {
 
                     texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
 
@@ -531,7 +560,13 @@ const beginPhase2  = () => {
             time *= 0.00000005;
             
 
-            if(camera.position.y < 100){
+            if(camera.position.y < 30){
+                camera.position.y += time*2/3;
+                camera.position.x += time*4/3;
+                camera.rotation.y += time/1.1/3;
+                requestAnimationFrame(render); 
+                renderer.render(scene, camera);
+            } else if (camera.position.y < 100){
                 camera.position.y += time*2;
                 camera.position.x += time*4;
                 camera.rotation.y += time/1.1;

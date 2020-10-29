@@ -54,10 +54,14 @@
                         <audio id="opening-audio" class="d-none" src="<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/natalie-ann-paneng/assets/sounds/introduction.mp3" controls></audio>
                         <div class="openingLines">
                             <h1>Something Like CoStar</h1>
-                            <p>Use your mouse to navigate the screen, click on objects to interact</p>
+                            <p>Use your mouse to navigate the screen, click on objects to interact. Use headphones to get the whole sonic experience. </p>
                         </div>
                         <div id="btn-begin">
                             <img id="beachball" src="<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/natalie-ann-paneng/assets/beachball.png" alt="beachball">
+                        </div>
+                        <div>
+                            <h2>CREDITS:</h2>
+                            <p>Wings of Encouragement Poem by Alicia Mersy</p>
                         </div>
                     </div>
                 </div>

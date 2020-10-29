@@ -113,6 +113,47 @@
   font-weight: 900;
 }
 
+.btn-launch {
+  opacity: 0;
+}
+
+.launch-btn {
+  height: 0;
+  transition: height 0.5s;
+}
+
+.bounce-btn {
+  animation: bounceIn 1s forwards ease-in-out, bounce 10s infinite ease-in-out;
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes bounce {
+  0%, 2%, 4%, 6%, 100% {
+    transform: translateY(0);
+  }
+  3% {
+    transform: translateY(-30px);
+  }
+  5% {
+    transform: translateY(-15px);
+  }
+}
 :root {
   --scenePerspective: 1;
   --scenePerspectiveOriginX: 50;
@@ -319,7 +360,15 @@ button.btn-enter {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  border: 2px solid black;
+  border: 4px solid #c01e2d;
+  transition: background scale box-shadow 0.5s;
+  transform: scale(1);
+}
+button.btn-enter:hover {
+  background: #e24856;
+  box-shadow: 0 5px 15px rgba(145, 92, 182, 0.4);
+  transform: scale(1.05);
+  color: white;
 }
 
 @keyframes zoomOut {
@@ -434,6 +483,17 @@ button.btn-enter {
   background: linear-gradient(0deg, rgba(216, 27, 96, 0.8) 0%, rgba(156, 39, 176, 0.8) 100%);
 }
 
+.instructions {
+  position: fixed;
+  bottom: 0;
+}
+.instructions .content {
+  background: #c01e2d;
+  color: white;
+  border-radius: 10px 10px 0 0;
+  padding: 10px;
+}
+
 #all-productions {
   display: grid;
   grid-template-columns: auto;
@@ -541,9 +601,6 @@ h1.small.bold {
   border: 1px solid #c01e2d !important;
 }
 
-#comments {
-  color: white;
-}
 #comments a {
   color: #c01e2d;
 }
@@ -557,14 +614,23 @@ h1.small.bold {
   text-transform: uppercase;
 }
 
+.post, .widget, #comments {
+  position: relative;
+  border: solid 1px #ddd;
+  margin: 0 0 40px;
+  background: white;
+  border-radius: 4px;
+}
+
 .post header, .post .post-excerpt, .post .post-body, #comments, #comments-wrap {
   padding: 20px;
 }
 
 .post, .widget, #comments {
   position: relative;
+  border: solid 1px #ddd;
   margin: 0 0 40px;
-  background: rgba(0, 0, 0, 0.6);
+  background: white;
   border-radius: 4px;
 }
 
@@ -580,7 +646,7 @@ h1.small.bold {
   right: 20px;
   border: none;
   border-radius: 100%;
-  background: rgba(0, 0, 0, 0);
+  background: #79b044;
   text-align: center;
   display: table;
 }
@@ -601,7 +667,7 @@ h1.small.bold {
 }
 
 .post-comments-badge:hover {
-  background: rgba(0, 0, 0, 0);
+  background: green;
 }
 
 #comments h3 {
@@ -723,6 +789,12 @@ iframe.ICA-video {
   width: 100%;
   height: 70vh;
   background: rgba(0, 0, 0, 0);
+  border: none;
+}
+
+#twitch-embed {
+  width: 100%;
+  height: 200px;
 }
 
 .ytp-cued-thumbnail-overlay {

@@ -1,35 +1,35 @@
 import * as THREE from 'https://threejsfundamentals.org/threejs/resources/threejs/r119/build/three.module.js';
 import {OrbitControls} from 'https://threejsfundamentals.org/threejs/resources/threejs/r119/examples/jsm/controls/OrbitControls.js';
-// import {GUI} from 'https://threejsfundamentals.org/threejs/../3rdparty/dat.gui.module.js';
-import { PositionalAudioHelper } from 'https://threejsfundamentals.org/threejs/resources/threejs/r119/examples/jsm/helpers/PositionalAudioHelper.js';
 
 
-
-
-const makeInstance = (scene, geometry, x, y, z) => {
+const makeInstance = (scene, width) => {
 	const material = new THREE.MeshBasicMaterial({color: 0x00ff00});
-
+  const geometry = new THREE.BoxGeometry(width, 20, 1);
 	const cube = new THREE.Mesh(geometry, material);
 	scene.add(cube);
-
-	cube.position.set(  x, y, z );
 	cube.material.transparent = true ;
 	cube.material.opacity = 0;
 
 	return cube;
 };
 
-// add a box
-const boxWidth = 30;
-const boxHeight = 20;
-const boxDepth = 1;
-const geometryBox = new THREE.BoxGeometry(boxWidth, boxHeight, boxDepth);
+
 
 // interaction variables
 let orbiting = false;
 let viewing = true;
+let menu = false;
+
+// click on items
+let currentObject = '';
 
 function main() {
+
+  if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+    words = words.slice(0, 5);
+  }
+  
+  
 
   begin = true;
 
@@ -37,17 +37,8 @@ function main() {
   const canvas = document.querySelector('#c');
   const renderer = new THREE.WebGLRenderer({canvas, antialias: true});
 
-  const fov = 45;
-  const aspect = 2;  // the canvas default
-  const near = 0.1;
-  const far = 100;
   const camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 1, 10000 );
   camera.position.set( 0, 25, 650 );
-
-  // update camera
-  function updateCamera() {
-    camera.updateProjectionMatrix();
-  }
 
   // orbit controls
   const controls = new OrbitControls(camera, canvas);
@@ -91,7 +82,7 @@ const listener = new THREE.AudioListener();
       scene.add( mesh1 );
 
       const sound1 = new THREE.PositionalAudio( listener );
-      audioLoader.load( assets + 'KMRU_Variations_Berlin.mp3', function ( buffer ) {
+      audioLoader.load( assets + 'KMRU_Variations_Berlin.m4a', function ( buffer ) {
 
         sound1.setLoop()
         sound1.setBuffer( buffer );
@@ -109,7 +100,7 @@ const listener = new THREE.AudioListener();
       scene.add( mesh2 );
 
       const sound2 = new THREE.PositionalAudio( listener );
-      audioLoader.load( assets + 'KMRU_Variations_Installation_Nairobi.mp3', function ( buffer ) {
+      audioLoader.load( assets + 'KMRU_Variations_Nairobi.m4a', function ( buffer ) {
 
         sound2.setLoop()
         sound2.setBuffer( buffer );
@@ -126,7 +117,7 @@ const listener = new THREE.AudioListener();
       scene.add( mesh3 );
 
       const sound3 = new THREE.PositionalAudio( listener );
-      audioLoader.load( assets + 'KMRU_Variations_Petersburg.mp3', function ( buffer ) {
+      audioLoader.load( assets + 'KMRU_Variations_St_Petersburg.m4a', function ( buffer ) {
 
         sound3.setLoop();
         sound3.setBuffer( buffer );
@@ -136,11 +127,7 @@ const listener = new THREE.AudioListener();
       } );
       mesh3.add( sound3 );  
 
-      // analysers
 
-      const analyser1 = new THREE.AudioAnalyser( sound1, 32 );
-      const analyser2 = new THREE.AudioAnalyser( sound2, 32 );
-      const analyser3 = new THREE.AudioAnalyser( sound3, 32 );
 
 // particle related variables
   let particlesData = [];
@@ -150,10 +137,20 @@ const listener = new THREE.AudioListener();
   let particlePositions;
   let linesMesh;
 
-  const maxParticleCount = 200;
-  const particleCount = 100;
-  const r = 500;
-  const rHalf = r / 2;
+  let maxParticleCount = 170;
+  let particleCount = 170;
+  let r = 600;
+  let rHalf = r / 2;
+  
+
+  if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+    maxParticleCount = 50;
+    particleCount = 50;
+    r = 300;
+    rHalf = r / 2;
+  }
+
+  
 
   var particleXYZ = [];
   let cubes = []; 
@@ -164,20 +161,15 @@ const listener = new THREE.AudioListener();
       minDistance: 150,
       limitConnections: false,
       maxConnections: 20,
-      particleCount: 500
+      particleCount: 200
   };
 
 
   // add cubes to be repositioned later
 const addInteractives = () => {
-  cubes = [
-			makeInstance(scene, geometryBox, 0, 0, 0), 
-			makeInstance(scene, geometryBox, 0, 0, 0), 
-			makeInstance(scene, geometryBox, 0, 0, 0), 
-			makeInstance(scene, geometryBox, 0, 0, 0), 
-			makeInstance(scene, geometryBox, 0, 0, 0), 
-			makeInstance(scene, geometryBox, 0, 0, 0)
-    ];
+  words.forEach(word => {
+    cubes.push(makeInstance(scene, word.length*5))
+  })
     
     // add text
 		const objects = [];
@@ -197,8 +189,8 @@ const addInteractives = () => {
 			function loadFont(url) {
 			return new Promise((resolve, reject) => {
 				loader.load(url, resolve, undefined, reject);
-			});
-			}
+			  });
+      }
 
 		async function doit(text, parent) {
 		const font = await loadFont('https://threejsfundamentals.org/threejs/resources/threejs/fonts/helvetiker_regular.typeface.json');   
@@ -264,7 +256,7 @@ addInteractives();
 
 			// add it to the geometry
 			particlesData.push( {
-				velocity: new THREE.Vector3( - 1 + Math.random() * 2, - 1 + Math.random() * 1, - 1 + Math.random() * 2 ),
+				velocity: new THREE.Vector3( - 1 + Math.random() * 3, - 1 + Math.random() * 2, - 1 + Math.random() * 3 ),
 				numConnections: 0
 			} );
 		}
@@ -317,8 +309,8 @@ addInteractives();
             particlePositions[ i * 3 + 2 ] += particleData.velocity.z/7;
 
             // calculate where cubes are going to be
-            let remainder = Math.floor(particleCount / 6);
-            if(i % remainder === 0 && k < 6){
+            let remainder = Math.floor(particleCount / words.length);
+            if(i % remainder === 0 && k < words.length){
             	particleXYZ[k] = {
             		x: particlePositions[ i * 3 ], 
             		y: particlePositions[ i * 3 + 1 ], 
@@ -509,6 +501,8 @@ class PickHelper {
   }
 
   function render() {
+    let itemSelected = false;
+    currentObject = '';
 
     if (resizeRendererToDisplaySize(renderer)) {
       const canvas = renderer.domElement;
@@ -517,28 +511,45 @@ class PickHelper {
     }
 
     renderer.render(scene, camera);
-
     requestAnimationFrame(render);
     requestAnimationFrame(animateBuffer);
     pickHelper.pick(pickPosition, scene, camera);
 
     
-    if(pickHelper.pickedObject && !orbiting  && !viewing){
-					popup(pickHelper.pickedObject.name);
-					sound1.setVolume(0);
+    if(pickHelper.pickedObject && !orbiting  && !viewing && !menu){
+					if(pickHelper.pickedObject.name.length > 0){
+            popup(pickHelper.pickedObject.name);
+          }
+        }
+        if(viewing){
+          sound1.setVolume(0);
 					sound2.setVolume(0);
 					sound3.setVolume(0);
-				}
-				if(!viewing){
-					sound1.setVolume(1);
-					sound2.setVolume(1);
-					sound3.setVolume(1);
-				}
+        }
+      if(!viewing){
+        sound1.setVolume(1);
+        sound2.setVolume(1);
+        sound3.setVolume(1);
+      }
+      if(pickHelper.pickedObject && pickHelper.pickedObject.name !== undefined && pickHelper.pickedObject.name.length > 0 && !menu){
+        itemSelected = true;
+        blueColor(pickHelper.pickedObject.children[0], true);
+      }
+
+      
+
 
 
   }
 
   requestAnimationFrame(render);
+}
+
+const blueColor = (object, blue) => {
+  let r = object.material.color.r;
+  if( r < 1 && !blue){ r += 0.005 };
+  if( r > 0.5 && blue){ r -= 0.005 };
+  object.material.color.setRGB(r, 1, 1);
 }
 
 const beginBtn = document.querySelector('#startButton');
@@ -547,7 +558,9 @@ const overlay = document.querySelector('#overlay');
 
 beginBtn.addEventListener('click', () => {
   overlay.style.display = 'none';
-  main();
+  
+    main();
+  
   setTimeout(() => {
 		viewing = false;
 	}, 1000);
@@ -555,22 +568,7 @@ beginBtn.addEventListener('click', () => {
 
 
 const popUpWindow = document.querySelectorAll('.popupWindow');
-const closeBtns = document.querySelectorAll('.close');
 
-const links = document.querySelectorAll('.btn-link-view');
-
-// links.forEach((link, i) => {
-//   link.addEventListener('click', () => {
-//     popup(i);
-//   })
-// })
-const popup = (name) => {
-  if(name.length > 0){
-    let thisWindow = document.querySelector(`#${name}`);
-		thisWindow.classList.add('appear');	
-		viewing = true;
-	}
-}
 
 window.addEventListener('click', e => {
   if(e.target.classList.contains('exit')){
@@ -587,4 +585,22 @@ window.addEventListener('click', e => {
     });
     viewing = false;
   }
-})
+  if(e.target.classList.contains('btn-link-view')){
+    let target = e.target.dataset.target;
+    popup(target);
+  }
+});
+
+function popup(name) {
+    let thisWindow = document.querySelector(`#${name}`);
+		thisWindow.classList.add('appear');	
+		viewing = true;
+}
+
+const controls = document.querySelector('#controls')
+controls.addEventListener('mouseover', () => {
+  menu = true;
+});
+controls.addEventListener('mouseout', () => {
+  menu = false;
+});

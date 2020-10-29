@@ -56,6 +56,12 @@ iframe.ICA-video{
     width: 100%;
     height: 70vh;
     background: rgba(0, 0, 0, 0);
+    border: none;
+}
+
+#twitch-embed{
+    width: 100%;
+    height: 200px;
 }
 
 
@@ -200,4 +206,5 @@ footer{
 .sfm-rollback .sfm-color1 .sfm-theme-none .sfm-label-visible .sfm-label-metro  {
     max-height: 100vh;
 }
+
 
