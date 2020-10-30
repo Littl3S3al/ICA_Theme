@@ -19,13 +19,54 @@ get_header();
 </div>
 
 
-<div class="padded-side row title py-5">
+
+
+<div class="padded-side row mt-1  py-5 text-justify">
+        <div class="w-100 mt-5">
+            <h1>ARTIST STATMENT</h1> 
+        </div> 
+        <p>
+            <?php the_field('statement') ?>
+        </p>                 
+</div>
+
+<div class="padded-side row mt-5 bg-gray py-5 text-justify">
+    <div class="col-12">
+        <h1 class="small bold">THIS WORK IS BASED ON...</h1>
+        <h1><?php the_field('work_title') ?></h1>
+        <p><?php the_field('work_description') ?></p>
+    </div>
+    
+
+    <?php if(get_field('gallery')) : ?>
+        <div class="col-12 pt-5">
+            <hr>
+        </div>
+        <div class="col-12 text-center" id="gallery">
+            <h2>Photo Gallery</h2>
+            <p><?php echo do_shortcode(get_field('gallery')) ?></p>
+        </div>
+    <?php endif; ?>
+    
+
+    <?php if(get_field('video_gallery')) : ?>
+        <div class="col-12 pt-5">
+            <hr>
+        </div>
+        <div class="col-12 text-center">
+            <h2>Video Gallery</h2>
+            <?php echo do_shortcode(get_field('video_gallery')) ?>
+        </div>
+    <?php endif; ?>
+</div>
+
+<div class="padded-side row title">
   
     <?php if(have_rows('artists')) :
         $data = get_field('artists'); 
         foreach($data as $row) : ?>
             
-            <div class="row my-5 text-justify">
+            <div class="row text-justify mb-5">
 
             <?php $headshot = false; ?>
                 <?php if($row['headshot']) : ?>
@@ -69,41 +110,7 @@ get_header();
 
 </div>
 
-<div class="padded-side row mt-1 bg-gray py-5 text-justify">
-        <div class="w-100">
-            <h1>ARTIST STATMENT</h1> 
-        </div> 
-        <p>
-            <?php the_field('statement') ?>
-        </p>                 
-</div>
 
-<div class="padded-side row mt-1 py-5 text-justify">
-    <div class="col-12">
-        <h1 class="small bold">THIS WORK IS BASED ON...</h1>
-        <h1><?php the_field('work_title') ?></h1>
-        <p><?php the_field('work_description') ?></p>
-    </div>
-    
-
-    <?php if(get_field('gallery')) : ?>
-        <div class="col-12 pt-5">
-            <hr>
-        </div>
-        <div class="col-12 text-center" id="gallery">
-            <h2>Photo Gallery</h2>
-            <p><?php echo do_shortcode(get_field('gallery')) ?></p>
-        </div>
-    <?php endif; ?>
-    
-
-    <?php if(get_field('video_gallery')) : ?>
-        <div class="col-12 text-center">
-            <h2>Video Gallery</h2>
-            <?php echo do_shortcode(get_field('video_gallery')) ?>
-        </div>
-    <?php endif; ?>
-</div>
 
 <div class="back-buttons">
     <button class="btn btn-dark" id="back">back</button>

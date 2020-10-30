@@ -30,7 +30,7 @@
         foreach($data as $row): ?>
             <?php if($row['now_showing'] === 'now' || $row['now_showing'] === 'archived' || $row['now_showing'] === 'peek') : ?>
                     <?php 
-                        if($row['now_showing'] === 'now'){
+                        if($row['now_showing'] === 'now' || $row['now_showing'] === 'peek'){
                             $active = true;
                         } else {
                             $active = false;

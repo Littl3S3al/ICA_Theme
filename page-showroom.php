@@ -150,7 +150,7 @@
 
                     <div class="theme element <?php echo $row['theme_id'] ?>">
                         <div>
-                            <h1>NOW SHOWING</h1>
+                            <h1>PREVIOUSLY ON</h1>
                             <h2>THEME: <?php echo $row['theme_name'] ?></h2> 
                         </div>
                     </div>

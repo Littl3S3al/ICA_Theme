@@ -1,6 +1,5 @@
 import * as THREE from 'https://threejsfundamentals.org/threejs/resources/threejs/r119/build/three.module.js';
-import {OrbitControls} from 'https://threejsfundamentals.org/threejs/resources/threejs/r119/examples/jsm/controls/OrbitControls.js';
-
+import { MapControls } from 'https://threejsfundamentals.org/threejs/resources/threejs/r119/examples/jsm/controls/OrbitControls.js';
 
 
 // variables for event listeners
@@ -44,7 +43,7 @@ const main  = () => {
 
     // camera
     const camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 1, 15000 );
-    camera.position.set( 0, 2, 2 );
+    camera.position.set( 0, 8, 8 );
 
 
     // scene
@@ -53,15 +52,19 @@ const main  = () => {
     scene.fog = new THREE.FogExp2( 0xffffff, 0.01 );
 
     // controls
-    const controls = new OrbitControls( camera, renderer.domElement );
- //controls.addEventListener( 'change', render ); // call this only in static scenes (i.e., if there is no animation loop)
+    const controls = new MapControls( camera, renderer.domElement );
+
+				//controls.addEventListener( 'change', render ); // call this only in static scenes (i.e., if there is no animation loop)
+
     controls.enableDamping = true; // an animation loop is required when either damping or auto-rotation are enabled
     controls.dampingFactor = 0.05;
+
     controls.screenSpacePanning = false;
-    controls.minDistance = 10;
-    controls.maxDistance = 100;
+
+    controls.minDistance = 50;
+    controls.maxDistance = 500;
+
     controls.maxPolarAngle = Math.PI / 2;
-    controls.target.set(0, 15, 0);
 
     
 
@@ -266,7 +269,7 @@ const main  = () => {
     }
     
 
-
+    var look = true;
 
     const render = (time) => {
         time *= 0.0005;
@@ -302,6 +305,10 @@ const main  = () => {
         }
 
         photos.forEach(photo => {
+            if(look){
+                photo.lookAt(camera.position.x, 20, camera.position.z);
+                look = false;
+            }
             if(!itemSelected){
                 redColor(photo, false);
             }

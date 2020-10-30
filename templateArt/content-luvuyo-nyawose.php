@@ -208,7 +208,7 @@
         </button>
         <div class="row">
             <div class="col-12 col-md-7">
-                <iframe src="https://player.vimeo.com/video/472214574" width="100%" height="480" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                <iframe src="https://player.vimeo.com/video/472213198" width="100%" height="480" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
             </div>
             <div class="col-12 col-md-5">
                 <h1 class="small">Karl Ndebele</h1>
@@ -456,28 +456,30 @@
 
     <div id="overlay" class="container-fluid" style="background: url('<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/luvuyo_nyawose/assets/background.jpg') center center no-repeat; background-size: cover;">
         <div class="row">
-            <div class="col-10 col-md-6 text-center">
+            <div class="col-10 col-md-6 text-justify">
                 <h1>also also also and and and </h1>
                 <br><br>
                 <p>
-                The exhibition is centred on process and experimentation, is presented as a circle through which the viewer navigates. This speaks semiotically to the cyclical articulations of past in present. The past that is not past, it reappears always, to rupture the present (Sharpe, 2016). 
+                An exhibition examining the dynamics of home, anatopism, surveillance, land & power through a chorus of audiovisual cartographies. also also also and and and is centred on process and experimentation, presented as a circle through which the viewer navigates. This speaks semiotically to the cyclical articulations of past in present. The past that is not past, it reappears always, to rupture the present (Sharpe, 2016). Each of the presented artists dismember and re-member personal histories through video assemblage and documentary, making the past and future present. 
                 </p>
                 <h1 class="small">
                 Viewer discretion is advised - trigger warning: GBV, sexual violence, strong language, and violence. 
                 </h1>
-                <h2 class="mt-5">CREDITS:</h2>
+                <h2 class="mt-5">Credits:</h2>
                 <p>Curated by Luvuyo Equiano Nyawose with Nkule Mabaso and Thembakazi Matroshe. 
                     <br><br>
 
                     Participating artists: Nolan Oswald Dennis, Cheriese Dilrajh, Quaid ‘Queezy’ Heneke, Jueun Kim,  Khanyisile Mahwayi, Cow Mash, Duduza Mchunu, Ketu Meso, Mitchell Gilbert Messina,Nkhensani Mkhari, Katleho Mosehle, Karl Ndebele, Dani Kyengo O’Neil | Būjin, Kgotlelo Bradley Sekiti,Inga Somdayla and Lesole Tauatswala. 
                 </p>
                 
-                <button id="btn-begin" class="btn btn-danger m-5">Begin Your Journey</button>
+                <div class="text-center">
+                    <button id="btn-begin" class="btn btn-danger m-5">Begin Your Journey</button>
 
+                </div>
                 
 
-                <h2>INSTRUCTIONS:</h2>
-                <p>Click on the the portals to open new works. Click on the arrow buttons to move position. Audio is required.</p>
+                <h2>Instructions:</h2>
+                <p>Click on the the walls to open new works. Click on the arrow buttons to move position. Audio is required.</p>
             </div>
         </div>
     </div>
