@@ -479,7 +479,7 @@
                 
 
                 <h2>Instructions:</h2>
-                <p>Click on the the walls to open new works. Click on the arrow buttons to move position. Audio is required.</p>
+                <p>Click on the walls to open new works. Click on the arrow buttons to move position. Audio is required.</p>
             </div>
         </div>
     </div>

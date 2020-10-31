@@ -1,0 +1,53 @@
+.page {
+  background: white;
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+}
+
+h1 {
+  text-transform: none;
+  font-weight: 400;
+}
+
+.row {
+  width: 100%;
+}
+
+.flex-full {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ios-icon {
+  width: 80px;
+  margin: 10px 10px;
+  transition: transform 0.5s;
+}
+.ios-icon:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.page-dark {
+  background: #242423;
+  color: white;
+  padding: 20px;
+  font-weight: 200;
+}
+
+.small-icon {
+  height: 1em;
+}
+
+.red-text {
+  color: #E74C3C;
+}
+
+.back-icon:hover {
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=style.css.map */

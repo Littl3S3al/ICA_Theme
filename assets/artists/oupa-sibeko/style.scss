@@ -1,0 +1,92 @@
+.row {
+    width: 100%;
+}
+
+iframe.intro-video{
+    position: absolute;
+    @media only screen and (orientation: landscape) {
+        height: 120vh;
+        width: 100vw;
+    }
+    @media only screen and (orientation: portrait) {
+        height: 100vh;
+        width: 500vw;
+        
+    }
+}
+.iframe-holder{
+    display: flex;
+    justify-content: center;
+}
+
+.fullscreen{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+.flex-center{
+    display: flex;
+    justify-content: center;
+    @media only screen and (min-width: 768px) {
+        align-items: center;
+    }
+}
+
+.intro{
+    color: white;
+    h1{
+        text-transform: none;
+        font-size: 3.5em;
+    }
+    h2{
+        font-size: 1em;
+        text-transform: uppercase;
+    }
+    .btn-light{
+        border: 4px solid white;
+        font-size: 2.5em;
+        padding: 6px 20px;
+        border-radius: 0;
+        background: rgba(255, 255, 255, 0.3);
+        color: white;
+    }
+}
+
+
+.light-black{
+    max-height: 90vh;
+    margin-top: 5vh;
+    overflow-y: scroll;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    p{
+        font-size: 1.5em
+    }
+    img{
+        height: 30px;
+    }
+
+    .btn-light{
+        border: 4px solid white;
+        font-size: 1em;
+        padding: 6px 20px;
+        border-radius: 0;
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+    }
+
+}
+
+
+.smooth-fade{
+    transition: opacity 1s;
+    opacity: 1;
+}
+
+.fade-out{
+    transition: opacity 1s;
+    opacity: 0;
+}

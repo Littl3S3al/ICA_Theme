@@ -36,6 +36,7 @@ const next = document.querySelector('#next');
 const previous = document.querySelector('#previous');
 
 let newLocation = 45 + 22.5;
+let current = 1;
 
 let mousedown;
 
@@ -214,6 +215,8 @@ const main  = () => {
 
         walls.push({center, wall, side});
 
+        // console.log(walls)
+
     }
 
     let lenses = [];
@@ -308,32 +311,41 @@ const main  = () => {
       this.pickedObjectSavedColor = 0;
       this.point = new THREE.Vector3(0, 0, 0);
     }
+    
     pick(normalizedPosition, scene, camera) {
       // restore the color if there is a picked object
       if (this.pickedObject) {
         this.pickedObject = null;
         this.point = new THREE.Vector3(0, 0, 0);
       }
+      if(clientX < window.innerWidth/2) {
+        var intersectedObjects = this.raycaster.intersectObjects(walls[current-1].wall.children)
+        if(intersectedObjects.length){
+            this.pickedObject = intersectedObjects[0].object;
+            this.point = intersectedObjects[0].point;
+        }
+      } else {
+        var intersectedObjects;
+
+        if(current === 8){
+            intersectedObjects  = this.raycaster.intersectObjects(walls[0].wall.children)
+        } else {
+            intersectedObjects  = this.raycaster.intersectObjects(walls[current].wall.children)
+        }
+        if(intersectedObjects.length){
+            this.pickedObject = intersectedObjects[0].object;
+            this.point = intersectedObjects[0].point;
+        }
+      }
+      
 
       // cast a ray through the frustum
       this.raycaster.setFromCamera(normalizedPosition, camera);
       // get the list of objects the ray intersected
       
       
-      walls.forEach(wall => {
-        var intersectedObjects = this.raycaster.intersectObjects(wall.wall.children);
-        if (intersectedObjects.length && this.pickedObject === null && clientX < window.innerWidth/2) {
-          // pick the first object. It's the closest one
-          this.pickedObject = intersectedObjects[0].object;
-          this.point = intersectedObjects[0].point;
-        //   console.log(this.point);
-        //   console.log(this.pickedObject)
-        } else if (intersectedObjects.length && clientX > window.innerWidth/2){
-            this.pickedObject = intersectedObjects[0].object;
-            this.point = intersectedObjects[0].point;
-        }
-      })
-    }
+      
+    } 
   }
 
   const pickPosition = {x: 0, y: 0};
@@ -414,7 +426,7 @@ const main  = () => {
                     picked = true
                 }
                 position = pickHelper.point;
-                // console.log(currentObject.name)
+                console.log(currentObject.name)
             }
         }
 
@@ -437,7 +449,7 @@ const main  = () => {
             if(camera.position.x > 0){camera.position.x -= 0.05}
             if(camera.position.x < 0){camera.position.x += 0.05}
 
-            if(camera.position.z < 110){camera.position.z += 0.2}
+            if(camera.position.z < 110){camera.position.z += 0.5}
 
             if(camera.position.y > 30){camera.position.y -= 0.05}
             if(camera.position.y < 30){camera.position.y += 0.05}
@@ -451,10 +463,10 @@ const main  = () => {
         if(column.rotation.y !== location){
             column.rotation.y += ((location - column.rotation.y) )/100
             if(!controlsReset && Math.sqrt(Math.pow(location - column.rotation.y, 2)) > 22.5 * Math.PI/180){
-                camera.position.z += 0.4
-            } else if (camera.position.z >= 110) {
-                camera.position.z -= 0.4
-            }
+                camera.position.z += 0.5
+            } else if (!controlsReset && camera.position.z >= 111) {
+                camera.position.z -= 0.5
+            } 
         }
         if(!mousedown){
             controls.enabled = false;
@@ -609,9 +621,21 @@ function openWindow(target){
 
 next.addEventListener('click', () => {
     newLocation -= 45;
+    if(current < 8){
+        current ++
+    } else {
+        current = 1
+    }
+    console.log(current)
 });
 previous.addEventListener('click', () => {
     newLocation += 45;
+    if(current > 1){
+        current --
+    } else {
+        current = 8
+    }
+    console.log(current)
 })
 
 document.addEventListener('mousemove', e => {
