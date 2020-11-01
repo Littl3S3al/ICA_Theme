@@ -1,7 +1,17 @@
-.page {
-  background: white;
-  min-height: 100vh;
-  font-family: "Poppins", sans-serif;
+.red-text {
+  color: #E74C3C;
+}
+
+.blue-text {
+  color: #3498DB;
+}
+
+.yellow-text {
+  color: #F4D03F;
+}
+
+.medium {
+  font-weight: 300;
 }
 
 h1 {
@@ -11,6 +21,12 @@ h1 {
 
 .row {
   width: 100%;
+}
+
+.page {
+  background: white;
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
 }
 
 .flex-full {
@@ -32,22 +48,112 @@ h1 {
 }
 
 .page-dark {
-  background: #242423;
+  background: #1D1D1D;
   color: white;
-  padding: 20px;
+  padding: 80px 20px;
   font-weight: 200;
+}
+
+.header {
+  padding: 70px 20px 20px 20px;
+  margin: 0;
+  background: #1D1D1D;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
 }
 
 .small-icon {
   height: 1em;
 }
 
-.red-text {
-  color: #E74C3C;
+.s-m-icon {
+  height: 1.8em;
+}
+
+.medium-icon {
+  height: 2.5em;
+  transition: transform 0.5s;
+}
+.medium-icon:hover {
+  transform: scale(1.1);
 }
 
 .back-icon:hover {
   cursor: pointer;
+}
+
+.footer {
+  padding: 20px 20px 70px 20px;
+  background: #1D1D1D;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.content {
+  padding-bottom: 150px;
+}
+
+#photo-gallery {
+  width: 100vw;
+  padding: 0;
+}
+
+#envira-gallery-wrap-545 {
+  width: 100vw;
+}
+
+#envirabox-outer {
+  background: none !important;
+}
+
+#envirabox-title {
+  display: none !important;
+}
+
+#envirabox-content {
+  border-color: black !important;
+  border-radius: 0;
+  box-shadow: none !important;
+}
+
+#video-gallery {
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+}
+
+hr.hr-yellow {
+  border-top: 1px solid #F4D03F;
+}
+
+.note-section {
+  padding-top: 5px;
+  padding-left: 20px;
+  border-radius: 10px;
+  transition: all 0.5s;
+}
+.note-section:hover {
+  transform: scale(1.001);
+  background: #2a2a2a;
+  cursor: pointer;
+}
+.note-section h2 {
+  font-size: 1em;
+  line-height: 0.5em;
+  font-weight: 400;
+}
+.note-section p {
+  font-size: 0.8em;
+  line-height: 0.1em;
+  font-weight: 300;
+  color: #515A5A;
+}
+.note-section hr {
+  border-bottom: 1px solid #505050;
 }
 
 /*# sourceMappingURL=style.css.map */

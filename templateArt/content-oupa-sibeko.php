@@ -2,7 +2,7 @@
 
 
 <div class="container-fluid fullscreen iframe-holder flex-center">
-    <iframe class="intro-video" src="https://player.vimeo.com/video/152486496?autoplay=1&loop=1&autopause=0&muted=1" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    <iframe class="intro-video" src="https://player.vimeo.com/video/474092881?autoplay=1&loop=1&autopause=0&muted=1" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 </div>
 
 <div class="intro container-fluid fullscreen flex-center smooth-fade">

@@ -1,19 +1,43 @@
-$black : #242423;
+$black : #1D1D1D;
 $red : #E74C3C;
+$blue :  #3498DB;
+$grey : #515A5A;
+$yellow : #F4D03F;
 
 
-.page{
-    background: white;
-    min-height: 100vh;
-    font-family: 'Poppins', sans-serif;
+
+// text styles
+.red-text{
+    color: $red;
+}
+.blue-text{
+    color: $blue;
+}
+.yellow-text{
+    color: $yellow;
+}
+.medium{
+    font-weight: 300;
 }
 
 h1{
     text-transform: none;
     font-weight: 400;
 }
+
+
+// general
+
 .row{
     width: 100%;
+}
+
+
+// home page
+.page{
+    background: white;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
 }
 
 .flex-full{
@@ -34,22 +58,127 @@ h1{
     }
 }
 
+
+
+
+
+// pages general styles
+
 .page-dark{
     background: $black;
     color: white;
-    padding: 20px;
+    padding: 80px 20px;
     font-weight: 200;
 }
+
+
+
+
+
+// header and footer
+.header{
+    padding: 70px 20px 20px 20px;
+    margin: 0;
+    background: $black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
 .small-icon{
     height: 1em;
 }
-
-.red-text{
-    color: #E74C3C;
+.s-m-icon{
+    height: 1.8em;
+}
+.medium-icon{
+    height: 2.5em;
+    transition: transform 0.5s;
+    &:hover{
+        transform: scale(1.1);
+    }
 }
 
 .back-icon{
     &:hover{
         cursor: pointer;
+    }
+}
+
+.footer{
+    padding: 20px 20px 70px 20px;
+    background: $black;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+}
+
+// page content
+.content{
+    padding-bottom: 150px;
+}
+
+
+// envira gallery
+#photo-gallery{
+    width: 100vw;
+    padding: 0;
+}
+#envira-gallery-wrap-545{
+    width: 100vw;
+}
+#envirabox-outer{
+    background: none!important;
+}
+#envirabox-title{
+    display: none!important;
+}
+#envirabox-content{
+    border-color: rgba(0, 0, 0, 1)!important;
+    border-radius: 0;
+    box-shadow: none!important;
+}
+
+
+// video gallery
+#video-gallery{
+    width: 100vw;
+    padding: 0;
+    margin: 0;
+}
+
+
+// notes
+
+hr.hr-yellow{
+    border-top: 1px solid $yellow;
+}
+
+
+.note-section{
+    padding-top: 5px;
+    padding-left: 20px;
+    border-radius: 10px;
+    transition: all 0.5s;
+    &:hover{
+        transform: scale(1.001);
+        background: lighten($black, 5%);
+        cursor: pointer;
+    }
+    h2{
+        font-size: 1em;
+        line-height: 0.5em;
+        font-weight: 400;
+    }
+    p{
+        font-size: 0.8em;
+        line-height: 0.1em;
+        font-weight: 300;
+        color: $grey
+    }
+    hr{
+        border-bottom: 1px solid lighten($black, 20%);
     }
 }

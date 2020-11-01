@@ -1,0 +1,81 @@
+
+
+$gold : #FFC300;
+
+@import 'range';
+
+
+.full-page{
+    font-family: 'Playfair Display', serif; 
+    h1{
+        text-transform: none;
+        font-size: 2em;
+    }
+}
+.row{
+    width: 100%;
+}
+.black-page{
+    background: black;
+    color: white;
+}
+.full-page{
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.fixed-bottom{
+    padding-bottom: 10px;
+}
+
+.flex-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#loading-images{
+    img{
+        width: 200px;
+    }
+}
+.d-none{
+    display: none!important;
+}
+
+#options{
+    z-index: 100;
+    color: white;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.5);
+    width: 100vw;
+    height: 100vh;
+    padding: 60px 20px;
+    top: 0;
+    left: 0;
+    button{
+        margin: 5px;
+    }
+}
+#optionOpen{
+    z-index: 100;
+    position: fixed;
+    top: 60px;
+    left: 20px;
+}
+.action{
+    opacity: 0;
+    transition: opacity 1s;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
