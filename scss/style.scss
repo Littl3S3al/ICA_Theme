@@ -207,4 +207,19 @@ footer{
     max-height: 100vh;
 }
 
+.videoLink{
+    &:hover{
+        cursor: pointer;
+    }
+    
+}
 
+.card.videoLink{
+    transition: all 0.5s;
+    &:hover{
+        h2{
+            font-weight: 400;
+        }
+        transform: scale(1.01);
+    }
+}

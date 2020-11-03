@@ -19,8 +19,8 @@ window.addEventListener('click', e => {
             container2.classList.add('d-none');
             container1.classList.add('d-none')
             iframe.src = 'https://player.vimeo.com/video/474103777?title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;';
-            iframe.style.height = '50vh';
-            iframe.style.width = '50vw';
+            iframe.style.height = '100vh';
+            iframe.style.width = '100vw';
         }, 1000);
 
     }

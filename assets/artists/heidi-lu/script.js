@@ -13,6 +13,25 @@ const page7 = document.querySelector('#page-7');
 // videos
 const introVideo = document.querySelector('#intro-video');
 
+// small videos
+const miniVid = document.querySelector('#videos');
+
+// video links
+const allVideos = [
+    // weight = 1;
+    [
+        '474551818' , '474551821', '474551834' , '474551865', '474551870', '474551898', '474551936', '474551964', '474551963'
+    ], 
+    // weight = 2
+    [ 
+        '474552364', '474552400', '474552401', '474552416', '474552442', '474552478', '474552492', '474552503', '474552511'
+    ], 
+    // weight = 3
+    [
+        '474552758', '474552772', '474552799', '474552803', '474552819', '474552857', '474552874', '474552876', '474552909'
+    ]
+]
+
 // other constants
 const range = document.querySelector('#range');
 const loadingScreen = document.querySelector('#loading-images');
@@ -21,7 +40,6 @@ const optionsMenu = document.querySelector('#options');
 const optionsBtn = document.querySelector('#optionOpen');
 
 // variables
-let weight;
 let fileLocation;
 let zindex = 10;
 let iterations = 0;
@@ -32,11 +50,13 @@ var player1 = new Vimeo.Player(introVideo);
 
 window.addEventListener('click', e => {
     // page one -> two
+
     if(e.target.id === 'btn-1'){
         page1.classList.add('d-none');
         page2.classList.remove('d-none');
         player1.play();
     }
+
     // page two -> three
     if(e.target.id === 'btn-2'){
         player1.pause();
@@ -59,6 +79,7 @@ window.addEventListener('click', e => {
         }
         page3.classList.add('d-none');
         page4.classList.remove('d-none');
+        images.innerHTML = '';
     }
     // page four -> five
     if(e.target.id === 'btn-4'){
@@ -89,11 +110,11 @@ window.addEventListener('click', e => {
         optionsMenu.classList.remove('d-none');
         optionsBtn.classList.add('d-none');
     }
-
-    // check if begin canvas
+    // check if begin canvas - should be 'enter-canvas'
     if(e.target.id === 'enter-canvas'){
         page6.classList.add('d-none');
         page7.classList.remove('d-none');
+        main()
     }
 
 })
@@ -137,6 +158,23 @@ function openImage (target) {
         <button class="btn btn-warning btn-sm" id="enter-canvas">
             Walk towards your freedom
         </button>
-        `
+        `;
     }
+
+    // play min video
+    
+    miniVid.classList.remove('d-none');
+    miniVid.innerHTML = `
+    <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/${allVideos[weight-1][target-1]}?title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+    `;
+    var iframe = miniVid.querySelector('iframe');
+    playerX = new Vimeo.Player(iframe);
+    playerX.play();
+
+    playerX.on('ended', () => {
+        console.log('ended')
+        miniVid.classList.add('d-none');
+      });
+    
 }
+

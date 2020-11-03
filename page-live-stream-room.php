@@ -19,15 +19,15 @@ get_header();
 
 
 <div class="container mb-5">
-	<div class="row text">
+	<div class="row text d-flex justify-content-center align-items-top">
         <?php $loop = new WP_Query( array('post_type' => 'public_forms', 'orderby' => 'post_id', 'order' => 'DSC'));?>
 
             <?php while( $loop ->have_posts()) : $loop->the_post(); ?>
 
-                <div class="mx-auto col-12 col-md-6 p-2">
-                    <div class="card">
+                <div class="col-12 col-md-6 p-2">
+                    <div class="card videoLink h-100" data-link="<?php the_permalink(the_ID()) ?>" data-title="<?php the_title(); ?>">
                         <div class="card-body videoLink text-center" data-link="<?php the_permalink(the_ID()) ?>" data-title="<?php the_title(); ?>">
-                            <h2><?php the_title() ?></h2>
+                            <h2 class="videoLink" data-link="<?php the_permalink(the_ID()) ?>" data-title="<?php the_title(); ?>"><?php the_title() ?></h2>
                             <img src="<?php the_post_thumbnail_url(); ?>" alt="" class="w-100 videoLink" data-link="<?php the_permalink(the_ID()) ?>" data-title="<?php the_title(); ?>">
                         </div>
                     </div>

@@ -932,4 +932,18 @@ footer hr {
   max-height: 100vh;
 }
 
+.videoLink:hover {
+  cursor: pointer;
+}
+
+.card.videoLink {
+  transition: all 0.5s;
+}
+.card.videoLink:hover {
+  transform: scale(1.01);
+}
+.card.videoLink:hover h2 {
+  font-weight: 400;
+}
+
 /*# sourceMappingURL=style.css.map */

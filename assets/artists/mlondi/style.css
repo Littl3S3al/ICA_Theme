@@ -126,6 +126,12 @@ h1 {
   margin: 0;
 }
 
+@media only screen and (orientation: landscape) {
+  .eavg-grid-component.jsx-1029918393 .eavg-grid-item {
+    width: 25%;
+  }
+}
+
 hr.hr-yellow {
   border-top: 1px solid #F4D03F;
 }
