@@ -299,8 +299,6 @@ else {
             }, 1000);
         }
 
-        dateChecker('iii', launchDateiii);
-        dateChecker('iv', launchDateiv);
         dateChecker('v', launchDatev);
 
     </script>
@@ -436,8 +434,7 @@ else {
             }, 1000);
         }
 
-        dateChecker('iii', launchDateiii);
-        dateChecker('iv', launchDateiv);
+
         dateChecker('v', launchDatev);
 
     </script>

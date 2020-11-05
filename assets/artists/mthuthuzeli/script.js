@@ -44,8 +44,10 @@ let glitchPass;
 
 
 function main() {
+
+ambient.play();
   const canvas = document.querySelector('#c');
-  const renderer = new THREE.WebGLRenderer({canvas});
+  const renderer = new THREE.WebGLRenderer({canvas, antialias: true});
   renderer.shadowMap.enable = true;
 
   const fov = 45;
@@ -158,13 +160,18 @@ scene.add(light);
     camera.lookAt(boxCenter.x, boxCenter.y, boxCenter.z);
   }
 
+ var children = [];
   {
     const gltfLoader = new GLTFLoader();
     gltfLoader.load( assets + 'shack.gltf', (gltf) => {
       const root = gltf.scene;
       scene.add(root);
 
-      console.log(root);
+      root.children.forEach(child => {
+          if(child.isMesh){
+              children.push(child)
+          }
+      })
 
       // compute the box that contains all the stuff
       // from root and below
@@ -183,6 +190,8 @@ scene.add(light);
     });
   }
 
+  console.log(children)
+
   function resizeRendererToDisplaySize(renderer) {
     const canvas = renderer.domElement;
     const width = canvas.clientWidth;
@@ -195,18 +204,50 @@ scene.add(light);
     return needResize;
   }
 
-  let then = 0;
+// raycasting
+class PickHelper {
+    constructor() {
+      this.raycaster = new THREE.Raycaster();
+      this.raycaster.far = 300;
+      this.pickedObject = null;
+      this.pickedObjectSavedColor = 0;
+    }
+    pick(normalizedPosition, scene, camera) {
+      // restore the color if there is a picked object
+      if (this.pickedObject) {
+        this.pickedObject = undefined;
+      }
 
-  function render(now) {
-    now *= 0.001;  // convert to seconds
-    const deltaTime = now - then;
-    then = now;
+      // cast a ray through the frustum
+      this.raycaster.setFromCamera(normalizedPosition, camera);
+      // get the list of objects the ray intersected
+      const intersectedObjects = this.raycaster.intersectObjects(children);
+      if (intersectedObjects.length) {
+        // pick the first object. It's the closest one
+        this.pickedObject = intersectedObjects[0].object;
+        if(this.pickedObject.name === "Plane001" || this.pickedObject.name === "Plane002"||  this.pickedObject.name === "Plane003" || this.pickedObject.name === "Plane004" && !orbiting && !viewing){
+            currentObject = this.pickedObject.name;
+        }
+        
+      }
+    }
+  }
 
-    if (resizeRendererToDisplaySize(renderer)) {
+  const pickPosition = {x: 0, y: 0};
+  const pickHelper = new PickHelper();
+  clearPickPosition();
+
+  function render() {
+
+
+    if (resizeRendererToDisplaySize(renderer )) {
       const canvas = renderer.domElement;
       camera.aspect = canvas.clientWidth / canvas.clientHeight;
       camera.updateProjectionMatrix();
     }
+
+    pickHelper.pick(pickPosition, scene, camera);
+
 
     composer.render();
 
@@ -216,6 +257,74 @@ scene.add(light);
   composer.render();
   render();
   requestAnimationFrame(render);
+
+
+
+
+
+
+  function getCanvasRelativePosition(event) {
+    const rect = canvas.getBoundingClientRect();
+    return {
+    x: (event.clientX - rect.left) * canvas.width  / rect.width,
+    y: (event.clientY - rect.top ) * canvas.height / rect.height,
+    };
+}
+
+function setPickPosition(event) {
+    const pos = getCanvasRelativePosition(event);
+    pickPosition.x = (pos.x /  canvas.width ) *  2 - 1;
+    pickPosition.y = (pos.y / canvas.height) * -2 + 1;  // note we flip Y
+}
+
+
+controls.addEventListener('change', () => {
+
+    orbiting = true;
+
+});
+
+function clearPickPosition() {
+    // unlike the mouse which always has a position
+    // if the user stops touching the screen we want
+    // to stop picking. For now we just pick a value
+    // unlikely to pick something
+    pickPosition.x = -100000;
+    pickPosition.y = -100000;
+}
+
+
+window.addEventListener('mousemove', setPickPosition);
+window.addEventListener('mouseout', clearPickPosition);
+window.addEventListener('mouseleave', clearPickPosition);
+window.addEventListener('mouseup', () => {
+    setTimeout(() => {
+        orbiting = false;
+    }, 1000);
+})
+
+
+window.addEventListener('touchstart', (event) => {
+    // prevent the window from scrolling
+    event.preventDefault();
+    setPickPosition(event.touches[0]);
+}, {passive: false});
+
+window.addEventListener('touchmove', (event) => {
+    setPickPosition(event.touches[0]);
+    checkForClick();
+});
+
+
+
+window.addEventListener('click', () => {
+    clearPickPosition();
+    setTimeout(() => {
+        orbiting = false;
+    }, 1000);
+    checkForClick();
+})
+
 }
 
 
@@ -229,29 +338,33 @@ beginBtn.addEventListener('click', () => {
 })
 
 
-
-// functions
-window.addEventListener('mouseup', () => {
-    checkForClick();
-});
-
 const checkForClick = () => {
-   
+   if(currentObject !== undefined && !viewing && !orbiting){
+       openWindow(currentObject);
+       console.log(currentObject);
+       currentObject = undefined;
+   }
 }
 
 
 closeBtn.addEventListener('click', () => {
-    closeWindow();
+    popupWindow.classList.add('d-none');
+    let video = popupWindow.querySelector('.video')
+    video.innerHTML = '';
+    
+    console.log('clicked');
+    ambient.play();
+
+    setTimeout(() => {
+        viewing = false;
+    }, 1500);
 })
 
-
-function closeWindow() {
-    popupWindow.classList.add('d-none');
-}
 
 function openWindow(number){
     popupWindow.classList.remove('d-none');
     viewing = true;
-
-
+    let video = popupWindow.querySelector('.video')
+    video.innerHTML = '<iframe src="https://player.vimeo.com/video/470932456?&title=0&byline=0&portrait=0&autoplay=1" style="width:100%;height:100%;" frameborder="0" allow="autoplay, fullscreen"></iframe>';
+    ambient.pause();
 }

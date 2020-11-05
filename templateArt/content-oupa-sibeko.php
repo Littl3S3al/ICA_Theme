@@ -2,7 +2,7 @@
 
 
 <div class="container-fluid fullscreen iframe-holder flex-center">
-    <iframe class="intro-video" src="https://player.vimeo.com/video/474092881?autoplay=1&loop=1&autopause=0&muted=1" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    
 </div>
 
 <div class="intro container-fluid fullscreen flex-center smooth-fade">
@@ -51,6 +51,8 @@
 
 
 
+
+<script src="https://player.vimeo.com/api/player.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>

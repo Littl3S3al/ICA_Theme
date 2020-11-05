@@ -19,9 +19,31 @@ const videoGallery = document.querySelector('#video-gallery');
 
 // notes
 const noteMini = document.querySelector('#notes-placeholder');
-const noteMain = document.querySelector('#individual-notes-page')
+const noteMain = document.querySelector('#individual-notes-page');
 
 
+// music
+// music
+var frame1 = document.querySelector('#track1');
+var frame2 = document.querySelector('#track2');
+var frame3 = document.querySelector('#track3');
+var frame4 = document.querySelector('#track4');
+var frame5 = document.querySelector('#track5');
+
+var widget1 = SC.Widget(frame1);
+var widget2 = SC.Widget(frame2);
+var widget3 = SC.Widget(frame3);
+var widget4 = SC.Widget(frame4);
+var widget5 = SC.Widget(frame5);
+
+const tracks = [widget1, widget2, widget3, widget4, widget5];
+let currentTrack = 0;
+let trackNames = document.querySelectorAll('.track .three');
+let displayName = document.querySelector('#display');
+const eachTrack = document.querySelectorAll('.track');
+const playBtn = document.querySelector('#play-pause');
+
+let pause = true;
 
 // event listeners
 window.addEventListener('click', e => {
@@ -73,6 +95,33 @@ window.addEventListener('click', e => {
         notes.classList.remove('d-none');
         noteMain.classList.add('d-none');
     }
+
+    // music event listeners
+    if(e.target.id === 'play-current-track' || e.target.parentNode.id === 'play-current-track'){
+        tracks[currentTrack].play();
+    }
+    if(e.target.id === 'play-pause'){
+        if(!pause){
+            e.target.src = assets + 'music/play-solid-white.svg';
+            tracks[currentTrack].pause();
+        } else {
+            e.target.src = assets + 'music/pause-solid.svg';
+            tracks[currentTrack].play();
+        }
+        pause = !pause;
+    }
+    if(e.target.id === "skip"){
+        tracks[currentTrack].pause()
+        if(currentTrack < tracks.length - 1){
+            currentTrack ++
+        } else {
+            currentTrack = 0;
+        }
+        tracks[currentTrack].play()
+    }
+    if(e.target.classList.contains('back-pause')){
+        tracks[currentTrack].pause()
+    }
 })
 
 
@@ -98,3 +147,32 @@ function openNote (target) {
     placeholder.innerHTML += `<h1>${docs[target].title}</h1>`;
     placeholder.innerHTML += docs[target].content;
 }
+
+
+tracks.forEach(track => {
+    track.bind(SC.Widget.Events.FINISH, function(){
+        if(currentTrack < tracks.length - 1){
+            currentTrack ++
+        } else {
+            currentTrack = 0;
+        }
+        tracks[currentTrack].play();
+    });
+
+    track.bind(SC.Widget.Events.PLAY, function(){
+        displayName.innerText = trackNames[currentTrack].innerText;
+        playBtn.src = assets + 'music/pause-solid.svg';
+        pause = false;
+    })
+})
+
+
+eachTrack.forEach(track => {
+    track.addEventListener('click', e => {
+        tracks[currentTrack].pause();
+        currentTrack = track.dataset.target;
+        tracks[currentTrack].play();
+    })
+})
+
+

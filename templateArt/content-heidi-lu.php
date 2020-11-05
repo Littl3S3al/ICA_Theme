@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-12 col-md-6 mx-auto text-center">
             <h1>How much do you weigh?</h1>
-            <button id="btn-1" class="btn btn-light">begin</button>
+            <button id="btn-1" class="btn btn-light mt-5">begin</button>
         </div>
     </div>
 </div>
@@ -31,7 +31,7 @@
             <p class="mb-5">How much do you weigh?</p>
             <input id="range" type="range" min="1" max="100" value="50" class="slider" id="myRange">
             <ul class="range-labels">
-                <li>Small</li><li>Medium</li><li>Large</li>
+                <li>Light</li><li>Medium</li><li>Heavy</li>
             </ul>
             <button id="btn-3" class="mt-5 btn btn-light">
                 submit
@@ -53,7 +53,7 @@
             </ol>
             <div class="text-center">
                 <button id="btn-4" class="mt-5 btn btn-light">
-                    I am ready
+                    Next
                 </button>
             </div>
         </div>
@@ -66,18 +66,11 @@
     <div class="row">
         <div class="col-12 col-md-6 mx-auto">
             <p>
-                "Houses like human beings are made from little balls of earth, made from the muddy tissue of the ancestor’s body. They are said to be both earthborn and earthbound"
-
-            </p>
-            <p>
-                “The first men and women were all made entirely of clay. God then breathed life into them by breathing into their ears”
-            </p>
-            <p>
                 <i>400 years, 39 000 voyages, 2 million bodies under the Atlantic Ocean...</i>
             </p>
             <div class="text-center">
                 <button id="btn-5" class="mt-5 btn btn-light">
-                    next
+                    Enter the weight passage
                 </button>
             </div>
         </div>
@@ -107,15 +100,15 @@
             </button>
             <!-- end of what should be removed -->
             <h4>Select an action to perform</h4>
-            <button data-target="1" class="btn btn-sm btn-light option">Right elbow: right, push-drag</button>
-            <button data-target="2" class="btn btn-sm btn-light option">Right hip: right, thrust-slide </button>
-            <button data-target="3" class="btn btn-sm btn-light option">Hands: upwards, dig-push</button>
-            <button data-target="4" class="btn btn-sm btn-light option">Left shoulder, right to left, press-pull</button>
-            <button data-target="5" class="btn btn-sm btn-light option">Wrists, rotate, push-twist</button>
-            <button data-target="6" class="btn btn-sm btn-light option">Arms: upwards, press-push</button>
-            <button data-target="7" class="btn btn-sm btn-light option">Knees: open outwards, press-slide</button>
-            <button data-target="8" class="btn btn-sm btn-light option">Chin: side to side, push-drag </button>
-            <button data-target="9" class="btn btn-sm btn-light option">Glutes: side to side, writhe</button>
+            <button data-target="1" class="btn btn-sm btn-light option">Right elbow: right, <i>push-drag</i></button>
+            <button data-target="2" class="btn btn-sm btn-light option">Right hip: right, <i>thrust-slide</i> </button>
+            <button data-target="3" class="btn btn-sm btn-light option">Hands: upwards, <i>dig-push</i></button>
+            <button data-target="4" class="btn btn-sm btn-light option">Left shoulder, <i>right to left, press-pull</i></button>
+            <button data-target="5" class="btn btn-sm btn-light option">Wrists, rotate, <i>push-twist</i></button>
+            <button data-target="6" class="btn btn-sm btn-light option">Arms: upwards, <i>press-push</i></button>
+            <button data-target="7" class="btn btn-sm btn-light option">Knees: open outwards,<i> press-slide</i></button>
+            <button data-target="8" class="btn btn-sm btn-light option">Chin: side to side,<i> push-drag</i> </button>
+            <button data-target="9" class="btn btn-sm btn-light option">Glutes: side to side, <i>writhe</i></button>
         </div>
 
         <div id="optionOpen" class="d-none">

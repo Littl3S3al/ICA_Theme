@@ -236,20 +236,25 @@ const main  = () => {
 
             var zoom = controls.target.distanceTo( controls.object.position );
             // console.log(zoom);
-            if(zoom <= 4 && weight === 1){
-                ending1();
-                widget1.play();
-                playing = false;
-            }
-            if(zoom <= 4 && weight === 2){
-                ending2();
-                widget2.play();
-                playing = false;
-            } if(zoom <= 4 && weight === 3) {
-                ending3();
-                widget3.play();
-                playing = false;
-            }
+            if(weight === 1){
+              widget1.play();
+          }
+          if(weight === 2){
+              widget2.play();
+          } if(weight === 3) {
+              widget3.play();
+          }
+          if(zoom <= 4 && weight === 1){
+            ending1();
+            playing = false;
+        }
+        if(zoom <= 4 && weight === 2){
+            ending2();
+            playing = false;
+        } if(zoom <= 4 && weight === 3) {
+            ending3();
+            playing = false;
+        }
             
             renderer.setPixelRatio( window.devicePixelRatio );
             renderer.render(scene, camera);
@@ -281,7 +286,7 @@ function ending1 () {
 
     setTimeout(() => {
         endingScreen.innerHTML = `
-            <p>You have made it...</p>
+            <p>3°45'01.0"N 7°39'16.8"W North Atlantic Ocean</p>
         `;
         setTimeout(() => {
             widget1.pause()
@@ -299,7 +304,7 @@ function ending1 () {
             setTimeout(() => {
                 playerFinal.on('ended', () => {
                     endingScreen.innerHTML = `
-                        <p>End</p>
+                        <p>how much do <b>you</b> weigh</p>
                     `;
                   });
                   
@@ -322,19 +327,32 @@ function ending2() {
     setTimeout(() => {
         endingScreen.innerHTML = `
             <div> 
-                <p>so close.... but you couldn't quite make it </p>
-                <br>
-                <p>you'll have to get thinner</p>
+                <p>return to the start of the passage: 6 more days until the you reach the required weight</p>
             </div>
         `;
+
         setTimeout(() => {
-            widget2.pause()
-            page7.classList.add('d-none');
-            page3.classList.remove('d-none');
-            endingScreen.style.zIndex = -10;
-            endingScreen.style.opacity = 0;
-            
-        }, 3000);
+          widget1.pause()
+          endingScreen.innerHTML = `
+          <div class="row">
+              <div class="col-12">
+                  <div style="padding:43.56% 0 0 0;position:relative;"><iframe id="final-video" src="https://player.vimeo.com/video/474371116?title=0&byline=0&portrait=0&autoplay=1" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+              </div>
+          </div>
+          `;
+
+          var iframeEnd = document.querySelector('#final-video');
+          playerFinal = new Vimeo.Player(iframeEnd);
+
+
+            playerFinal.on('ended', () => {
+              widget2.pause()
+              page7.classList.add('d-none');
+              page3.classList.remove('d-none');
+              endingScreen.style.zIndex = -10;
+              endingScreen.style.opacity = 0;
+            });
+        }, 2000);    
     }, 5000);
 }
 
@@ -342,29 +360,42 @@ function ending2() {
 
 
 function ending3() {
-    endingScreen.style.background = 'black';
-    endingScreen.style.color = 'white';
-    endingScreen.style.zIndex = 10;
-    endingScreen.style.opacity = 1;
-    endingScreen.innerHTML = '';
+  endingScreen.style.background = 'black';
+  endingScreen.style.color = 'white';
+  endingScreen.style.zIndex = 10;
+  endingScreen.style.opacity = 1;
+  endingScreen.innerHTML = '';
 
 
 
-    setTimeout(() => {
+  setTimeout(() => {
+      endingScreen.innerHTML = `
+          <div> 
+              <p>return to the start of the passage: 27 more days until you reach the required weight.</p>
+          </div>
+      `;
+
+      setTimeout(() => {
+        widget1.pause()
         endingScreen.innerHTML = `
-        <div> 
-            <p>not... quite... there...  </p>
-            <br>
-            <p>you'll have to get thinner</p>
+        <div class="row">
+            <div class="col-12">
+                <div style="padding:43.56% 0 0 0;position:relative;"><iframe id="final-video" src="https://player.vimeo.com/video/474371116?title=0&byline=0&portrait=0&autoplay=1" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+            </div>
         </div>
         `;
-        setTimeout(() => {
+
+        var iframeEnd = document.querySelector('#final-video');
+        playerFinal = new Vimeo.Player(iframeEnd);
+
+
+          playerFinal.on('ended', () => {
             widget2.pause()
             page7.classList.add('d-none');
             page3.classList.remove('d-none');
             endingScreen.style.zIndex = -10;
             endingScreen.style.opacity = 0;
-            
-        }, 3000);
-    }, 5000);
+          });
+      }, 2000);    
+  }, 5000);
 }

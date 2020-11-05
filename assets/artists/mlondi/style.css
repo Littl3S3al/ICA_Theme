@@ -1,5 +1,5 @@
 .red-text {
-  color: #E74C3C;
+  color: #E04151;
 }
 
 .blue-text {
@@ -48,7 +48,7 @@ h1 {
 }
 
 .page-dark {
-  background: #1D1D1D;
+  background: #111111;
   color: white;
   padding: 80px 20px;
   font-weight: 200;
@@ -57,7 +57,7 @@ h1 {
 .header {
   padding: 70px 20px 20px 20px;
   margin: 0;
-  background: #1D1D1D;
+  background: #111111;
   position: fixed;
   top: 0;
   left: 0;
@@ -86,7 +86,7 @@ h1 {
 
 .footer {
   padding: 20px 20px 70px 20px;
-  background: #1D1D1D;
+  background: #111111;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -136,6 +136,10 @@ hr.hr-yellow {
   border-top: 1px solid #F4D03F;
 }
 
+.back-notes:hover {
+  cursor: pointer;
+}
+
 .note-section {
   padding-top: 5px;
   padding-left: 20px;
@@ -144,7 +148,7 @@ hr.hr-yellow {
 }
 .note-section:hover {
   transform: scale(1.001);
-  background: #2a2a2a;
+  background: #1e1e1e;
   cursor: pointer;
 }
 .note-section h2 {
@@ -159,7 +163,85 @@ hr.hr-yellow {
   color: #515A5A;
 }
 .note-section hr {
-  border-bottom: 1px solid #505050;
+  border-bottom: 1px solid #444444;
+}
+
+.music h1 {
+  font-size: 1.2em;
+  text-transform: uppercase;
+}
+.music h2 {
+  font-size: 0.8em;
+  font-weight: 300;
+}
+.music h3 {
+  font-size: 0.8em;
+  font-weight: 200;
+  color: #828f8f;
+}
+.music hr {
+  border-top: 1px solid #1e1e1e;
+}
+.music .bottom-info img {
+  width: 10px;
+}
+.music .bottom-info span {
+  font-size: 0.5em;
+}
+.music .bottom-info .elips {
+  width: 25px;
+  right: 0;
+  position: absolute;
+}
+.music .play {
+  border-radius: 5px;
+  border: none;
+  background-color: #1e1e1e;
+  color: #E04151;
+  font-weight: 400;
+}
+.music .play img {
+  height: 1em;
+}
+.music .track {
+  border-radius: 5px;
+  padding-top: 10px;
+}
+.music .track:hover {
+  transform: scale(1.001);
+  background: #1e1e1e;
+  cursor: pointer;
+}
+.music .track .one {
+  width: 10px;
+}
+.music .track .two {
+  color: #828f8f;
+  width: 20px;
+  text-align: center;
+}
+.music .track .three {
+  font-size: 0.8;
+  text-transform: uppercase;
+}
+
+#music-page .footer {
+  text-transform: uppercase;
+  background: #1e1e1e;
+}
+#music-page .footer img {
+  width: 50px;
+}
+#music-page .footer .icon {
+  height: 20px;
+}
+
+.sounds {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -10;
+  opacity: 0;
 }
 
 /*# sourceMappingURL=style.css.map */

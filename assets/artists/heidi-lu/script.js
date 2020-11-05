@@ -156,7 +156,7 @@ function openImage (target) {
     if(iterations === 9){
         optionsBtn.innerHTML = `
         <button class="btn btn-warning btn-sm" id="enter-canvas">
-            Walk towards your freedom
+            move through the door of no return
         </button>
         `;
     }

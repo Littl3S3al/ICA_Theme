@@ -4,6 +4,7 @@
 
 iframe.intro-video {
   position: absolute;
+  background: black;
 }
 @media only screen and (orientation: landscape) {
   iframe.intro-video {
@@ -19,8 +20,14 @@ iframe.intro-video {
 }
 
 .iframe-holder {
+  position: absolute;
+  top: 0;
+  left: 0;
   display: flex;
   justify-content: center;
+  background: black;
+  width: 100vw;
+  height: 100vh;
 }
 
 .fullscreen {
@@ -68,6 +75,22 @@ iframe.intro-video {
   overflow-y: scroll;
   background: rgba(0, 0, 0, 0.5);
   color: white;
+  /* width */
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+.light-black::-webkit-scrollbar {
+  width: 1px;
+}
+.light-black::-webkit-scrollbar-track {
+  background: black;
+}
+.light-black::-webkit-scrollbar-thumb {
+  background: #888;
+}
+.light-black::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 .light-black p {
   font-size: 1.5em;

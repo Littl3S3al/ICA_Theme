@@ -14,10 +14,6 @@
     </div>
 </div>
 
-<div id="info">
-			<label for="dotScreen">Glitch me wild:</label><input id="wildGlitch" type="checkbox"/><br />
-		</div>
-
 <div id="three-js-container">
     <!-- <div id="loading">
         <div class="text-center">
@@ -29,11 +25,10 @@
     
 </div>
 
-<div class="popup-window">
+<div class="popup-window d-none" >
     <div class="video">
-    <iframe src="https://player.vimeo.com/video/470932456?&title=0&byline=0&portrait=0" style="width:100%;height:100%;" frameborder="0" allow="autoplay, fullscreen"></iframe>
     </div>
-    <button id="btn-close" class="btn btn-dark d-none">
+    <button id="btn-close" class="btn btn-dark">
         close
     </button>
     
@@ -41,7 +36,7 @@
 
 <div class="d-none">
     <audio loop>
-        <source src="<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/billy_langa/assets/bensound-relaxing.mp3" type="audio/mp3">
+        <source src="<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/mthuthuzeli/assets/wind.wav" type="audio/wav">
     </audio>
 </div>
 
