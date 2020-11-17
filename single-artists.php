@@ -23,11 +23,12 @@ get_header();
 
 <div class="padded-side row mt-1  py-5 text-justify">
         <div class="w-100 mt-5">
-            <h1>ARTIST STATMENT</h1> 
+            <h2>ARTIST STATEMENT</h2> 
         </div> 
-        <p>
+        <div class="text-justify w-100">
             <?php the_field('statement') ?>
-        </p>                 
+        </div>
+                       
 </div>
 
 <div class="padded-side row mt-5 bg-gray py-5 text-justify">
@@ -88,7 +89,7 @@ get_header();
                 <?php endif; ?>
 
                 <div class="col-12 <?php if($headshot) {echo 'col-md-8';} ?>">
-                    <h1><?php echo $row['artist_name'] ?></h1>
+                    <h2><?php echo $row['artist_name'] ?></h2>
                     <p><?php echo $row['artist_bio'] ?></p>
                     <?php if($row['artist_links']) :?>
                         <?php $links = $row['artist_links']; 

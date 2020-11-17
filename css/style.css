@@ -410,6 +410,7 @@ button.btn-enter:hover {
   justify-content: center;
   align-items: center;
   text-align: center;
+  padding: 50px;
 }
 
 .theme {
@@ -467,6 +468,9 @@ button.btn-enter:hover {
   text-transform: uppercase;
   font-size: 1.5em;
 }
+.artist img {
+  max-height: 80%;
+}
 
 .playing1 {
   background: #fb8c00;
@@ -481,6 +485,16 @@ button.btn-enter:hover {
 .displacement {
   background: #d81b60;
   background: linear-gradient(0deg, rgba(216, 27, 96, 0.8) 0%, rgba(156, 39, 176, 0.8) 100%);
+}
+
+.inequalities {
+  background: #020024;
+  background: linear-gradient(0deg, rgba(2, 0, 36, 0.8) 0%, rgba(9, 9, 121, 0.8) 35%, rgba(0, 212, 255, 0.8) 100%);
+}
+
+.black-masculinities {
+  background: black;
+  background: linear-gradient(0deg, black 0%, rgba(0, 0, 0, 0.6309874292) 100%);
 }
 
 .instructions {
@@ -563,6 +577,14 @@ button.btn-enter:hover {
 .production-card.displacement .btn-dark {
   background: #d81b60;
   border: #d81b60;
+}
+
+.production-card.inequalities h3 {
+  color: #090979;
+}
+.production-card.inequalities .btn-dark {
+  background: #090979;
+  border: #090979;
 }
 
 h1.small.bold {
@@ -872,6 +894,12 @@ input[type=submit] {
   border: #c01e2d;
 }
 
+@media only screen and (min-width: 992px) {
+  p {
+    font-size: 1.2em;
+  }
+}
+
 h1 {
   font-size: 2em;
   font-weight: 300;
@@ -922,6 +950,9 @@ footer hr {
 .sfm-nav li a {
   font-weight: 300 !important;
 }
+.sfm-nav .sfm-menu-item-713 {
+  background: #681018;
+}
 
 .sfm-nav .sfm-active-class a {
   color: #c01e2d !important;
@@ -936,14 +967,26 @@ footer hr {
   cursor: pointer;
 }
 
+a.webinar-link {
+  color: black;
+}
+a.webinar-link:hover, a.webinar-link:focus, a.webinar-link:active {
+  text-decoration: none;
+}
+
 .card.videoLink {
   transition: all 0.5s;
 }
 .card.videoLink:hover {
   transform: scale(1.01);
+  background: lightgray;
 }
-.card.videoLink:hover h2 {
+.card.videoLink:hover h3 {
   font-weight: 400;
+}
+
+.twitch-placeholder {
+  height: 70vh;
 }
 
 /*# sourceMappingURL=style.css.map */

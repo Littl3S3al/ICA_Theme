@@ -1,0 +1,17 @@
+#overlay {
+  background: black;
+  padding: 120px 20px;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  overflow-y: scroll;
+}
+#overlay .row {
+  min-height: 100%;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  color: white;
+}
+
+/*# sourceMappingURL=style.css.map */

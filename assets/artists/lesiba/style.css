@@ -1,0 +1,132 @@
+#overlay {
+  background: black;
+  padding: 120px 20px;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  overflow-y: scroll;
+}
+#overlay .row {
+  min-height: 100%;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  color: white;
+}
+
+#three-js-container {
+  z-index: -1;
+  display: none;
+}
+#three-js-container #c {
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  background: black;
+}
+#three-js-container .play-bar {
+  background: linear-gradient(0deg, black 0%, rgba(0, 0, 0, 0) 100%);
+  opacity: 0;
+  color: white;
+  width: 100vw;
+  position: fixed;
+  bottom: 0;
+  height: 80px;
+  transition: all 0.5s ease;
+  font-size: 40px;
+}
+#three-js-container .play-bar:hover {
+  opacity: 1;
+}
+#three-js-container .play-bar i {
+  margin: 0 20px;
+  transition: all ease 0.5s;
+}
+#three-js-container .play-bar i:hover {
+  color: red;
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+#main-1 {
+  background: red;
+  width: 1000px;
+  height: 1000px;
+}
+
+.quater_main {
+  width: 500px;
+  height: 500px;
+}
+
+.rex-ghosts, .suit-opening, .suit-ghosts, .ct-opening, .ct-ghosts {
+  overflow: hidden;
+  background: black;
+  opacity: 0;
+  transition: opacity 2s ease;
+}
+.rex-ghosts iframe, .suit-opening iframe, .suit-ghosts iframe, .ct-opening iframe, .ct-ghosts iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -10;
+}
+.rex-ghosts .innerDiv, .suit-opening .innerDiv, .suit-ghosts .innerDiv, .ct-opening .innerDiv, .ct-ghosts .innerDiv {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+}
+
+.pattern {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 5s ease;
+}
+.pattern svg {
+  height: 100%;
+  width: auto;
+}
+
+.polaroid {
+  background: white;
+  transition: opacity 1s ease;
+}
+.polaroid .polaroid-image {
+  position: absolute;
+  width: 390px;
+  height: 390px;
+  top: 5px;
+  left: 5px;
+  z-index: 10;
+}
+.polaroid iframe {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  z-index: 0;
+}
+.polaroid iframe:hover {
+  cursor: pointer;
+}
+.polaroid .label-image {
+  position: absolute;
+  width: 70%;
+  bottom: 20px;
+  right: 10px;
+}
+
+.rex_line {
+  stroke-dasharray: 5;
+  stroke-dashoffset: 0;
+  transition: all 50s ease-in;
+}
+
+.rex_text_1, .rex_tex_2 {
+  transition: all 2s;
+}
+
+/*# sourceMappingURL=style.css.map */

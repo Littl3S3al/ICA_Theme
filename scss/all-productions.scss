@@ -47,8 +47,11 @@
 }
 .production-card.displacement{
     @include color (rgb(216,27,96));
-    
 }
+.production-card.inequalities{
+    @include color (rgb(9,9,121));
+}
+
 
 h1.small.bold{
     font-weight: 900;

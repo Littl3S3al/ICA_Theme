@@ -210,8 +210,8 @@ const main  = () => {
         progressBarElem.style.width = progress + '%';
     };
 
-    console.log(controls.target.z);
-    console.log(camera.position.z)
+    // console.log(controls.target.z);
+    // console.log(camera.position.z)
 
     
 
@@ -293,7 +293,7 @@ function ending1 () {
             endingScreen.innerHTML = `
             <div class="row">
                 <div class="col-12">
-                    <div style="padding:43.56% 0 0 0;position:relative;"><iframe id="final-video" src="https://player.vimeo.com/video/474371116?title=0&byline=0&portrait=0&autoplay=1" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+                    <div style="padding:43.56% 0 0 0;position:relative;"><iframe id="final-video" src="https://player.vimeo.com/video/474371116?title=0&byline=0&portrait=0&autoplay=1&quality=1080p" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
                 </div>
             </div>
             `;
@@ -310,7 +310,7 @@ function ending1 () {
                   
             }, 2000);
             
-        }, 2000);
+        }, 5000);
     }, 5000);
 
 }
@@ -336,7 +336,7 @@ function ending2() {
           endingScreen.innerHTML = `
           <div class="row">
               <div class="col-12">
-                  <div style="padding:43.56% 0 0 0;position:relative;"><iframe id="final-video" src="https://player.vimeo.com/video/474371116?title=0&byline=0&portrait=0&autoplay=1" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+                  <div style="padding:43.56% 0 0 0;position:relative;"><iframe id="final-video" src="https://player.vimeo.com/video/474371116?title=0&byline=0&portrait=0&autoplay=1&quality=1080p" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
               </div>
           </div>
           `;
@@ -352,7 +352,7 @@ function ending2() {
               endingScreen.style.zIndex = -10;
               endingScreen.style.opacity = 0;
             });
-        }, 2000);    
+        }, 5000);    
     }, 5000);
 }
 
@@ -380,7 +380,7 @@ function ending3() {
         endingScreen.innerHTML = `
         <div class="row">
             <div class="col-12">
-                <div style="padding:43.56% 0 0 0;position:relative;"><iframe id="final-video" src="https://player.vimeo.com/video/474371116?title=0&byline=0&portrait=0&autoplay=1" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+                <div style="padding:43.56% 0 0 0;position:relative;"><iframe id="final-video" src="https://player.vimeo.com/video/474371116?title=0&byline=0&portrait=0&autoplay=1&quality=1080p" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
             </div>
         </div>
         `;
@@ -396,6 +396,6 @@ function ending3() {
             endingScreen.style.zIndex = -10;
             endingScreen.style.opacity = 0;
           });
-      }, 2000);    
+      }, 5000);    
   }, 5000);
 }

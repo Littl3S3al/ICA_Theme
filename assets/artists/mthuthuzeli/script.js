@@ -20,12 +20,13 @@ const video = document.querySelector('.video iframe')
 
 const closeBtn = document.querySelector('#btn-close');
 
-const ambient = document.querySelector('audio');
+const iframe = document.querySelector('#ambient');
+var ambient = SC.Widget(iframe);
 
 let windowHalfX = window.innerWidth / 2;
 let windowHalfY = window.innerHeight / 2;
 
-    
+let number = 0;
 
 // loader
 // const loadingElem = document.querySelector('#loading');
@@ -46,6 +47,9 @@ let glitchPass;
 function main() {
 
 ambient.play();
+
+
+
   const canvas = document.querySelector('#c');
   const renderer = new THREE.WebGLRenderer({canvas, antialias: true});
   renderer.shadowMap.enable = true;
@@ -131,7 +135,7 @@ glitchPass.renderToScreen = true;
 composer.addPass( glitchPass );
 
 
-const light = new THREE.AmbientLight(0xFFFFFF, 0.2);
+const light = new THREE.AmbientLight(0xFFFFFF, 0.5);
 scene.add(light);
 
   function frameArea(sizeToFitOnScreen, boxSize, boxCenter, camera) {
@@ -160,18 +164,35 @@ scene.add(light);
     camera.lookAt(boxCenter.x, boxCenter.y, boxCenter.z);
   }
 
+  const loadManager = new THREE.LoadingManager();
+  const loader = new THREE.TextureLoader(loadManager);
+
+  const materials = [
+    new THREE.MeshBasicMaterial({map: loader.load(assets + 'frames/1.jpg')}),
+    new THREE.MeshBasicMaterial({map: loader.load(assets + 'frames/2.jpg')}),
+    new THREE.MeshBasicMaterial({map: loader.load(assets + 'frames/3.jpg')}),
+    new THREE.MeshBasicMaterial({map: loader.load(assets + 'frames/4.jpg')}),
+    new THREE.MeshBasicMaterial({map: loader.load(assets + 'frames/5.jpg')}),
+    new THREE.MeshBasicMaterial({map: loader.load(assets + 'frames/6.jpg')}),
+    new THREE.MeshBasicMaterial({map: loader.load(assets + 'frames/7.jpg')}),
+    new THREE.MeshBasicMaterial({map: loader.load(assets + 'frames/8.jpg')}),
+
+  ];
+
  var children = [];
+
   {
     const gltfLoader = new GLTFLoader();
     gltfLoader.load( assets + 'shack.gltf', (gltf) => {
       const root = gltf.scene;
       scene.add(root);
-
       root.children.forEach(child => {
           if(child.isMesh){
               children.push(child)
           }
       })
+
+      console.log(root);
 
       // compute the box that contains all the stuff
       // from root and below
@@ -190,7 +211,7 @@ scene.add(light);
     });
   }
 
-  console.log(children)
+
 
   function resizeRendererToDisplaySize(renderer) {
     const canvas = renderer.domElement;
@@ -225,7 +246,7 @@ class PickHelper {
       if (intersectedObjects.length) {
         // pick the first object. It's the closest one
         this.pickedObject = intersectedObjects[0].object;
-        if(this.pickedObject.name === "Plane001" || this.pickedObject.name === "Plane002"||  this.pickedObject.name === "Plane003" || this.pickedObject.name === "Plane004" && !orbiting && !viewing){
+        if(this.pickedObject.name === "Plane001" || this.pickedObject.name === "Plane002"||  this.pickedObject.name === "Plane003" || this.pickedObject.name === "Plane004"  || this.pickedObject.name === 'frame' && !orbiting && !viewing){
             currentObject = this.pickedObject.name;
         }
         
@@ -238,7 +259,6 @@ class PickHelper {
   clearPickPosition();
 
   function render() {
-
 
     if (resizeRendererToDisplaySize(renderer )) {
       const canvas = renderer.domElement;
@@ -260,6 +280,17 @@ class PickHelper {
 
 
 
+  window.addEventListener('click', () => {
+    if(pickHelper.pickedObject && pickHelper.pickedObject.name === 'frame'){
+        if(number < 7){
+          number ++
+        } else {
+          number = 0;
+        }
+        pickHelper.pickedObject.material = materials[number];
+      
+    }
+  })
 
 
 
@@ -300,7 +331,7 @@ window.addEventListener('mouseleave', clearPickPosition);
 window.addEventListener('mouseup', () => {
     setTimeout(() => {
         orbiting = false;
-    }, 1000);
+    }, 500);
 })
 
 
@@ -315,13 +346,11 @@ window.addEventListener('touchmove', (event) => {
     checkForClick();
 });
 
-
-
 window.addEventListener('click', () => {
     clearPickPosition();
     setTimeout(() => {
         orbiting = false;
-    }, 1000);
+    }, 500);
     checkForClick();
 })
 
@@ -339,9 +368,9 @@ beginBtn.addEventListener('click', () => {
 
 
 const checkForClick = () => {
-   if(currentObject !== undefined && !viewing && !orbiting){
+   if(currentObject !== undefined && !viewing && !orbiting && currentObject !== 'frame'){
        openWindow(currentObject);
-       console.log(currentObject);
+      //  console.log(currentObject);
        currentObject = undefined;
    }
 }
@@ -352,19 +381,49 @@ closeBtn.addEventListener('click', () => {
     let video = popupWindow.querySelector('.video')
     video.innerHTML = '';
     
-    console.log('clicked');
     ambient.play();
 
     setTimeout(() => {
         viewing = false;
-    }, 1500);
+    }, 500);
 })
 
 
 function openWindow(number){
     popupWindow.classList.remove('d-none');
     viewing = true;
-    let video = popupWindow.querySelector('.video')
-    video.innerHTML = '<iframe src="https://player.vimeo.com/video/470932456?&title=0&byline=0&portrait=0&autoplay=1" style="width:100%;height:100%;" frameborder="0" allow="autoplay, fullscreen"></iframe>';
+    let video = popupWindow.querySelector('.video');
+    // console.log(number);
+    if(number === 'Plane001'){
+      video.innerHTML = '<iframe src="https://player.vimeo.com/video/476267660?&title=0&byline=0&portrait=0&autoplay=1" style="width:100%;height:100%;" frameborder="0" allow="autoplay, fullscreen"></iframe>';
+    } else if(number === 'Plane002'){
+      video.innerHTML = '<iframe src="https://player.vimeo.com/video/476272656?&title=0&byline=0&portrait=0&autoplay=1" style="width:100%;height:100%;" frameborder="0" allow="autoplay, fullscreen"></iframe>';
+    } else if(number === 'Plane003'){
+      video.innerHTML = '<iframe src="https://player.vimeo.com/video/476284396?&title=0&byline=0&portrait=0&autoplay=1" style="width:100%;height:100%;" frameborder="0" allow="autoplay, fullscreen"></iframe>';
+    } else if(number === 'Plane004'){
+      video.innerHTML = '<iframe src="https://player.vimeo.com/video/476268019?&title=0&byline=0&portrait=0&autoplay=1" style="width:100%;height:100%;" frameborder="0" allow="autoplay, fullscreen"></iframe>';
+    }
     ambient.pause();
+
+    var iframe = video.querySelector('iframe');
+    var player = new Vimeo.Player(iframe);
+
+    player.on('ended', function () {
+      popupWindow.classList.add('d-none');
+      let video = popupWindow.querySelector('.video')
+      video.innerHTML = '';
+
+      ambient.play();
+
+      setTimeout(() => {
+          viewing = false;
+      }, 500);
+    })
 }
+
+
+// set audio to loop
+ambient.bind(SC.Widget.Events.FINISH, function(){
+    ambient.seekTo(0);
+    ambient.play();
+});

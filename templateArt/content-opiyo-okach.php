@@ -299,8 +299,6 @@ else {
             }, 1000);
         }
 
-        dateChecker('v', launchDatev);
-
     </script>
 
     <script src="https://player.twitch.tv/js/embed/v1.js"></script>
@@ -435,7 +433,6 @@ else {
         }
 
 
-        dateChecker('v', launchDatev);
 
     </script>
 

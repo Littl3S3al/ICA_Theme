@@ -142,6 +142,11 @@ input[type="submit"]{
 
 
 // text
+p{
+    @include mQ ($lg) {
+        font-size: 1.2em;
+    }
+}
 h1{
     font-size: 2em;
     font-weight: 300;
@@ -196,6 +201,9 @@ footer{
     li a{
         font-weight: 300!important;
     }
+    .sfm-menu-item-713{
+        background: darken($orange, 20%);
+    }
 }
 .sfm-nav .sfm-active-class{
     a{
@@ -214,12 +222,24 @@ footer{
     
 }
 
+a.webinar-link{
+    color: black;
+    &:hover, &:focus, &:active{
+        text-decoration: none;
+    }
+}
+
 .card.videoLink{
     transition: all 0.5s;
     &:hover{
-        h2{
+        h3{
             font-weight: 400;
         }
         transform: scale(1.01);
+        background: lightgray;
     }
+}
+
+.twitch-placeholder{
+    height: 70vh;
 }

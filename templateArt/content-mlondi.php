@@ -11,6 +11,7 @@
     <div class="row">
         <div class="col-12 mx-auto text-center">
             <h1>Good evening, Mlondi.</h1>
+            <p>Somewhere, boys intensify</p>
         </div>
         <div class="col-12 text-center mt-5">
             <img id="photos" class="ios-icon" src="<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/mlondi/assets/photos.svg" alt="Music">
@@ -46,10 +47,8 @@
             <?php echo do_shortcode('[envira-gallery id="545"]'); ?>
         </div>
 
-        <div id="video-gallery" class="col-12 content d-none">
-            <div class="mx-auto">
-                <?php echo do_shortcode('[elfsight_vimeo_gallery id="3"] '); ?>
-            </div>
+        <div id="video-gallery" class="col-12 d-none">
+                <?php echo do_shortcode("[elfsight_vimeo_gallery id='3']"); ?>
         </div>
 
         <!-- footer -->

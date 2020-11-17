@@ -1,0 +1,78 @@
+.page{
+    h1{
+        font-family: 'Noticia Text', serif;
+        text-transform: none;
+        font-weight: 700;
+    }
+}
+
+
+#banner{
+    min-height: 100vh;
+    width: 100vw;
+    color: white;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+}
+
+
+.icon{
+    width: 60px;
+    height: 60px;
+    margin: 10px;
+    border-radius: 50px;
+    background: white;
+    color: black;
+    font-size: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all ease 0.5s;
+    &:hover{
+        transform: scale(1.05);
+        background: darken(white, 10%);
+        color: lighten(black, 50%);
+    }
+}
+
+
+.player{
+    background: #bebebe;
+    border-radius: 10px;
+    h2{
+        font-weight: 700;
+    }
+    i{
+        font-size: 2em;
+        margin: 0 20px;
+        transition: all ease 0.5s;
+        &:hover{
+            cursor: pointer;
+            transform: scale(1.1);
+            color: lighten(black, 50%);
+        }
+    }
+}
+.track{
+    border-top: 1px solid white;
+    transition: all 0.5s ease;
+    border-radius: 2px;
+    padding-top: 10px;
+    &:hover{
+        cursor: pointer;
+        transform: scale(1.01);
+        background: #9e9e9e;
+    }
+}
+
+.soundcloud{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1000;
+    opacity: 0;
+}

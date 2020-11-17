@@ -44,6 +44,8 @@ let fileLocation;
 let zindex = 10;
 let iterations = 0;
 
+const allOptions = document.querySelectorAll('.option');
+
 
 // use the vimeo api
 var player1 = new Vimeo.Player(introVideo);
@@ -100,12 +102,7 @@ window.addEventListener('click', e => {
     }
 
     // check if click on menu
-    if(e.target.classList.contains('option') || e.target.parentNode.classList.contains('option')){
-        optionsMenu.classList.add('d-none');
-        optionsBtn.classList.remove('d-none');
-        e.target.parentNode.removeChild(e.target);
-        openImage(e.target.dataset.target);
-    }
+   
     if(e.target.id === 'open-options'){
         optionsMenu.classList.remove('d-none');
         optionsBtn.classList.add('d-none');
@@ -114,7 +111,20 @@ window.addEventListener('click', e => {
     if(e.target.id === 'enter-canvas'){
         page6.classList.add('d-none');
         page7.classList.remove('d-none');
-        main()
+        
+        
+        optionsMenu.innerHTML = `
+            <h4>Select an action to perform</h4>
+            <button data-target="1" class="btn btn-sm btn-light option">Right elbow: right, <i>push-drag</i></button>
+            <button data-target="2" class="btn btn-sm btn-light option">Right hip: right, <i>thrust-slide</i> </button>
+            <button data-target="3" class="btn btn-sm btn-light option">Hands: upwards, <i>dig-push</i></button>
+            <button data-target="4" class="btn btn-sm btn-light option">Left shoulder, <i>right to left, press-pull</i></button>
+            <button data-target="5" class="btn btn-sm btn-light option">Wrists, rotate, <i>push-twist</i></button>
+            <button data-target="6" class="btn btn-sm btn-light option">Arms: upwards, <i>press-push</i></button>
+            <button data-target="7" class="btn btn-sm btn-light option">Knees: open outwards,<i> press-slide</i></button>
+            <button data-target="8" class="btn btn-sm btn-light option">Chin: side to side,<i> push-drag</i> </button>
+            <button data-target="9" class="btn btn-sm btn-light option">Glutes: side to side, <i>writhe</i></button>
+        `;
     }
 
 })
@@ -147,6 +157,17 @@ function checkIfLoaded () {
 };
 
 
+
+allOptions.forEach(btn => {
+    btn.addEventListener('click', () => {
+        optionsMenu.classList.add('d-none');
+        optionsBtn.classList.remove('d-none');
+        btn.parentNode.removeChild(btn);
+        openImage(btn.dataset.target);
+    })
+})
+
+
 function openImage (target) {
     let allImages = document.querySelectorAll('.action');
     allImages[target-1].style.opacity = 1;
@@ -165,14 +186,14 @@ function openImage (target) {
     
     miniVid.classList.remove('d-none');
     miniVid.innerHTML = `
-    <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/${allVideos[weight-1][target-1]}?title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+    <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/${allVideos[weight-1][target-1]}?title=0&byline=0&portrait=0&quality=1080p" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
     `;
     var iframe = miniVid.querySelector('iframe');
     playerX = new Vimeo.Player(iframe);
     playerX.play();
 
     playerX.on('ended', () => {
-        console.log('ended')
+        // console.log('ended')
         miniVid.classList.add('d-none');
       });
     

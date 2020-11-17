@@ -120,15 +120,9 @@ h1 {
   box-shadow: none !important;
 }
 
-#video-gallery {
-  width: 100vw;
-  padding: 0;
-  margin: 0;
-}
-
 @media only screen and (orientation: landscape) {
   .eavg-grid-component.jsx-1029918393 .eavg-grid-item {
-    width: 25%;
+    width: 20%;
   }
 }
 

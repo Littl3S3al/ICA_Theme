@@ -11,12 +11,11 @@ body{
 
 #overlay{
     background: black;
+    padding: 120px 20px;
     width: 100vw;
     height: 100vh;
-    color: white;
-    z-index: 1000;
-    position: fixed;
-    top: 0;
+    z-index: 10000;
+    overflow-y: scroll;
 
     .blackout{
         background: rgba(0, 0, 0, 0.7);
@@ -28,10 +27,11 @@ body{
     }
 
     .row{
-        height: 100%;
+        min-height: 100%;
         display: flex;
         align-content: center;
         justify-content: center;
+        color: white;
     }
 }
 

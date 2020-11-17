@@ -14,7 +14,23 @@ const progressBarElem = loadingElem.querySelector('.progressbar');
 
 let loading = true;
 let progress = 0;
-const videos = document.querySelectorAll('video');
+let videos, outer, inner;
+
+let outerMaterial, innerMaterial;
+
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+    videos = document.querySelectorAll('.mobile video');
+    outer = document.querySelectorAll( '.mobile .outer' );
+    inner = document.querySelectorAll('.mobile .inner');
+} else {
+    videos = document.querySelectorAll('.desktop video');
+    outer = document.querySelectorAll( '.desktop .outer' );
+    inner = document.querySelectorAll('.desktop .inner');
+}
+
+let totalTextures = 0;
+let loadedTextures = 0;
+
 
 
 // three.js functions
@@ -47,10 +63,15 @@ const main  = () => {
     var light = new THREE.DirectionalLight( 0xffffff );
     light.position.set( 0.5, 1, 1 ).normalize();
     scene.add( light );
+
+    const loadManager = new THREE.LoadingManager();
+    const loader = new THREE.TextureLoader(loadManager);
     
 
-    var outer = document.querySelectorAll( '.outer' );
+    var innerTextures = [];
     var outerTextures = [];
+
+
     outer.forEach(video => {
         video.play();
         video.needsUpdate = true;
@@ -62,17 +83,7 @@ const main  = () => {
         outerTextures.push(texture);
     });
 
-    const outerMaterial = [
-        new THREE.MeshBasicMaterial({ map: outerTextures[0]}),
-        new THREE.MeshBasicMaterial({ map: outerTextures[1]}),
-        new THREE.MeshBasicMaterial({ map: outerTextures[2]}),
-        new THREE.MeshBasicMaterial({ map: outerTextures[3]}),
-        new THREE.MeshBasicMaterial({ map: outerTextures[4]}),
-        new THREE.MeshBasicMaterial({ map: outerTextures[5]})
-    ];
-
-    var inner = document.querySelectorAll('.inner');
-    var innerTextures = [];
+    
     inner.forEach(video => {
         video.play();
         video.needsUpdate = true;
@@ -83,14 +94,46 @@ const main  = () => {
         innerTextures.push(texture);
     });
 
-    const innerMaterial = [
-        new THREE.MeshBasicMaterial({ map: innerTextures[0]}),
-        new THREE.MeshBasicMaterial({ map: innerTextures[1]}),
-        new THREE.MeshBasicMaterial({ map: innerTextures[2]}),
-        new THREE.MeshBasicMaterial({ map: innerTextures[3]}),
-        new THREE.MeshBasicMaterial({ map: innerTextures[4]}),
-        new THREE.MeshBasicMaterial({ map: innerTextures[5]})
-    ];
+
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+        outerMaterial = [
+            new THREE.MeshBasicMaterial({ map: outerTextures[0]}),
+            new THREE.MeshBasicMaterial({ map: loader.load( assets + 'outer/OUT-1.jpg')}),
+            new THREE.MeshBasicMaterial({ map: loader.load( assets + 'outer/OUT-2.jpg')}),
+            new THREE.MeshBasicMaterial({ map: loader.load( assets + 'outer/OUT-3.jpg')}),
+            new THREE.MeshBasicMaterial({ map: loader.load( assets + 'outer/OUT-4.jpg')}),
+            new THREE.MeshBasicMaterial({ map: loader.load( assets + 'outer/OUT-5.jpg')})
+        ];
+    
+        innerMaterial = [
+            new THREE.MeshBasicMaterial({ map: innerTextures[0]}),
+            new THREE.MeshBasicMaterial({ map: loader.load( assets + 'inner/IN-1.jpg')}),
+            new THREE.MeshBasicMaterial({ map: loader.load( assets + 'inner/IN-2.jpg')}),
+            new THREE.MeshBasicMaterial({ map: loader.load( assets + 'inner/IN-3.jpg')}),
+            new THREE.MeshBasicMaterial({ map: loader.load( assets + 'inner/IN-4.jpg')}),
+            new THREE.MeshBasicMaterial({ map: innerTextures[1]})
+        ];
+    } else {
+        outerMaterial = [
+            new THREE.MeshBasicMaterial({ map: outerTextures[0]}),
+            new THREE.MeshBasicMaterial({ map: outerTextures[1]}),
+            new THREE.MeshBasicMaterial({ map: outerTextures[2]}),
+            new THREE.MeshBasicMaterial({ map: outerTextures[3]}),
+            new THREE.MeshBasicMaterial({ map: outerTextures[4]}),
+            new THREE.MeshBasicMaterial({ map: outerTextures[5]})
+        ];
+    
+        innerMaterial = [
+            new THREE.MeshBasicMaterial({ map: innerTextures[0]}),
+            new THREE.MeshBasicMaterial({ map: innerTextures[1]}),
+            new THREE.MeshBasicMaterial({ map: innerTextures[2]}),
+            new THREE.MeshBasicMaterial({ map: innerTextures[3]}),
+            new THREE.MeshBasicMaterial({ map: innerTextures[4]}),
+            new THREE.MeshBasicMaterial({ map: innerTextures[5]})
+        ];
+    }
+
+    
 
 
     const makeInstance = (material, x, scale) => {
@@ -100,7 +143,6 @@ const main  = () => {
         if(scale){
             geometry.scale(-1, 1, 1)
         }
-        scene.add(cube);
         return cube;
     }
 
@@ -111,23 +153,37 @@ const main  = () => {
 
 
     // circular surface
-    const groundTexture = new THREE.TextureLoader().load(assets + 'map.jpg');
+    const groundTexture = loader.load(assets + 'map.jpg');
     groundTexture.magFilter = THREE.NearestFilter;
     groundTexture.wrapS = THREE.RepeatWrapping;
     groundTexture.wrapT = THREE.RepeatWrapping;
     groundTexture.magFilter = THREE.NearestFilter;
-    const repeats = 2;
     groundTexture.repeat.set(1, 1);
 
-    const planeGeo = new THREE.CircleGeometry( 2, 100 );
+    const planeGeo = new THREE.CircleGeometry( 3, 100 );
     const planeMat = new THREE.MeshPhongMaterial({map: groundTexture});
 
     const mapMesh = new THREE.Mesh(planeGeo, planeMat);
     mapMesh.receiveShadow = true;
     mapMesh.rotation.x = Math.PI * -.5;
     mapMesh.position.y = -1;
+    mapMesh.position.z = -1;
 
-    scene.add(mapMesh);
+    
+
+
+    // loading textures
+    loadManager.onLoad = () => {
+        scene.add(mapMesh);
+        cubes.forEach(cube => {
+            scene.add(cube);
+        })
+      };
+
+      loadManager.onProgress = (urlOfLastItemLoaded, itemsLoaded, itemsTotal) => {
+        totalTextures = itemsTotal;
+        loadedTextures = itemsLoaded;
+      };
 
     const resizeRendererToDisplaySize = renderer => {
         const canvas = renderer.domElement;
@@ -210,6 +266,7 @@ beginBtn.addEventListener('click', () => {
     threeJsWindow.style.display = 'block';
     begin = true;
     checkProgress();
+    
 });
 
 
@@ -229,9 +286,9 @@ videos.forEach(video => {
 
 
 function checkProgress() {
-    const videoProgress = progress/videos.length*100;
-    progressBarElem.style.width = videoProgress + '%';
-    if(progress === 12){
+    const totalProgress = (progress) / (videos.length) * 100;
+    progressBarElem.style.width = totalProgress + '%';
+    if(totalProgress === 100){
         loadingElem.classList.add('d-none');
         loading = false;
         main();

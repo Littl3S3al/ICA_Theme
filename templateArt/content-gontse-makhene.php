@@ -12,7 +12,7 @@
 
 
 <!-- buttons to the left and right -->
-<div class="buttons">
+<div class="buttons d-none">
     <button id="left" class="btn-light btn">
         <img src="<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/gontse/assets/left.svg" alt="left">
     </button>
@@ -22,7 +22,7 @@
 </div>
 
 <!-- map button -->
-<div id="map">
+<div id="map" class="d-none">
 <button id="map-btn" class="btn-danger btn" data-toggle="modal" data-target="#map-modal">
     <span>Check out "Location 1"</span>
     <img src="<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/gontse/assets/map.svg" alt="map">  
@@ -32,18 +32,30 @@
 <!-- begining  -->
 <div id="overlay" class="container-fluid" style="background: url('<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/gontse/assets/background.JPG') center center no-repeat; background-size: cover ">
     <div class="blackout">
+    </div>
+
       <div class="row">
           <div class="col-12 col-md-6 text-justify">
               <h1>Dicing for Bread</h1>
               <p>expect to experience the dice from a viewpoint not yet explored visually and sonoricaly</p>
 
-              <h2>Instructions</h2>
+              <h2>Instructions:</h2>
               <p>Navigate this website by clicking on the arrow buttons at the bottom of the page (rotate left or right) and watch the corresponding videos - action reaction.</p>
               <p>There is also a button on the top right to view more information about the location in which the events depicted took place, click on this to take a look at the map and the image gallery.</p>
+
+              <h2>Credits:</h2>
+              <p>Gontse Makhene - musician and photographer <br> Malcom Jiyane - musician</p>
+              <p><b>Special thanks to</b>
+                <br>
+                Palesa Sibiya - creative assistant and consultant 
+                <br>
+                Sicelo Mdladla ( Phinda Mzala) 
+                <br>
+                The Soweto dicing communities in Mdeni and Deipkloof </p>
               <button id="btn-begin" class="btn btn-danger">Click here to begin</button>
           </div>
       </div>
-    </div>
+      
 </div> 
 
 
@@ -67,7 +79,7 @@
           </div>
 
           <div class="col-12 gallery2 d-none">
-            <?php echo do_shortcode('[envira-gallery id="624"]') ?>
+            <?php echo do_shortcode('[envira-gallery id="627"]') ?>
           </div>
         </div>
       </div>

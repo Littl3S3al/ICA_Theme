@@ -16,6 +16,9 @@ const left = document.querySelector('#left');
 
 let position = 1;
 
+const mapDiv = document.querySelector('#map');
+const buttonsDiv = document.querySelector('.buttons');
+
 const mapBtn = document.querySelector('#map-btn');
 const mapBtnText = mapBtn.querySelector('span');
 // map iframe
@@ -40,7 +43,7 @@ const main  = () => {
     const scene = new THREE.Scene();
 
     const group1 = new THREE.Group();
-    group1.add( new Element( '475426865 ', 0, 0, 240, 0, 'a1' ) );
+    group1.add( new Element( '475426865', 0, 0, 240, 0, 'a1' ) );
     group1.add( new Element( '475426879', 240, 0, 0, Math.PI / 2 , 'a4') );
     group1.add( new Element( '475426904', 0, 0, - 240, Math.PI , 'a3' )  );
     group1.add( new Element( '472261566', - 240, 0, 0, - Math.PI / 2 , 'a2') );
@@ -123,13 +126,10 @@ const main  = () => {
     div.style.height = '360px';
     div.style.backgroundColor = '#000';
 
-    const iframe = document.createElement( 'iframe' );
-    iframe.style.width = '480px';
-    iframe.style.height = '360px';
-    iframe.style.border = '0px';
-    iframe.id = name;
-    iframe.src = [ 'https://player.vimeo.com/video/', id, '?title=0&byline=0&portrait=0&autopause=0&loop=1' ].join( '' );
-    div.appendChild( iframe );
+    const iframe = `
+        <iframe id="${name}" src="https://player.vimeo.com/video/${id}?title=0&byline=0&portrait=0&autopause=0&loop=1" width="480px" height="360" frameborder="0" allow="autoplay"></iframe>
+    `;
+    div.innerHTML = iframe;
 
     const object = new CSS3DObject( div );
     object.position.set( x, y, z );
@@ -144,6 +144,8 @@ const main  = () => {
 beginBtn.addEventListener('click', () => {
     overlay.style.display = 'none';
     threeJsWindow.style.display = 'block';
+    mapDiv.classList.remove('d-none');
+    buttonsDiv.classList.remove('d-none');
     main();
     initPlay();
 });
@@ -198,7 +200,7 @@ function playSequence(oldPos, position) {
 
 
     if(position === 4){
-        mapFrame.src = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1011.4324741637064!2d27.853256027506017!3d-26.248522197782606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjbCsDE0JzU0LjAiUyAyN8KwNTEnMTMuNiJF!5e0!3m2!1sen!2sza!4v1604491703226!5m2!1sen!2sza';
+        mapFrame.src = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3578.4335796611044!2d27.939241315521816!3d-26.247587983418533!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjbCsDE0JzUxLjMiUyAyN8KwNTYnMjkuMiJF!5e0!3m2!1sen!2sza!4v1604590736466!5m2!1sen!2sza';
         gallery1.classList.add('d-none');
         gallery2.classList.remove('d-none');
         mapBtnText.innerHTML = `
@@ -206,7 +208,7 @@ function playSequence(oldPos, position) {
         `;
         mapBtn.classList.add('location-2');
     } else {
-        mapFrame.scr = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d410.17958871541424!2d27.941311058182993!3d-26.247645429795575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjbCsDE0JzUxLjMiUyAyN8KwNTYnMjkuMiJF!5e0!3m2!1sen!2sza!4v1604491656385!5m2!1sen!2sza';
+        mapFrame.scr = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3578.433579661105!2d27.939243315521868!3d-26.247587983418512!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjbCsDE0JzUxLjMiUyAyN8KwNTYnMjkuMiJF!5e0!3m2!1sen!2sza!4v1604590793889!5m2!1sen!2sza';
         gallery1.classList.remove('d-none');
         gallery2.classList.add('d-none');
         mapBtnText.innerHTML = `
@@ -215,7 +217,6 @@ function playSequence(oldPos, position) {
         mapBtn.classList.remove('location-2');
     };
 }
-
 
 
 function initPlay () {

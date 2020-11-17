@@ -1,0 +1,96 @@
+html {
+  max-width: 100vw;
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#overlay {
+  background: black;
+  padding: 120px 20px;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  overflow-y: scroll;
+}
+#overlay .row {
+  min-height: 100%;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  color: white;
+}
+
+.buttons {
+  z-index: 100;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+.buttons button {
+  margin: 20px 10px;
+}
+
+.blocker {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+}
+
+#three-js-container {
+  z-index: -10;
+  display: none;
+}
+#three-js-container #c {
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  background-size: 200px 200px;
+  background: black;
+}
+
+@media only screen and (orientation: portrait) {
+  #landscape-message {
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    background: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+}
+@media only screen and (orientation: landscape) {
+  #landscape-message {
+    display: none;
+  }
+}
+
+#ending-message {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*# sourceMappingURL=style.css.map */

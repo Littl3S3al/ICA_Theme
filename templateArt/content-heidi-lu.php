@@ -16,7 +16,7 @@
 <div id="page-2" class="container-fluid full-page flex-center black-page d-none">
     <div class="row">
         <div class="col-12">
-            <div style="padding:43.56% 0 0 0;position:relative;"><iframe id="intro-video" src="https://player.vimeo.com/video/474371144?title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
+            <div style="padding:43.56% 0 0 0;position:relative;"><iframe id="intro-video" src="https://player.vimeo.com/video/474371144?title=0&byline=0&portrait=0&quality=1080p" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe></div>
         </div>
         <div class="col-12 fixed-bottom flex-center">
             <button id="btn-2" class="btn btn-light">skip</button>
@@ -95,9 +95,9 @@
 
     <div id="options">
             <!-- should be removed but here for testing -->
-            <button class="btn btn-danger btn-sm" id="enter-canvas">
+            <!-- <button class="btn btn-danger btn-sm" id="enter-canvas">
                     test test test
-            </button>
+            </button> -->
             <!-- end of what should be removed -->
             <h4>Select an action to perform</h4>
             <button data-target="1" class="btn btn-sm btn-light option">Right elbow: right, <i>push-drag</i></button>

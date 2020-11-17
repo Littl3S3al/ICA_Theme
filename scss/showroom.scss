@@ -33,6 +33,7 @@
     transition: opacity 1.5s;
 }
 
+
 #background{
     z-index: $back;
     @include fullscreen-fixed;
@@ -104,6 +105,7 @@ button.btn-enter {
     display: block;
     margin: auto;
     @include flex-center;
+    padding: 50px;
 }
 
 .theme{
@@ -157,6 +159,9 @@ button.btn-enter {
         text-transform: uppercase;
         font-size: 1.5em;
     }
+    img{
+        max-height: 80%;
+    }
     
 }
 
@@ -172,6 +177,14 @@ button.btn-enter {
 .displacement{
     background: rgb(216,27,96);
     background: linear-gradient(0deg, rgba(216,27,96,0.8) 0%, rgba(156,39,176,0.8) 100%);
+}
+.inequalities{
+    background: rgb(2,0,36);
+    background: linear-gradient(0deg, rgba(2,0,36,0.8) 0%, rgba(9,9,121,0.8) 35%, rgba(0,212,255,0.8) 100%);
+}
+.black-masculinities{
+    background: rgb(0,0,0);
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.630987429151348) 100%);
 }
 
 .instructions{

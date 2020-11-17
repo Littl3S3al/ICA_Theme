@@ -49,11 +49,13 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1921.48 1080"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:none;stroke:#000;stroke-miterlimit:10;opacity:0.51;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><rect class="cls-1" x="1.24" y="0.5" width="1919" height="1079"/><path d="M1919.74,1V1079H1.74V1h1918m1-1H.74V1080h1920V0Z"/><line class="cls-2" x1="931.24" y1="568.5" x2="0.24" y2="1079.5"/><rect class="cls-2" x="931.74" y="511" width="58" height="58"/><line class="cls-2" x1="989.24" y1="510.5" x2="1921.24" y2="0.5"/><line class="cls-2" x1="990.24" y1="569.5" x2="1920.24" y2="1079.5"/><line class="cls-2" x1="931.24" y1="511.5" x2="0.24" y2="0.5"/><line class="cls-2" x1="989.74" y1="540" x2="1920.74" y2="540"/><line class="cls-2" x1="960.74" y1="511" x2="960.74"/><line class="cls-2" x1="931.74" y1="540" x2="0.18" y2="540"/><line class="cls-2" x1="960.74" y1="568.71" x2="960.74" y2="1080"/></g></g></svg>
 </div>
 
+<!-- scrolling instructions -->
 <div class="col-12 d-flex justify-content-center instructions">
     <div class="content">
         scroll up and down to travel
     </div>
 </div>
+
 
 <div class="viewport d-none">
   <div class="scene3D-container">
@@ -70,8 +72,7 @@
                 <?php if($row['now_showing'] === 'now') :?>
                     <div class="theme element <?php echo $row['theme_id'] ?>">
                         <div>
-                            <h1>NOW SHOWING</h1>
-                            <h2>THEME: <?php echo $row['theme_name'] ?></h2> 
+                            <h1>THEME: <?php echo $row['theme_name'] ?></h1> 
                         </div>
                     </div>
 
@@ -150,8 +151,7 @@
 
                     <div class="theme element <?php echo $row['theme_id'] ?>">
                         <div>
-                            <h1>PREVIOUSLY ON</h1>
-                            <h2>THEME: <?php echo $row['theme_name'] ?></h2> 
+                            <h1>THEME: <?php echo $row['theme_name'] ?></h1> 
                         </div>
                     </div>
 
@@ -191,6 +191,10 @@
   </div>
 </div>
 
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
 <script>
     const appatureRow = document.querySelector('#appature');
     const appature = document.querySelector('#appature-svg');
@@ -213,7 +217,9 @@
             enterDiv.classList.add('d-none');
         }, 1500);
     })
+
 </script>
+
 
 <script src="<?php bloginfo ('stylesheet_directory'); ?>/js/z-index.js"></script>
 <?php 

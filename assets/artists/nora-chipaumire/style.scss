@@ -1,0 +1,386 @@
+// colours
+$darkGrey : #1a1a1a;
+$medGrey : #333333;
+$lightGrey : #808080;
+
+$air : #2aaebc;
+$road : #ed1c24;
+$train : #f7931e;
+$foot :  #39b54a;
+$bicycle : #f7619e;
+
+
+
+.page{
+    font-family: 'Oswald', sans-serif;
+}
+
+#overlay{
+    background: $darkGrey;
+    padding: 120px 20px;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    overflow-y: scroll;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    .row{
+        min-height: 100%;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        color: white;
+    }
+}
+
+.tabs{
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 800;
+    img{
+        display: block;
+        width: 30px;
+        padding-top: 2px;
+    }
+}
+
+.desk{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    color: white;
+    
+    h1{
+        font-size: 3em;
+    }
+    h3{
+        font-size: 1em;
+        font-weight: 300;
+        text-transform: uppercase;
+    }
+    p{
+        font-weight: 300;
+        font-size: 1em;
+    }
+
+
+
+    .col-12{
+        min-height: 100vh;
+    }
+    .options{
+        background: $medGrey;
+        overflow-y: scroll;
+        height: 100vh;
+        padding-bottom: 150px!important;
+    }
+    .map{
+        @media only screen and (orientation : portrait) {
+            position: fixed;
+            top: 0;
+            right: 0;
+        }
+        background: $darkGrey;
+        display: flex;
+        svg{
+            width: 90%;
+        }
+    }
+    .events{
+        background: $darkGrey;
+        display: flex;
+        color: white;
+        padding-bottom: 150px!important;
+    }
+
+    .card{
+        width: 90%;
+        display: inline-block;
+        border: 1px solid $medGrey;
+        background: $darkGrey;
+        color: white;
+        margin: 10px 2%;
+        @media only screen and (orientation: landscape){
+            width: 30%;
+        }
+        @media only screen and (min-width: 768px) and (orientation: portrait){
+            width: 30%;
+        }
+        @media only screen and (min-width: 768px) and (orientation: landscape){
+            width : 90%;
+        }
+        @media only screen and (min-width: 1200px) and (orientation: landscape){
+            width : 50%;
+        }
+        .btn-danger{
+            background: $bicycle;
+            width: 100%;
+            border-radius: 0;
+        }
+    }
+    
+
+    // map line animation
+    .dotted{
+        animation: stroked 2s forwards;
+    }
+    .undotted{
+        stroke-dasharray: 0 10!important;
+    }
+    @keyframes stroked {
+        from{
+            stroke-dasharray: 0 10;
+        }
+        to {
+            stroke-dasharray: 20 10; 
+        }
+    }
+    .pulsing{
+        fill: red;
+        stroke: white;
+    }
+
+    // row one on the desk
+    .large-icon{
+        width: 20%;
+        background: lighten ( $medGrey, 5% );
+        border: 1px solid white;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 50px;
+        i{
+            font-size: 4em;
+        }
+        margin-right: 30px;
+
+    }
+
+    // rows after
+    .heading{
+        width: 100%;
+        background: $lightGrey;
+        padding: 7px 5px 2px 5px;
+        display: flex;
+        align-items: center;
+
+    }
+
+    // desitnations
+    .avail-destinations{
+        padding-top: 10px;
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-auto-rows: auto;
+        .item{
+            transition: all 0.5s ease;
+            padding-left: 5px;
+            display: flex;
+            align-items: center;
+            &:hover{
+                background: $darkGrey;
+                border: 1px solid $lightGrey;
+                cursor: pointer;
+            }
+        }
+        .checked{
+            background: $darkGrey;
+            border: 1px solid $lightGrey;
+        }
+    }
+
+
+    // modes
+    .avail-options{
+        .icon{
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 5px 0 0;
+            transition: all 0.2s ease;
+            &:hover{
+                cursor: pointer;
+                transform: scale(1.05);
+            }
+            i{
+                font-size: 1.2em;
+            }
+        }
+        .air{
+            background: $air;
+            &:hover{
+                background: lighten($air, 10%)
+            }
+        }
+        .road{
+            background: $road;
+            &:hover{
+                background: lighten($road, 10%)
+            }
+        }
+        .train{
+            background: $train;
+            &:hover{
+                background: lighten($train, 10%)
+            }
+        }
+        .foot{
+            background: $foot;
+            &:hover{
+                background: lighten($foot, 10%)
+            }
+        }
+        .bicycle{
+            background: $bicycle;
+            &:hover{
+                background: lighten($bicycle, 10%)
+            }
+        }
+    }
+
+    // confirmation box
+    .confirmation{
+        background: $darkGrey;
+        padding: 20px 50px;
+        ul{
+            list-style: none;
+            padding: 0;
+            li{
+                display: inline-block;
+                padding-right: 20px;
+                span{
+                    font-weight: 700;
+                    font-size: 1.2em;
+                }
+            }
+        }
+    }
+
+}
+
+
+// message board
+#message-board{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: $darkGrey;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .text-holder{
+        width: 90vw;
+        height: 100px;
+        padding: 10px 0;
+        overflow: hidden;
+        border: 10px solid $medGrey;
+        color: white;
+        font-family: 'VT323', monospace;
+        font-size: 40px;
+        text-transform: uppercase;
+        background: black;
+        #screen-text{
+            width: 100vw;
+            transform: translateX(100vw)
+            
+        }
+    }
+}
+
+.moving-text{
+    animation: scroll 140s infinite linear;
+}
+
+@keyframes scroll {
+    from{
+        width: calc(765*26px);
+        transform: translateX(100vw)
+    }
+    to{
+        width: calc(765*26px);
+        transform: translateX(calc(-765*20px));
+    }
+}
+
+
+// popup window
+.popup-window{
+    width: 100vw;
+    height: 100vh;
+    background: black;
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    .iframe-outer{
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        @media only screen and (orientation: portrait){
+            max-height: 90vh;
+        }
+        @media only screen and (min-width: 1200px){
+            max-height: 90vh;
+        }
+    }
+    #iframe-placeholder{
+        width: 100vw;
+        z-index: 0;
+    }
+    #skip{
+        position: fixed;
+        bottom: 20px;
+        z-index: 100;
+    }
+}
+
+.fast-travel{
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .row{
+        width: 100%;
+        display: inline-block;
+    }
+    .ticket{
+        background: rgb(197, 197, 197);
+        padding: 50px;
+        border-radius: 10px;
+    }
+    button{
+        font-size: 2em;
+    }
+}
+
+.soundcloud{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -100;
+    opacity: 0;
+}
