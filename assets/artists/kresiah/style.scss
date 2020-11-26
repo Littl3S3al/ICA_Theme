@@ -1,0 +1,143 @@
+.opening-container{
+    height: 100vh;
+}
+.hopscotch-container{
+    display: grid;
+    grid-template-columns: repeat(4, Calc(90vh/7/2));
+    grid-template-rows: repeat(7, Calc(90vh/7));
+    grid-gap: 1px;
+    width: Calc(4*90vh/7/2 + 3px);
+    height: Calc(90vh + 6px);
+    h1{
+        font-size: 3em;
+        font-weight: bolder;
+    }
+}
+
+.grid-item{
+    border: 5px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:hover{
+        background: url('assets/static.gif') center center no-repeat;
+        background-size: cover;
+        color: white;
+    }
+}
+.stone{
+    width: 20px;
+    height: 20px;
+    background: darkgray;
+    border-radius: 50% 40% 50% 30%;
+    position: absolute;
+    display: none;
+    transform: translate(30px, 40px);
+}
+.jumping-stone{
+    animation: hide 0.5s forwards ease-in-out;
+}
+
+.footprint{
+    position: absolute;
+    z-index: 100;
+    width: 30px;
+    display: none;
+}
+.hide{
+    animation: hide 0.5s forwards ease-in-out;
+}
+
+@keyframes hide {
+    0%{opacity: 1;}
+    90%{opacity: 1;}
+    100%{opacity: 0;}
+}
+
+.center-block{
+    grid-column-start: 2;
+    grid-column-end: 4;
+}
+.block-left{
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+.block-right{
+    grid-column-start: 3;
+    grid-column-end: 5;
+}
+
+#one{
+    grid-row-start: 7;
+}
+#two{
+    grid-row-start: 6;
+}
+#three, #four{
+    grid-row-start: 5;
+}
+#five{
+    grid-row-start: 4;
+}
+#six{
+    grid-row-start: 3;
+}
+#seven, #eight {
+    grid-row-start: 2;
+}
+#nine{
+    grid-row-start: 1;
+    grid-column-start: 1;
+    grid-column-end: 5;
+    border-radius: 100% 100% 0 0;
+}
+
+
+.throwing-container{
+    position: fixed;
+    bottom: 70px; 
+    left: 20px;
+    width: 70px;
+    @media only screen and (min-width: 768px){
+        width: 200px;
+    }
+    img{
+        width: 100%;
+        transition: all 0.5s ease;
+        &:hover{
+            transform: scale(1.05);
+            cursor: pointer;
+        }
+    }
+}
+
+.video-container{
+    height: 100vh;
+    background: black;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .row{
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    
+}
+
+.overlay{
+    background: white;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}

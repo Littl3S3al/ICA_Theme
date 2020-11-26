@@ -402,7 +402,7 @@ button.btn-enter:hover {
 }
 
 .element {
-  height: 100vh;
+  min-height: 100vh;
   position: absolute;
   display: block;
   margin: auto;
@@ -428,6 +428,7 @@ button.btn-enter:hover {
 .theme h1 {
   font-size: 3em;
   font-weight: 900;
+  text-transform: uppercase;
 }
 @media only screen and (min-width: 768px) {
   .theme h1 {
@@ -436,7 +437,6 @@ button.btn-enter:hover {
 }
 .theme h2 {
   font-weight: 300;
-  text-transform: uppercase;
 }
 
 .artist {
@@ -459,7 +459,6 @@ button.btn-enter:hover {
 }
 .artist h1 {
   font-weight: 400;
-  text-transform: uppercase;
   font-size: 3em;
   margin-bottom: 50px;
 }
@@ -468,11 +467,8 @@ button.btn-enter:hover {
   text-transform: uppercase;
   font-size: 1.5em;
 }
-.artist img {
-  max-height: 80%;
-}
 
-.playing1 {
+.playing1, .history {
   background: #fb8c00;
   background: linear-gradient(0deg, rgba(251, 140, 0, 0.8) 0%, rgba(183, 28, 28, 0.8) 100%);
 }
@@ -555,10 +551,10 @@ button.btn-enter:hover {
   background: lightgray;
 }
 
-.production-card.playing1 h3 {
+.production-card.playing1 h3, .production-card.history h3 {
   color: #fb8c00;
 }
-.production-card.playing1 .btn-dark {
+.production-card.playing1 .btn-dark, .production-card.history .btn-dark {
   background: #fb8c00;
   border: #fb8c00;
 }
@@ -903,7 +899,6 @@ input[type=submit] {
 h1 {
   font-size: 2em;
   font-weight: 300;
-  text-transform: uppercase;
 }
 @media only screen and (min-width: 992px) {
   h1 {
@@ -950,13 +945,14 @@ footer hr {
 .sfm-nav li a {
   font-weight: 300 !important;
 }
-.sfm-nav .sfm-menu-item-713 {
-  background: #681018;
-}
 
 .sfm-nav .sfm-active-class a {
   color: #c01e2d !important;
   font-weight: 900 !important;
+}
+
+#sfm-sidebar.sfm-sidebar-exposed .sfm-menu-level-0 > li:nth-child(9) {
+  background: #681018;
 }
 
 .sfm-rollback .sfm-color1 .sfm-theme-none .sfm-label-visible .sfm-label-metro {

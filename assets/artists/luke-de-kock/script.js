@@ -45,7 +45,7 @@ const main  = () => {
     let frame1 = new Element('472334865', 0, 0, 0, 0, 'frame1');
     let frame2 = new Element('472335151', 0, 0, -(1 * 2000), 0, 'frame2');
     let frame3 = new Element('472335253', 0, 0, -(2 * 2000), 0, 'frame3');
-    let frame4 = new Element('477919068', 0, 0, -(3 * 2000), 0, 'frame4');
+    let frame4 = new Element('480260207', 0, 0, -(3 * 2000), 0, 'frame4');
     let frame5 = new Element('472335431', 0, 0, -(4 * 2000), 0, 'frame5');
     let frame6 = new Element('472335387', 0, 0, -(5 * 2000), 0, 'frame6');
     let frame7 = new Element('472335591', 0, 0, -(6.5 * 2000), 0, 'frame7');

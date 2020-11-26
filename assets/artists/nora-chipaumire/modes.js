@@ -5,10 +5,10 @@ var CPD, NW, CT, NM, DK, ZM, HR, SW, MT;
 // modes
 var air = {
     icon: '<div class="icon air" data-target="air"><i class="fas fa-plane"></i></div>',
-    NW : '475338772',
-    CT : '475338772',
-    DK : '475338772',
-    NM : '475338772',
+    NW : '481768504',
+    CT : '481768504',
+    DK : '481768504',
+    NM : '481768504',
     HR : '475338772',
     name : 'air'
 };

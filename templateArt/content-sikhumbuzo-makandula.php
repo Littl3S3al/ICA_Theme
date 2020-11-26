@@ -11,9 +11,10 @@
 
 <div class="container-fluid page" id="banner" style="background: url('<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/sikhumbuzo/assets/background.jpg') top center no-repeat; background-size: cover;">
     <div class="row w-100">
-        <div class="col-12 text-center">
+        <div class="col-12 col-md-4 offset-md-4 text-center">
             <h1>Ingoma Ka Tiyo Soga</h1>
             <h2>Sikhumbuzo Makandula</h2>
+            <p>Imbali yaseMgwali naku Thuthura (The films focus on the history of Mgwali and Thuthura where Rev. Tiyo Soga built his first church in 1857 and later died at Thuthura)</p>
 
             <div class="col-12 text-center">
                 <div id="video" class="icon">
@@ -24,6 +25,15 @@
                 </div>
             </div>
 
+            <hr>
+            <p>Curator: Zodwa Tutani- Skeyi 
+            <br>
+            Film Director: Luthando Makandula
+            <br>
+            Tiyo Soga Community Museum, Mgwali village
+            <br>
+            Curator: Zodwa Skeyi- Tutani
+        </p>
         </div>
 
         

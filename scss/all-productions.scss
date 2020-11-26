@@ -39,7 +39,7 @@
    }
 }
 
-.production-card.playing1{
+.production-card.playing1, .production-card.history{
     @include color (rgb(251,140,0));
 }
 .production-card.playing2{

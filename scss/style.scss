@@ -150,7 +150,6 @@ p{
 h1{
     font-size: 2em;
     font-weight: 300;
-    text-transform: uppercase;
     @include mQ ($lg){
         font-size: 3em;
     }
@@ -201,15 +200,16 @@ footer{
     li a{
         font-weight: 300!important;
     }
-    .sfm-menu-item-713{
-        background: darken($orange, 20%);
-    }
 }
 .sfm-nav .sfm-active-class{
     a{
         color: $orange!important;
         font-weight: 900!important;
     }
+}
+
+#sfm-sidebar.sfm-sidebar-exposed .sfm-menu-level-0>li:nth-child(9){
+    background: darken($orange, 20%);
 }
 .sfm-rollback .sfm-color1 .sfm-theme-none .sfm-label-visible .sfm-label-metro  {
     max-height: 100vh;

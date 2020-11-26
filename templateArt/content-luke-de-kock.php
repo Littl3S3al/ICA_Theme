@@ -41,6 +41,7 @@
             
 
             <h2>Instructions:</h2>
+            <p class="text-warning">This page may not work on your mobile device - it is optimised for laptops</p>
             <p>Headphones are neccessary for this performance</p>
         </div>
     </div>

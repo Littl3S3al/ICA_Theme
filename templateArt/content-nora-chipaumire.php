@@ -15,13 +15,13 @@
 <div id="overlay" class="container-fluid page">
     <div class="row">
         <div class="col-12 col-md-6 text-center">
-            <h1>Title</h1>
+            <h1>negra| a pseudo ( cross out ) fluxus score + visual essay “woman is cow “ | a salute to Victoria Santa Cruz and all black African females whose wokeness is yet to come !</h1>
             <p>
-            Welcoming message
+                Digital matter on the question of black African woman ‘s lesser than life 
             </p>
-            <h2>INSTRUCTIONS:</h2>
+            <h2 class="mt-5">INSTRUCTIONS:</h2>
             <p>This piece requires use of audio and is best experienced with headphones</p>
-            <button id="btn-begin" class="btn btn-light">start</button>
+            <button id="btn-begin" class="btn btn-warning">start</button>
         </div>
     </div>
 </div>
@@ -30,7 +30,7 @@
 <!-- message board -->
 <div id="message-board" class="container-fluid page d-none">
     <div class="text-holder">
-    <div id="screen-text" class="moving-text">suck teeth | I suspect that i fall into the smart ugly camp Smart ugly back African camp | When did you begin to suspect this | Not sure , but I was fairly young I know .. | Too dark , too local , not exotic enough camp Too black too angry , too country || Side EYE | Middle finger | Suck teeth | Hands on hips | Walk around | Clap hands | Slash throat gesture SI ! | Feet | Feet | Be Harriet | Be Winnie | Be Zara  | Side EYE | Middle finger | Suck teeth | Hands on hips | Walk around | Clap hands | Slash throat gesture SI ! | Feet | Feet | Be Harriet | Be Winnie | Be Zara  | 	Shoulders 21 | Waist -38 | Hips-39 | Thigh - 21 | Calf - 14 | Armhole- 18 | Back -22 | Waist to ankle - 41 | Distance to me ——unmeasurable … | Dances | shaking || blue eyes are not mine ... Green eyes are not mine | Red eyes are from crying | Brown eyes i was born with .... | blue eyes are not mine ... Green eyes are not mine | Red eyes are from crying | Brown eyes i was born with .... | A long long time ago .... </div>
+    <div id="screen-text" class="moving-text">suck teeth | I suspect that i fall into the smart ugly camp Smart ugly back African camp | When did you begin to suspect this | Not sure , but I was fairly young I know .. | Too dark , too local , not exotic enough camp Too black too angry , too country || Side EYE | Middle finger | Suck teeth | Hands on hips | Walk around | Clap hands | Slash throat gesture SI ! | Feet | Feet | Be Harriet | Be Winnie | Be Zora  | Side EYE | Middle finger | Suck teeth | Hands on hips | Walk around | Clap hands | Slash throat gesture SI ! | Feet | Feet | Be Harriet | Be Winnie | Be Zora  | 	Shoulders 21 | Waist -38 | Hips-39 | Thigh - 21 | Calf - 14 | Armhole- 18 | Back -22 | Waist to ankle - 41 | Distance to me ——unmeasurable … | Dances | shaking || blue eyes are not mine ... Green eyes are not mine | Red eyes are from crying | Brown eyes i was born with .... | blue eyes are not mine ... Green eyes are not mine | Red eyes are from crying | Brown eyes i was born with .... | A long long time ago .... </div>
     </div>
 </div>
 
