@@ -1,0 +1,79 @@
+#overlay {
+  background: black;
+  background-size: cover;
+  padding: 120px 20px;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  overflow-y: scroll;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+#overlay .row {
+  min-height: 100%;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  color: white;
+}
+
+canvas {
+  width: 100vw;
+  height: 100vh;
+}
+
+#loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 4s ease;
+  z-index: 2000;
+}
+
+#loading .progress {
+  margin: 1.5em;
+  border: 1px solid white;
+  width: 50vw;
+  background: black;
+}
+
+#loading .progressbar {
+  margin: 2px;
+  background: white;
+  height: 1em;
+  transform-origin: top left;
+  width: 0%;
+}
+
+.buttons {
+  position: fixed;
+  left: 0;
+  top: 20px;
+  width: 100vw;
+  text-align: center;
+  z-index: 100;
+}
+
+.gallery, .ar {
+  background: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  z-index: 1000;
+}
+.gallery .row, .ar .row {
+  width: 100%;
+}
+
+/*# sourceMappingURL=style.css.map */

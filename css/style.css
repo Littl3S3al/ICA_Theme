@@ -265,6 +265,33 @@
 .viewport .scene3D-container .scene3D > div:nth-child(25) {
   transform: translate3D(0, 0, calc(var(--itemZ) * var(--cameraSpeed) * 25 * -1px));
 }
+.viewport .scene3D-container .scene3D > div:nth-child(26) {
+  transform: translate3D(0, 0, calc(var(--itemZ) * var(--cameraSpeed) * 26 * -1px));
+}
+.viewport .scene3D-container .scene3D > div:nth-child(27) {
+  transform: translate3D(0, 0, calc(var(--itemZ) * var(--cameraSpeed) * 27 * -1px));
+}
+.viewport .scene3D-container .scene3D > div:nth-child(28) {
+  transform: translate3D(0, 0, calc(var(--itemZ) * var(--cameraSpeed) * 28 * -1px));
+}
+.viewport .scene3D-container .scene3D > div:nth-child(29) {
+  transform: translate3D(0, 0, calc(var(--itemZ) * var(--cameraSpeed) * 29 * -1px));
+}
+.viewport .scene3D-container .scene3D > div:nth-child(30) {
+  transform: translate3D(0, 0, calc(var(--itemZ) * var(--cameraSpeed) * 30 * -1px));
+}
+.viewport .scene3D-container .scene3D > div:nth-child(31) {
+  transform: translate3D(0, 0, calc(var(--itemZ) * var(--cameraSpeed) * 31 * -1px));
+}
+.viewport .scene3D-container .scene3D > div:nth-child(32) {
+  transform: translate3D(0, 0, calc(var(--itemZ) * var(--cameraSpeed) * 32 * -1px));
+}
+.viewport .scene3D-container .scene3D > div:nth-child(33) {
+  transform: translate3D(0, 0, calc(var(--itemZ) * var(--cameraSpeed) * 33 * -1px));
+}
+.viewport .scene3D-container .scene3D > div:nth-child(34) {
+  transform: translate3D(0, 0, calc(var(--itemZ) * var(--cameraSpeed) * 34 * -1px));
+}
 
 #appature {
   z-index: 1000;
@@ -473,12 +500,12 @@ button.btn-enter:hover {
   background: linear-gradient(0deg, rgba(251, 140, 0, 0.8) 0%, rgba(183, 28, 28, 0.8) 100%);
 }
 
-.playing2 {
+.playing2, .cultural {
   background: #43a047;
   background: linear-gradient(0deg, rgba(67, 160, 71, 0.8) 0%, rgba(38, 198, 208, 0.8) 100%);
 }
 
-.displacement {
+.displacement, .intimacy {
   background: #d81b60;
   background: linear-gradient(0deg, rgba(216, 27, 96, 0.8) 0%, rgba(156, 39, 176, 0.8) 100%);
 }
@@ -559,18 +586,18 @@ button.btn-enter:hover {
   border: #fb8c00;
 }
 
-.production-card.playing2 h3 {
+.production-card.playing2 h3, .production-card.cultural h3 {
   color: #43a047;
 }
-.production-card.playing2 .btn-dark {
+.production-card.playing2 .btn-dark, .production-card.cultural .btn-dark {
   background: #43a047;
   border: #43a047;
 }
 
-.production-card.displacement h3 {
+.production-card.displacement h3, .production-card.intimacy h3 {
   color: #d81b60;
 }
-.production-card.displacement .btn-dark {
+.production-card.displacement .btn-dark, .production-card.intimacy .btn-dark {
   background: #d81b60;
   border: #d81b60;
 }

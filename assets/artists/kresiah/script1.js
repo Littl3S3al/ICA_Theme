@@ -12,16 +12,17 @@ const videoContainer = document.querySelector('.video-container');
 const overlay = document.querySelector('.overlay');
 
 
-// let count = 0;
+let count = 0;
 
 // for testing purposes
-let count = 2;
+// let count = 2;
 
 
 toss.addEventListener('click', () => {
-
+    toss.classList.add('d-none');
     // first throw
     if(count === 0){
+        
         let i = 0;
         const stoneThrow = setInterval(() => {
             if(i < 3){
@@ -42,7 +43,7 @@ toss.addEventListener('click', () => {
                     prints[k+1].style.display = 'block';
                     k ++;
                 } else {
-                    playVideo('471001216');
+                    playVideo('484409555');
                     clearInterval(jumping)
                 }
             }, 500);
@@ -81,7 +82,7 @@ toss.addEventListener('click', () => {
                     k ++;
                 } else {
                     clearInterval(jumping);
-                    playVideo('471001216')
+                    playVideo('484409283')
                 }
             }, 500);
             count ++
@@ -103,7 +104,7 @@ toss.addEventListener('click', () => {
         }, 1500);
         setTimeout(() => {
             overlay.classList.remove('d-none');
-            opening_container.classList.add('d-none');
+            opening_container.style.display = 'none';
             toss.classList.add('d-none');
         }, 2000);
        
@@ -112,6 +113,7 @@ toss.addEventListener('click', () => {
 })
 
 function playVideo(id) {
+    toss.classList.remove('d-none');
     videoContainer.innerHTML = `<iframe src="https://player.vimeo.com/video/${id}?color=bd3434&title=0&byline=0&portrait" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
     const iframe = videoContainer.querySelector('iframe');
     videoContainer.classList.remove('d-none');

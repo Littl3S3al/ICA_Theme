@@ -1,0 +1,132 @@
+body {
+  background: black;
+}
+
+#overlay {
+  background: url("assets/background.jpg") center center no-repeat;
+  background-size: cover;
+  background-size: cover;
+  padding: 120px 20px;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  overflow-y: scroll;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+#overlay .row {
+  min-height: 100%;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  color: white;
+}
+
+.three-js-container {
+  z-index: 100;
+}
+
+canvas {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+}
+
+#loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 4s ease;
+  z-index: 2000;
+}
+
+#loading .progress {
+  margin: 1.5em;
+  border: 1px solid white;
+  width: 50vw;
+  background: black;
+}
+
+#loading .progressbar {
+  margin: 2px;
+  background: white;
+  height: 1em;
+  transform-origin: top left;
+  width: 0%;
+}
+
+#video-1 {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+#video-1 iframe {
+  height: 100vh;
+  width: 130vw;
+}
+
+.bloom {
+  width: 60px;
+  height: 60px;
+  background: #4DD5EC;
+  border-radius: 50%;
+  box-shadow: 0 0 10px 10px #70EBFF;
+  animation: bloom 5s forwards infinite ease-in-out;
+  transition: all 0.5s ease;
+}
+.bloom:hover {
+  cursor: pointer;
+  background: #3AE45D;
+  box-shadow: 0 0 10px 10px #6EF389;
+}
+
+@keyframes bloom {
+  0%, 100% {
+    width: 60px;
+    height: 60px;
+  }
+  50% {
+    transform: translate(-10px, -10px);
+    width: 100px;
+    height: 100px;
+  }
+}
+#one {
+  position: absolute;
+  top: 50px;
+  left: 40vw;
+}
+
+#all {
+  position: absolute;
+  display: none;
+}
+
+.sounds {
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -10000;
+}
+
+/*# sourceMappingURL=style.css.map */

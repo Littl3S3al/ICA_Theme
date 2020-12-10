@@ -92,15 +92,19 @@ get_header();
                     <h2><?php echo $row['artist_name'] ?></h2>
                     <p><?php echo $row['artist_bio'] ?></p>
                     <?php if($row['artist_links']) :?>
+
+                        <div class="text-left">
                         <?php $links = $row['artist_links']; 
+                        
                         
                         foreach($links as $link) : ?>
                             <?php $thisLink = $link['link']; ?>
-                            <a href="<?php echo esc_url( $thisLink['url'] ); ?>" target="_blank" class="btn btn-danger">
+                            <a href="<?php echo esc_url( $thisLink['url'] ); ?>" target="_blank" class="m-1 btn btn-danger">
                                 <?php echo esc_html( $thisLink['title'] ); ?>
                             </a>
                         <?php endforeach; ?>
                     <?php endif; ?>
+                    </div>
 
                 </div>
 

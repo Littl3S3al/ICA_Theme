@@ -1,0 +1,181 @@
+#overlay{
+    background: url('assets/background.jpg') center center no-repeat;
+    background-size: cover;
+    background-size: cover;
+    padding: 120px 20px;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    overflow-y: scroll;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    .row{
+        min-height: 100%;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        color: white;
+    }
+}
+
+.three-js-container{
+  z-index: 100;
+}
+canvas{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+#c-1{
+    background: white;
+}
+#c-2{
+    background: url('assets/mannequin_bg.jpg') repeat;
+    transition: opacity 5s;
+}
+
+#loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: black;
+    color: white;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 4s ease;
+    z-index: 2000;
+  }
+  #loading .progress {
+    margin: 1.5em;
+    border: 1px solid white;
+    width: 50vw;
+    background: black;
+  }
+  #loading .progressbar {
+    margin: 2px;
+    background: white;
+    height: 1em;
+    transform-origin: top left;
+    width: 0%;
+  }
+
+  .grey{
+      width: 100vw;
+      height: 100vh;
+      background: grey;
+      position: fixed;
+      top: 0;
+      left: 0;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      .dot{
+          position: fixed;
+          top: 100px;
+          left: 100px;
+          background: rgb(73, 73, 73);
+          width: 70px;
+          height: 70px;
+          border-radius: 50%;
+          animation: blinking 1s infinite linear;
+      }
+      .text-holder{
+        width: 90vw;
+        height: 100px;
+        padding: 10px 0;
+        overflow: hidden;
+        font-family: 'Major Mono Display', monospace;
+        font-size: 40px;
+        text-transform: uppercase;
+        opacity: 1;
+        
+        #screen-text{
+            width: 100vw;
+            transform: translateX(100vw);
+            
+        }
+        }
+  }
+
+  .moving-text{
+    animation: scroll 100s infinite linear, inout 20s infinite ease-in-out;
+}
+
+
+@keyframes scroll {
+    from{
+        width: calc(408*30px);
+        transform: translateX(100vw)
+    }
+    to{
+        width: calc(408*30px);
+        transform: translateX(calc(-408*30px));
+    }
+}
+@keyframes inout{
+    0%, 70%, 100% {
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+    }
+}
+
+  @keyframes blinking{
+    0%, 50%, 100% {
+        opacity: 0;
+    }
+    0%, 100%{
+        width: 70px;
+        height: 70px;
+    }
+    50%{
+        transform: translate(-15px, -15px);
+        width: 100px;
+        height: 100px;
+    }
+    25%, 75%{
+        opacity: 1;
+    }
+  }
+
+
+  .buttons{
+      width: 100vw;
+      position: fixed;
+      bottom: 20px;
+      left: 0;
+      text-align: center;
+  }
+
+  .sounds{
+      position: fixed;
+      top: 0;
+      opacity: 0;
+  }
+
+  .videos{
+      z-index: -1000;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100vw;
+      background: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .video-div{
+          display: none;
+          width: 100vw;
+      }
+  }

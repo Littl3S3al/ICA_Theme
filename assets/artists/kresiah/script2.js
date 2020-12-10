@@ -1,6 +1,6 @@
 import * as THREE from 'https://threejsfundamentals.org/threejs/resources/threejs/r115/build/three.module.js';
 import { CSS3DRenderer, CSS3DObject } from 'https://threejsfundamentals.org/threejs/resources/threejs/r119/examples/jsm/renderers/CSS3DRenderer.js';
-import { MapControls }  from 'https://threejsfundamentals.org/threejs/resources/threejs/r119/examples/jsm/controls/OrbitControls.js';
+import { OrbitControls }  from 'https://threejsfundamentals.org/threejs/resources/threejs/r119/examples/jsm/controls/OrbitControls.js';
 import {GLTFLoader} from 'https://threejsfundamentals.org/threejs/resources/threejs/r122/examples/jsm/loaders/GLTFLoader.js';
 
 import { TrackballControls } from 'https://threejsfundamentals.org/threejs/resources/threejs/r122/examples/jsm/controls/TrackballControls.js';
@@ -20,13 +20,15 @@ let controls;
 let bulbLight, bulbMat, hemiLight;
 
 let floorMat;
+let innerDivs;
 
 function init() {
 
     canvas.innerHTML = ' ';
 
     camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 2, 1000 );
-    camera.position.set( 0, 2, 2 );
+    camera.position.set( 0, 0, 2 );
+    
 
 
     scene = new THREE.Scene();
@@ -50,31 +52,45 @@ function init() {
     renderer2.domElement.style.top = 0;
     canvas.appendChild( renderer2.domElement );
 
-    controls = new MapControls( camera, renderer2.domElement );
+    controls = new OrbitControls( camera, renderer2.domElement );
 
     //controls.addEventListener( 'change', render ); // call this only in static scenes (i.e., if there is no animation loop)
 
+    controls.target.set(0, 0, 0);
     controls.enableDamping = true; // an animation loop is required when either damping or auto-rotation are enabled
     controls.dampingFactor = 0.05;
 
     controls.screenSpacePanning = false;
 
-    controls.minDistance = 10;
-    controls.maxDistance = 50;
+    controls.minDistance = 0;
+    controls.maxDistance = 3;
 
-    controls.maxPolarAngle = Math.PI / 180 * 120;
-    controls.minPolarAngle = Math.PI / 180 *80;
+    controls.maxPolarAngle = Math.PI / 2;
+
 
 
     // css elements
     let gap = 50;
 
-    let layer1_image1 = new Element( 800, 450, -1.7, 3, 1, false, 'layer1/1.jpg');
-    let layer1_image2 = new Element( 800, 450, 1.7, 3, 1, false, 'layer1/2.jpg');
-    let layer1_image3 = new Element( 800, 450, -1.7, 1, 1, false, 'layer1/3.jpg');
-    let layer1_image4 = new Element( 800, 450, 1.7, 1, 1, false, 'layer1/4.jpg');
+    let layer1_image1 = new Element( 800, 450, -1, 1.1, -3, false, 'layer1/1.jpg');
+    let layer1_image2 = new Element( 800, 450, 1, 1.1, -3, false, 'layer1/2.jpg');
+    let layer1_image3 = new Element( 800, 450, -1, 0, -3, false, 'layer1/3.jpg');
+    let layer1_image4 = new Element( 800, 450, 1, 0, -3, false, 'layer1/4.jpg');
 
     scene2.add(layer1_image1, layer1_image2, layer1_image3, layer1_image4);
+
+
+    let layer2_image1 = new Element( 800, 450, 1, 1.1, 3, false, 'layer2/2.jpg', 180);
+    let layer2_image2 = new Element( 800, 450, -1, 1.1, 3, false, 'layer2/1.jpg', 180);
+    let layer2_image3 = new Element( 800, 450, 1, 0, 3, false, 'layer2/4.jpg', 180);
+    let layer2_image4 = new Element( 800, 450, -1, 0, 3, false, 'layer2/3.jpg', 180);
+
+    scene2.add(layer2_image1, layer2_image2, layer2_image3, layer2_image4);
+
+    let video1 = new Element (1800, 1100, -3, 0.5, 0, '484409408', false, 90);
+    let video2 = new Element (1800, 1100, 3, 0.5, 0, '484409474', false, -90);
+
+    scene2.add(video1, video2);
 
     // lights
 
@@ -86,7 +102,7 @@ function init() {
         emissiveIntensity: 1,
         color: 0x000000
     } );
-    bulbLight.add( new THREE.Mesh( bulbGeometry, bulbMat ) );
+    // bulbLight.add( new THREE.Mesh( bulbGeometry, bulbMat ) );
     bulbLight.position.set( 0, 2, 0 );
     bulbLight.castShadow = true;
     scene.add( bulbLight );
@@ -139,34 +155,12 @@ function init() {
     const floorMesh = new THREE.Mesh( floorGeometry, floorMat );
     floorMesh.receiveShadow = true;
     floorMesh.rotation.x = - Math.PI / 2.0;
-    floorMesh.position.y = 0;
+    floorMesh.position.y = -1;
     scene.add( floorMesh );
-
-
-    // const material = new THREE.MeshBasicMaterial( { color: 0x000000, wireframe: true, wireframeLinewidth: 1, side: THREE.DoubleSide } );
-    // const element = document.createElement( 'div' );
-    // element.style.width = '100px';
-    // element.style.height = '100px';
-    // element.style.opacity = 0.5;
-    // element.style.background = new THREE.Color( Math.random() * 0xffffff ).getStyle();
-
-    // const object = new CSS3DObject( element );
-    // object.position.x = 0;
-    // object.position.y = 2;
-    // object.position.z = -2;
-    // object.scale.x = 0.01;
-    // object.scale.y = 0.01;
-    // scene2.add( object );
-
-    // const geometry = new THREE.PlaneBufferGeometry( 100, 100 );
-    // const mesh = new THREE.Mesh( geometry, material );
-    // mesh.position.copy( object.position );
-    // mesh.rotation.copy( object.rotation );
-    // mesh.scale.copy( object.scale );
-    // scene.add( mesh );
-    
+  
 
     window.addEventListener( 'resize', onWindowResize, false );
+
 
 }
 
@@ -200,23 +194,52 @@ beginBtn.addEventListener('click', () => {
     threeJsWindow.classList.remove('d-none');
     init();
     animate();
+    begin = true;
+
+    innerDivs = document.querySelectorAll('.videoBtn');
+    console.log(innerDivs)
+
+    innerDivs.forEach(div => {
+        div.addEventListener('click', () => {
+            // console.log('click')
+            let iframe =  div.parentNode.querySelector('iframe');
+            const player = new Vimeo.Player(iframe);
+
+            
+            player.getPaused().then(function(paused) {
+                if(paused){
+                    player.play();
+                    innerDivs.forEach(div => {
+                        div.innerHTML = '<i class="far fa-play-circle"></i>'
+                    })
+                    div.innerHTML = ' ';
+                } else {
+                    player.pause();
+                    div.innerHTML = '<i class="far fa-play-circle"></i>';
+                }
+            });
+        })
+    })
 })
 
-function Element ( width, height, x, y ,z, id, image) {
+function Element ( width, height, x, y ,z, id, image, rotation) {
     const element = document.createElement('div');
     element.style.width = width + 'px'; 
     element.style.height = height + 'px';
-    element.style.background = 'red';
+    // element.style.background = 'red';
 
     if(id){
-        let iframe = `<iframe src="https://player.vimeo.com/video/${id}?title=0&byline=0&portrait=0&autoplay=1&loop=1" width="100%" height="100%" frameborder="0" allow="autoplay"></iframe>`;
+        let iframe = `<iframe src="https://player.vimeo.com/video/${id}?title=0&byline=0&portrait=0&autoplay=0&loop=1" width="100%" height="100%" frameborder="0" allow="autoplay"></iframe>`;
 
         let innerDiv = document.createElement( 'div' );
+        innerDiv.classList.add('videoBtn');
         innerDiv.style.position = 'absolute';
-        innerDiv.style.width = width;
-        innerDiv.style.height = height;
+        innerDiv.style.width = width + 'px';
+        innerDiv.style.height = height + 'px';
+        innerDiv.innerHTML = '<i class="far fa-play-circle"></i>';
         innerDiv.style.top = 0;
         innerDiv.style.left = 0;
+        // innerDiv.style.background = 'blue';
         innerDiv.style.zIndex = 1000;
         
         element.innerHTML += iframe;
@@ -230,6 +253,10 @@ function Element ( width, height, x, y ,z, id, image) {
     object.position.set(x, y, z);
     object.scale.x = 0.002;
     object.scale.y = 0.002;
+    if(rotation){
+        object.rotation.y = Math.PI/180 * rotation;
+    }
 
     return object;
 }
+

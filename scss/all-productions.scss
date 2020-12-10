@@ -42,10 +42,10 @@
 .production-card.playing1, .production-card.history{
     @include color (rgb(251,140,0));
 }
-.production-card.playing2{
+.production-card.playing2, .production-card.cultural{
     @include color (rgb(67,160,71));
 }
-.production-card.displacement{
+.production-card.displacement, .production-card.intimacy{
     @include color (rgb(216,27,96));
 }
 .production-card.inequalities{

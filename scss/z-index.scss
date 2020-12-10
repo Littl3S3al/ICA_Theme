@@ -35,7 +35,7 @@
         will-change: transform;
   
         > div {  
-          @for $i from 0 through 25 {
+          @for $i from 0 through 34 {
             &:nth-child(#{$i}) {
               transform: translate3D(
                 0,

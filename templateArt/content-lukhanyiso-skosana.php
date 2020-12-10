@@ -25,13 +25,13 @@
 <div id="overlay" class="container-fluid">
     <div class="row">
         <div class="col-12 col-md-6 text-left p-5">
-            <h1>title</h1>
+            <h1>The Exorcism of Mary Magdalene: A Sexual Resurrection  </h1>
             <p>
-                Welcoming message
+            Dreams become an ancestral vehicle for both process and presentation to interlude[CB1]  the reconstruction of spiritual regeneration that I use as a medium of negotiating one’s past with the present (Mbothwe, 21-22:2008). Thus aiding the physical, social and spiritual conundrum the Black Queer Femme Body is plagued with. A transformative intervention that frames my body as site performatively: unseen, unheard and disruptive in/to the land it occupies.
             </p>
             <h2>Instructions:</h2>
             <p>
-                instructions
+                Headphones are required. Click and drag to move around. 
             </p>
             <div class="text-center">
                 <button id="btn-begin" class="btn btn-light">start</button>

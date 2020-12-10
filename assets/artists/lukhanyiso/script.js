@@ -24,6 +24,8 @@ let scene2, renderer2;
 
 let controls;
 
+// scenes
+let environment;
 
 function init() {
 
@@ -74,80 +76,72 @@ function init() {
         geometry.scale( - 1, 1, 1 );
 
 
-    // gap for all images
-        let gap = 120;
+    
 
     
     
-
-    //
+// width, height, z, id, image, rot
     if(currentWindow === 1){
-        let video = new Element ( 1600, 900, 0, 0 , '475844895');
+        let video = new Element ( 1600, 900, 800, '484764814',false, 0);
 
-        let image1 = new Element ( 730, 410, -435, 450 + 205 + gap, false, 'Part-1-Image-1.jpg' );
-        let image2 = new Element ( 730, 410, 435, 450 + 205 + gap, false, 'Part-1-Image-2.jpg' );
-
-        let image3 = new Element ( 400, 900, -800 - 200 - 400 - gap * 2, 0, false, 'Part-1-Image-3.jpg');
-        let image4 = new Element ( 400, 900,- 800 - 200 - gap , 0, false, 'Part-1-Image-4.jpg' );
-
-        let image5 = new Element ( 400, 900, 800 + 200 + gap , 0, false, 'Part-1-Image-5.jpg' );
-        let image6 = new Element ( 400, 900, 800 + 200 + 400 + gap * 2, 0, false, 'Part-1-Image-6.jpg' );
-
-        let image7 = new Element ( 730, 410, - 730 - gap, -450 - 205 - gap, false, 'Part-1-Image-7.jpg');
-        let image8 = new Element ( 730, 410, 0, -450 - 205 - gap, false, 'Part-1-Image-8.jpg');
-        let image9 = new Element ( 730, 410, 730 + gap, -450 - 205 - gap, false, 'Part-1-Image-9.jpg');
+        let image1 = new Element ( 600, 850, 1500, false, 'Part-1-Image-1.jpg', -45 -27);
+        let image2 = new Element ( 600, 850, 1300, false, 'Part-1-Image-2.jpg', -45 - 27*2);
+        let image3 = new Element ( 600, 850, 1600, false, 'Part-1-Image-3.jpg', -45 -27*3);
+        let image4 = new Element ( 600, 850, 900, false, 'Part-1-Image-4.jpg', -45 - 27*4);
+        let image5 = new Element ( 600, 850, 1500, false, 'Part-1-Image-5.jpg', -45 -27*5);
+        let image6 = new Element ( 600, 850, 1000, false, 'Part-1-Image-6.jpg', -45 - 27*6);
+        let image7 = new Element ( 600, 850, 800, false, 'Part-1-Image-7.jpg', -45 - 27*7);
+        let image8 = new Element ( 600, 850, 1000, false, 'Part-1-Image-8.jpg', -45 -27*8);
+        let image9 = new Element ( 600, 850, 1400, false, 'Part-1-Image-9.jpg', -45 - 27*9);
 
 
         scene2.add(video, image1, image2, image3, image4, image5, image6, image7, image8, image9);
-        
+
         const texture = loader.load( assets + 'one.jpg' );
         const material = new THREE.MeshBasicMaterial( { map: texture } );
-        const mesh = new THREE.Mesh( geometry, [material, basicMaterial, basicMaterial] );
+        environment = new THREE.Mesh( geometry, [material, basicMaterial, basicMaterial] );
         
 
         loadManager.onLoad = () => {
             loadingElem.classList.add('d-none');
-            scene.add( mesh );
+            scene.add( environment );
           };
 
 
         
 
     } else if (currentWindow === 2){
-        let video = new Element ( 1600, 900, 0, 0 , '475845048');
+        // width, height, z, id, image, rot
 
-        let image1 = new Element ( 900, 900, -800 -450 - gap, 450 + gap, false, 'Part-2-Image-1.jpg');
-        let image3 = new Element ( 900, 900, -800 -450 -gap, -450-gap, false, 'Part-2-Image-3.jpg');
+        let video = new Element ( 1600, 900, 800, '484769045', false, 0);
 
-        let image2 = new Element ( 900, 900, +800 +450 + gap, 450 + gap, false, 'Part-2-Image-2.jpg');
-        let image4 = new Element ( 900, 900, +800 +450 +gap, -450-gap, false, 'Part-2-Image-4.jpg')
-
-        scene2.add(video, image1, image2, image3, image4);
-
-        const texture = new THREE.TextureLoader().load( assets + 'two.jpg' );
-        const material = new THREE.MeshBasicMaterial( { map: texture } );
-        const mesh = new THREE.Mesh( geometry, [material, basicMaterial, basicMaterial] );
-        scene.add( mesh );
-        
-    } else {
-
-        let video = new Element ( 1600, 900, 0, 0 , '475845118');
-
-        let image1 = new Element ( 1200, 400, -800 - gap, 450 + 200 + gap, false, 'Part-3-Image-1.jpg');
-        let image2 = new Element ( 1200, 400, 800 + gap, 450 + 200 + gap, false, 'Part-3-Image-2.jpg');
-
-        let image3 = new Element ( 600, 600, -800 - 300 - gap, 150);
-        let image4 = new Element ( 600, 600, -800 - 300 - gap, -450 - gap);
-
-        let image5 = new Element ( 600, 600, +800 + 300 + gap, 150);
-        let image6 = new Element ( 600, 600, +800 + 300 + gap, -450 - gap);
+        let image1 = new Element ( 600, 850, 1000, false, 'Part-2-Image-1.jpg', -45 -38);
+        let image2 = new Element ( 600, 850, 800, false, 'Part-2-Image-2.jpg', -45 -38*2);
+        let image3 = new Element ( 600, 850, 1500, false, 'Part-2-Image-3.jpg', -45 -38*3);
+        let image4 = new Element ( 600, 850, 600, false, 'Part-2-Image-4.jpg', -45 -38*4);
+        let image5 = new Element ( 600, 850, 1500, false, 'Part-3-Image-1.jpg', -45 -38*5);
+        let image6 = new Element ( 600, 850, 1000, false, 'Part-3-Image-2.jpg', -45 -38*6);
 
         scene2.add(video, image1, image2, image3, image4, image5, image6);
 
+        const texture = new THREE.TextureLoader().load( assets + 'two.jpg' );
+        const material = new THREE.MeshBasicMaterial( { map: texture } );
+        environment = new THREE.Mesh( geometry, [material, basicMaterial, basicMaterial] );
+        scene.add( environment );
+        
+    } else {
+
+        // width, height, z, id, image, rot
+        let video = new Element ( 1600, 900, 600, '484766989',false, 0);
+
+        
+
+        scene2.add(video);
+
         const texture = new THREE.TextureLoader().load( assets + 'three.jpg' );
         const material = new THREE.MeshBasicMaterial( { map: texture } );
-        const mesh = new THREE.Mesh( geometry, [material, basicMaterial, basicMaterial] );
-        scene.add( mesh );
+        environment = new THREE.Mesh( geometry, [material, basicMaterial, basicMaterial] );
+        scene.add( environment );
         
     }
 
@@ -179,6 +173,8 @@ function animate() {
 
     requestAnimationFrame( animate );
 
+    environment.rotation.y += 0.001;
+
     controls.update();
 
     renderer.render( scene, camera );
@@ -193,6 +189,7 @@ beginBtn.addEventListener('click', () => {
     loadingElem.classList.remove('d-none');
     init();
     animate();
+    begin = true;
 })
 
 nextBtn.addEventListener('click', () => {
@@ -208,10 +205,16 @@ nextBtn.addEventListener('click', () => {
 })
 
 
-function Element ( width, height, x, y , id, image) {
+function Element ( width, height, z, id, image, rot) {
     const element = document.createElement('div');
     element.style.width = width + 'px'; 
     element.style.height = height + 'px';
+
+    let thetaX = z * Math.sin(rot*Math.PI/180);
+    let thetaY = z * Math.cos(rot*Math.PI/180);
+    if(rot === 0 || rot === 360){
+        thetaY = z;
+    }
 
     if(id){
         let iframe = `<iframe src="https://player.vimeo.com/video/${id}?title=0&byline=0&portrait=0&autoplay=1&loop=1" width="100%" height="100%" frameborder="0" allow="autoplay"></iframe>`;
@@ -232,7 +235,10 @@ function Element ( width, height, x, y , id, image) {
     }
 
     const object = new CSS3DObject( element );
-    object.position.set(x, y, -3000);
+    object.position.set(-thetaX, 0, -thetaY);
+    object.rotation.y = (Math.PI/180 * rot);
+    object.scale.x = 0.5;
+    object.scale.y = 0.5;
 
-    return object;
+    return object
 }

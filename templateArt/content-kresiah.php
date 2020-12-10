@@ -2,11 +2,15 @@
 <!-- stylesheet -->
 <link rel="stylesheet" href="<?php bloginfo ('stylesheet_directory'); ?>/assets/artists/kresiah/style.css">
 
+<!-- Font Awesome Icons -->
+<link href="<?php bloginfo ('stylesheet_directory'); ?>/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+
 <div id="three-js-container" class="d-none">
     <div id="c"></div>
 </div>
 
-<div class="container-fluid opening-container d-flex justify-content-center align-items-center">
+<div class="container-fluid opening-container">
     <div class="hopscotch-container">
         <div class="grid-item center-block" id="one">
             <div class="stone jumping-stone"></div>
@@ -82,12 +86,12 @@
 </div>
 
 <div class="overlay container-fluid d-none">
-    <div class="row">
-        <div class="col-12 col-md-6">
-            <h1>title</h1>
-            <p>Welcoming message</p>
+    <div class="row w-100">
+        <div class="col-12 col-md-6 offset-md-3 text-center">
+            <h1>Hesi Keresiya</h1>
+            <p>This piece is to be experienced like a memory or a story being told.</p>
             <h2>Instructions</h2>
-            <p>instructions</p>
+            <p>Please wear headphones</p>
             <button class="btn btn-warning" id="begin-btn">Begin</button>
         </div>
     </div>

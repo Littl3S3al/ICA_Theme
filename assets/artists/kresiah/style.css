@@ -1,5 +1,10 @@
 .opening-container {
   height: 100vh;
+  background: url("assets/concrete.jpg") center center no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .hopscotch-container {
@@ -16,13 +21,13 @@
 }
 
 .grid-item {
-  border: 5px solid black;
+  border: 5px solid #363636;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .grid-item:hover {
-  background: url("assets/static.gif") center center no-repeat;
+  background: url("assets/test-pattern.jpg") center center no-repeat;
   background-size: cover;
   color: white;
 }
@@ -30,11 +35,11 @@
 .stone {
   width: 20px;
   height: 20px;
-  background: darkgray;
+  background: #383838;
   border-radius: 50% 40% 50% 30%;
   position: absolute;
   display: none;
-  transform: translate(30px, 40px);
+  transform: translate(25px, 25px);
 }
 
 .jumping-stone {
@@ -44,7 +49,7 @@
 .footprint {
   position: absolute;
   z-index: 100;
-  width: 30px;
+  width: calc(90vh/7/4);
   display: none;
 }
 
@@ -111,13 +116,13 @@
 
 .throwing-container {
   position: fixed;
-  bottom: 70px;
-  left: 20px;
-  width: 70px;
+  bottom: 50px;
+  left: -10px;
+  width: 150px;
 }
 @media only screen and (min-width: 768px) {
   .throwing-container {
-    width: 200px;
+    width: 300px;
   }
 }
 .throwing-container img {
@@ -147,7 +152,8 @@
 }
 
 .overlay {
-  background: white;
+  background: url("assets/welcoming-image.jpg") center center no-repeat, black;
+  background-size: cover;
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -157,6 +163,18 @@
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  color: white;
+}
+
+.videoBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 15em;
+}
+.videoBtn:hover {
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=style.css.map */
